@@ -28,18 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtSoftware = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMaquina = new System.Windows.Forms.TextBox();
             this.dgvMaquinas = new System.Windows.Forms.DataGridView();
-            this.btnHardware = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnNovoSoftware = new System.Windows.Forms.Button();
             this.btnNovaMaquina = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cbbSoftware = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaquinas)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -48,16 +50,18 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Gray;
+            this.groupBox1.Controls.Add(this.cbbSoftware);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.btnPesquisar);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtSoftware);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtMaquina);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(13, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(425, 67);
+            this.groupBox1.Size = new System.Drawing.Size(669, 67);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pesquisa";
@@ -68,7 +72,7 @@
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisar.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisar.ForeColor = System.Drawing.Color.Gold;
-            this.btnPesquisar.Location = new System.Drawing.Point(310, 16);
+            this.btnPesquisar.Location = new System.Drawing.Point(552, 17);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(107, 41);
             this.btnPesquisar.TabIndex = 5;
@@ -83,14 +87,6 @@
             this.label2.Size = new System.Drawing.Size(55, 15);
             this.label2.TabIndex = 3;
             this.label2.Text = "Software";
-            // 
-            // txtSoftware
-            // 
-            this.txtSoftware.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtSoftware.Location = new System.Drawing.Point(158, 36);
-            this.txtSoftware.Name = "txtSoftware";
-            this.txtSoftware.Size = new System.Drawing.Size(146, 21);
-            this.txtSoftware.TabIndex = 2;
             // 
             // label1
             // 
@@ -114,21 +110,8 @@
             this.dgvMaquinas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMaquinas.Location = new System.Drawing.Point(13, 85);
             this.dgvMaquinas.Name = "dgvMaquinas";
-            this.dgvMaquinas.Size = new System.Drawing.Size(777, 439);
+            this.dgvMaquinas.Size = new System.Drawing.Size(914, 439);
             this.dgvMaquinas.TabIndex = 1;
-            // 
-            // btnHardware
-            // 
-            this.btnHardware.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnHardware.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHardware.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHardware.ForeColor = System.Drawing.Color.Gold;
-            this.btnHardware.Location = new System.Drawing.Point(232, 16);
-            this.btnHardware.Name = "btnHardware";
-            this.btnHardware.Size = new System.Drawing.Size(107, 41);
-            this.btnHardware.TabIndex = 2;
-            this.btnHardware.Text = "Novo hardware";
-            this.btnHardware.UseVisualStyleBackColor = false;
             // 
             // textBox2
             // 
@@ -138,7 +121,7 @@
             this.textBox2.Location = new System.Drawing.Point(0, 530);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(803, 20);
+            this.textBox2.Size = new System.Drawing.Size(941, 20);
             this.textBox2.TabIndex = 1;
             this.textBox2.Text = "|| F1 - Faz alguma coisa ||";
             // 
@@ -148,7 +131,7 @@
             this.btnNovoSoftware.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovoSoftware.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNovoSoftware.ForeColor = System.Drawing.Color.Gold;
-            this.btnNovoSoftware.Location = new System.Drawing.Point(119, 16);
+            this.btnNovoSoftware.Location = new System.Drawing.Point(121, 17);
             this.btnNovoSoftware.Name = "btnNovoSoftware";
             this.btnNovoSoftware.Size = new System.Drawing.Size(107, 41);
             this.btnNovoSoftware.TabIndex = 3;
@@ -162,37 +145,65 @@
             this.btnNovaMaquina.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovaMaquina.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNovaMaquina.ForeColor = System.Drawing.Color.Gold;
-            this.btnNovaMaquina.Location = new System.Drawing.Point(6, 16);
+            this.btnNovaMaquina.Location = new System.Drawing.Point(8, 17);
             this.btnNovaMaquina.Name = "btnNovaMaquina";
             this.btnNovaMaquina.Size = new System.Drawing.Size(107, 41);
             this.btnNovaMaquina.TabIndex = 4;
             this.btnNovaMaquina.Text = " Nova  Maquina";
             this.btnNovaMaquina.UseVisualStyleBackColor = false;
+            this.btnNovaMaquina.Click += new System.EventHandler(this.btnNovaMaquina_Click);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnHardware);
             this.groupBox2.Controls.Add(this.btnNovoSoftware);
             this.groupBox2.Controls.Add(this.btnNovaMaquina);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(444, 12);
+            this.groupBox2.Location = new System.Drawing.Point(688, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(346, 67);
+            this.groupBox2.Size = new System.Drawing.Size(239, 67);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Novo";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(311, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(27, 15);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Key";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBox1.Location = new System.Drawing.Point(310, 36);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(236, 21);
+            this.textBox1.TabIndex = 6;
+            // 
+            // cbbSoftware
+            // 
+            this.cbbSoftware.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbbSoftware.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbSoftware.FormattingEnabled = true;
+            this.cbbSoftware.Location = new System.Drawing.Point(158, 36);
+            this.cbbSoftware.Name = "cbbSoftware";
+            this.cbbSoftware.Size = new System.Drawing.Size(146, 23);
+            this.cbbSoftware.TabIndex = 8;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(802, 550);
+            this.ClientSize = new System.Drawing.Size(939, 550);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.dgvMaquinas);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -212,15 +223,16 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtMaquina;
         private System.Windows.Forms.DataGridView dgvMaquinas;
-        private System.Windows.Forms.Button btnHardware;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnNovoSoftware;
         private System.Windows.Forms.Button btnNovaMaquina;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtSoftware;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cbbSoftware;
     }
 }
 

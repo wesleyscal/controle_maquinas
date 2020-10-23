@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Principal.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Fd-DBC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -62,6 +65,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="NovaMaquina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NovaMaquina.Designer.cs">
+      <DependentUpon>NovaMaquina.cs</DependentUpon>
+    </Compile>
     <Compile Include="NovoSoftware.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +81,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NovaMaquina.resx">
+      <DependentUpon>NovaMaquina.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NovoSoftware.resx">
       <DependentUpon>NovoSoftware.cs</DependentUpon>
@@ -97,6 +109,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+    <Content Include="Principal.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
