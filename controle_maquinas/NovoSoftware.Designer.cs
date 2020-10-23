@@ -37,7 +37,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNfe = new System.Windows.Forms.TextBox();
-            this.Limpar = new System.Windows.Forms.Button();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.txtKey = new System.Windows.Forms.TextBox();
@@ -126,7 +126,7 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtNfe);
-            this.groupBox2.Controls.Add(this.Limpar);
+            this.groupBox2.Controls.Add(this.btnLimpar);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.btnSalvar);
             this.groupBox2.Controls.Add(this.txtKey);
@@ -155,19 +155,19 @@
             this.txtNfe.Size = new System.Drawing.Size(432, 20);
             this.txtNfe.TabIndex = 2;
             // 
-            // Limpar
+            // btnLimpar
             // 
-            this.Limpar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Limpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Limpar.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Limpar.ForeColor = System.Drawing.Color.Gold;
-            this.Limpar.Location = new System.Drawing.Point(328, 19);
-            this.Limpar.Name = "Limpar";
-            this.Limpar.Size = new System.Drawing.Size(113, 46);
-            this.Limpar.TabIndex = 5;
-            this.Limpar.Text = "Limpar";
-            this.Limpar.UseVisualStyleBackColor = false;
-            this.Limpar.Click += new System.EventHandler(this.Limpar_Click);
+            this.btnLimpar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpar.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpar.ForeColor = System.Drawing.Color.Gold;
+            this.btnLimpar.Location = new System.Drawing.Point(328, 19);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(113, 46);
+            this.btnLimpar.TabIndex = 5;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = false;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // label2
             // 
@@ -251,7 +251,7 @@
         private System.Windows.Forms.Button btnSaveClear;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNfe;
-        private System.Windows.Forms.Button Limpar;
+        private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.TextBox txtKey;

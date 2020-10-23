@@ -112,7 +112,7 @@ namespace controle_maquinas
             }
         }
 
-        private void Limpar_Click(object sender, EventArgs e)
+        private void btnLimpar_Click(object sender, EventArgs e)
         {
             txtKey.Clear();
             txtNfe.Clear();

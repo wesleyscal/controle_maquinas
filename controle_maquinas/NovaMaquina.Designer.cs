@@ -30,20 +30,20 @@
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtUser = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDominio = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMaquina = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.rdbNotebook = new System.Windows.Forms.RadioButton();
+            this.rdbComputador = new System.Windows.Forms.RadioButton();
+            this.txtProcessador = new System.Windows.Forms.TextBox();
+            this.txtGpu = new System.Windows.Forms.TextBox();
+            this.txtMemoria = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtArmazenamento = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -52,8 +52,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cbbSoftware = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.Limpar = new System.Windows.Forms.Button();
+            this.cbbKey = new System.Windows.Forms.ComboBox();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -63,9 +63,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.txtUser);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.txtDominio);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.txtMaquina);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
@@ -85,13 +85,13 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "Usuário Real";
             // 
-            // textBox2
+            // txtUser
             // 
-            this.textBox2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox2.Location = new System.Drawing.Point(313, 32);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(146, 20);
-            this.textBox2.TabIndex = 11;
+            this.txtUser.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtUser.Location = new System.Drawing.Point(313, 32);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(146, 20);
+            this.txtUser.TabIndex = 11;
             // 
             // label2
             // 
@@ -102,13 +102,13 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "Usuário Domínio";
             // 
-            // textBox1
+            // txtDominio
             // 
-            this.textBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox1.Location = new System.Drawing.Point(161, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 20);
-            this.textBox1.TabIndex = 9;
+            this.txtDominio.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtDominio.Location = new System.Drawing.Point(161, 32);
+            this.txtDominio.Name = "txtDominio";
+            this.txtDominio.Size = new System.Drawing.Size(146, 20);
+            this.txtDominio.TabIndex = 9;
             // 
             // label1
             // 
@@ -129,14 +129,14 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.rdbNotebook);
+            this.groupBox1.Controls.Add(this.rdbComputador);
+            this.groupBox1.Controls.Add(this.txtProcessador);
+            this.groupBox1.Controls.Add(this.txtGpu);
+            this.groupBox1.Controls.Add(this.txtMemoria);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txtArmazenamento);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
@@ -147,51 +147,51 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hardware";
             // 
-            // radioButton2
+            // rdbNotebook
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(100, 19);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(72, 17);
-            this.radioButton2.TabIndex = 19;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Notebook";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdbNotebook.AutoSize = true;
+            this.rdbNotebook.Location = new System.Drawing.Point(100, 19);
+            this.rdbNotebook.Name = "rdbNotebook";
+            this.rdbNotebook.Size = new System.Drawing.Size(72, 17);
+            this.rdbNotebook.TabIndex = 19;
+            this.rdbNotebook.TabStop = true;
+            this.rdbNotebook.Text = "Notebook";
+            this.rdbNotebook.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rdbComputador
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(9, 19);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(82, 17);
-            this.radioButton1.TabIndex = 18;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Computador";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdbComputador.AutoSize = true;
+            this.rdbComputador.Location = new System.Drawing.Point(9, 19);
+            this.rdbComputador.Name = "rdbComputador";
+            this.rdbComputador.Size = new System.Drawing.Size(82, 17);
+            this.rdbComputador.TabIndex = 18;
+            this.rdbComputador.TabStop = true;
+            this.rdbComputador.Text = "Computador";
+            this.rdbComputador.UseVisualStyleBackColor = true;
             // 
-            // textBox6
+            // txtProcessador
             // 
-            this.textBox6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox6.Location = new System.Drawing.Point(6, 59);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(219, 20);
-            this.textBox6.TabIndex = 17;
+            this.txtProcessador.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtProcessador.Location = new System.Drawing.Point(6, 59);
+            this.txtProcessador.Name = "txtProcessador";
+            this.txtProcessador.Size = new System.Drawing.Size(219, 20);
+            this.txtProcessador.TabIndex = 17;
             // 
-            // textBox5
+            // txtGpu
             // 
-            this.textBox5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox5.Location = new System.Drawing.Point(6, 100);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(219, 20);
-            this.textBox5.TabIndex = 16;
+            this.txtGpu.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtGpu.Location = new System.Drawing.Point(6, 100);
+            this.txtGpu.Name = "txtGpu";
+            this.txtGpu.Size = new System.Drawing.Size(219, 20);
+            this.txtGpu.TabIndex = 16;
             // 
-            // textBox4
+            // txtMemoria
             // 
-            this.textBox4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox4.Location = new System.Drawing.Point(231, 100);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(228, 20);
-            this.textBox4.TabIndex = 15;
+            this.txtMemoria.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtMemoria.Location = new System.Drawing.Point(231, 100);
+            this.txtMemoria.Name = "txtMemoria";
+            this.txtMemoria.Size = new System.Drawing.Size(228, 20);
+            this.txtMemoria.TabIndex = 15;
             // 
             // label8
             // 
@@ -211,13 +211,13 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Armazenamento";
             // 
-            // textBox3
+            // txtArmazenamento
             // 
-            this.textBox3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox3.Location = new System.Drawing.Point(231, 59);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(228, 20);
-            this.textBox3.TabIndex = 11;
+            this.txtArmazenamento.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtArmazenamento.Location = new System.Drawing.Point(231, 59);
+            this.txtArmazenamento.Name = "txtArmazenamento";
+            this.txtArmazenamento.Size = new System.Drawing.Size(228, 20);
+            this.txtArmazenamento.TabIndex = 11;
             // 
             // label5
             // 
@@ -239,7 +239,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.comboBox1);
+            this.groupBox3.Controls.Add(this.cbbKey);
             this.groupBox3.Controls.Add(this.txtObservacao);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.label11);
@@ -300,28 +300,28 @@
             this.cbbSoftware.Size = new System.Drawing.Size(219, 21);
             this.cbbSoftware.TabIndex = 9;
             // 
-            // comboBox1
+            // cbbKey
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(231, 29);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(228, 21);
-            this.comboBox1.TabIndex = 23;
+            this.cbbKey.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbbKey.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbKey.FormattingEnabled = true;
+            this.cbbKey.Location = new System.Drawing.Point(231, 29);
+            this.cbbKey.Name = "cbbKey";
+            this.cbbKey.Size = new System.Drawing.Size(228, 21);
+            this.cbbKey.TabIndex = 23;
             // 
-            // Limpar
+            // btnLimpar
             // 
-            this.Limpar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Limpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Limpar.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Limpar.ForeColor = System.Drawing.Color.Gold;
-            this.Limpar.Location = new System.Drawing.Point(365, 367);
-            this.Limpar.Name = "Limpar";
-            this.Limpar.Size = new System.Drawing.Size(113, 46);
-            this.Limpar.TabIndex = 15;
-            this.Limpar.Text = "Limpar";
-            this.Limpar.UseVisualStyleBackColor = false;
+            this.btnLimpar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpar.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpar.ForeColor = System.Drawing.Color.Gold;
+            this.btnLimpar.Location = new System.Drawing.Point(365, 367);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(113, 46);
+            this.btnLimpar.TabIndex = 15;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = false;
             // 
             // btnSalvar
             // 
@@ -342,7 +342,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(490, 426);
-            this.Controls.Add(this.Limpar);
+            this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
@@ -351,6 +351,7 @@
             this.Name = "NovaMaquina";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nova Maquina";
+            this.Load += new System.EventHandler(this.NovaMaquina_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -366,19 +367,19 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtMaquina;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDominio;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.RadioButton rdbNotebook;
+        private System.Windows.Forms.RadioButton rdbComputador;
+        private System.Windows.Forms.TextBox txtProcessador;
+        private System.Windows.Forms.TextBox txtGpu;
+        private System.Windows.Forms.TextBox txtMemoria;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtArmazenamento;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -387,8 +388,8 @@
         private System.Windows.Forms.TextBox txtObservacao;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button Limpar;
+        private System.Windows.Forms.ComboBox cbbKey;
+        private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnSalvar;
     }
 }
