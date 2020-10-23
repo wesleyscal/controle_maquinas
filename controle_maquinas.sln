@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "controle_maquinas", "controle_maquinas\controle_maquinas.csproj", "{5120B6AC-A5D0-48C6-86C0-3641855CD65E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5120B6AC-A5D0-48C6-86C0-3641855CD65E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5120B6AC-A5D0-48C6-86C0-3641855CD65E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5120B6AC-A5D0-48C6-86C0-3641855CD65E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5120B6AC-A5D0-48C6-86C0-3641855CD65E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B38693C9-9E16-405B-BA16-D4B2183E2FD6}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,11 @@
+C:\Users\ti02\source\repos\controle_maquinas\controle_maquinas\bin\Debug\controle_maquinas.exe.config
+C:\Users\ti02\source\repos\controle_maquinas\controle_maquinas\bin\Debug\controle_maquinas.exe
+C:\Users\ti02\source\repos\controle_maquinas\controle_maquinas\bin\Debug\controle_maquinas.pdb
+C:\Users\ti02\source\repos\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.csprojAssemblyReference.cache
+C:\Users\ti02\source\repos\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.Form1.resources
+C:\Users\ti02\source\repos\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.Properties.Resources.resources
+C:\Users\ti02\source\repos\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.csproj.GenerateResource.cache
+C:\Users\ti02\source\repos\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.csproj.CoreCompileInputs.cache
+C:\Users\ti02\source\repos\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.exe
+C:\Users\ti02\source\repos\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.pdb
+C:\Users\ti02\source\repos\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.NovoSoftware.resources
