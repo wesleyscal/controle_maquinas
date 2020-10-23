@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Fd_DBC;
+using ordem_de_servico;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,8 @@ namespace controle_maquinas
 {
     public partial class Form1 : Form
     {
+        DBC CG = new DBC();
+
         public Form1()
         {
             InitializeComponent();
@@ -19,7 +23,16 @@ namespace controle_maquinas
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            //Configurar Banco
+            try
+            {
+                CG.ConectarBancoDeDados();
+            }
+            catch
+            {                
+                ConfigurarBanco CB = new ConfigurarBanco();
+                CB.ShowDialog();
+            }
 
         }
 

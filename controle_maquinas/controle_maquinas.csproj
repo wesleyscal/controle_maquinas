@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigurarBanco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigurarBanco.Designer.cs">
+      <DependentUpon>ConfigurarBanco.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
