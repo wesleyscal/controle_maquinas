@@ -29,30 +29,30 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnPesquisar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtSoftware = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtMaquina = new System.Windows.Forms.TextBox();
+            this.dgvMaquinas = new System.Windows.Forms.DataGridView();
+            this.btnHardware = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnNovoSoftware = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnNovaMaquina = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMaquinas)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Gray;
-            this.groupBox1.Controls.Add(this.button4);
+            this.groupBox1.Controls.Add(this.btnPesquisar);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txtSoftware);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtMaquina);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(13, 12);
@@ -62,18 +62,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pesquisa";
             // 
-            // button4
+            // btnPesquisar
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.Gold;
-            this.button4.Location = new System.Drawing.Point(310, 16);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(107, 41);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Pesquisar";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnPesquisar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesquisar.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisar.ForeColor = System.Drawing.Color.Gold;
+            this.btnPesquisar.Location = new System.Drawing.Point(310, 16);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(107, 41);
+            this.btnPesquisar.TabIndex = 5;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
@@ -84,13 +84,13 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Software";
             // 
-            // textBox3
+            // txtSoftware
             // 
-            this.textBox3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox3.Location = new System.Drawing.Point(158, 36);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(146, 21);
-            this.textBox3.TabIndex = 2;
+            this.txtSoftware.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtSoftware.Location = new System.Drawing.Point(158, 36);
+            this.txtSoftware.Name = "txtSoftware";
+            this.txtSoftware.Size = new System.Drawing.Size(146, 21);
+            this.txtSoftware.TabIndex = 2;
             // 
             // label1
             // 
@@ -101,34 +101,34 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Maquina";
             // 
-            // textBox1
+            // txtMaquina
             // 
-            this.textBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox1.Location = new System.Drawing.Point(6, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 21);
-            this.textBox1.TabIndex = 0;
+            this.txtMaquina.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtMaquina.Location = new System.Drawing.Point(6, 36);
+            this.txtMaquina.Name = "txtMaquina";
+            this.txtMaquina.Size = new System.Drawing.Size(146, 21);
+            this.txtMaquina.TabIndex = 0;
             // 
-            // dataGridView1
+            // dgvMaquinas
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 85);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(777, 439);
-            this.dataGridView1.TabIndex = 1;
+            this.dgvMaquinas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMaquinas.Location = new System.Drawing.Point(13, 85);
+            this.dgvMaquinas.Name = "dgvMaquinas";
+            this.dgvMaquinas.Size = new System.Drawing.Size(777, 439);
+            this.dgvMaquinas.TabIndex = 1;
             // 
-            // button1
+            // btnHardware
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Gold;
-            this.button1.Location = new System.Drawing.Point(232, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 41);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Novo hardware";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnHardware.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnHardware.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHardware.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHardware.ForeColor = System.Drawing.Color.Gold;
+            this.btnHardware.Location = new System.Drawing.Point(232, 16);
+            this.btnHardware.Name = "btnHardware";
+            this.btnHardware.Size = new System.Drawing.Size(107, 41);
+            this.btnHardware.TabIndex = 2;
+            this.btnHardware.Text = "Novo hardware";
+            this.btnHardware.UseVisualStyleBackColor = false;
             // 
             // textBox2
             // 
@@ -137,6 +137,7 @@
             this.textBox2.ForeColor = System.Drawing.Color.White;
             this.textBox2.Location = new System.Drawing.Point(0, 530);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(803, 20);
             this.textBox2.TabIndex = 1;
             this.textBox2.Text = "|| F1 - Faz alguma coisa ||";
@@ -155,24 +156,24 @@
             this.btnNovoSoftware.UseVisualStyleBackColor = false;
             this.btnNovoSoftware.Click += new System.EventHandler(this.btnNovoSoftware_Click);
             // 
-            // button3
+            // btnNovaMaquina
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Gold;
-            this.button3.Location = new System.Drawing.Point(6, 16);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(107, 41);
-            this.button3.TabIndex = 4;
-            this.button3.Text = " Nova  Maquina";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnNovaMaquina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnNovaMaquina.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNovaMaquina.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovaMaquina.ForeColor = System.Drawing.Color.Gold;
+            this.btnNovaMaquina.Location = new System.Drawing.Point(6, 16);
+            this.btnNovaMaquina.Name = "btnNovaMaquina";
+            this.btnNovaMaquina.Size = new System.Drawing.Size(107, 41);
+            this.btnNovaMaquina.TabIndex = 4;
+            this.btnNovaMaquina.Text = " Nova  Maquina";
+            this.btnNovaMaquina.UseVisualStyleBackColor = false;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.btnHardware);
             this.groupBox2.Controls.Add(this.btnNovoSoftware);
-            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.btnNovaMaquina);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(444, 12);
             this.groupBox2.Name = "groupBox2";
@@ -189,7 +190,7 @@
             this.ClientSize = new System.Drawing.Size(802, 550);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvMaquinas);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -199,7 +200,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMaquinas)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -209,16 +210,16 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtMaquina;
+        private System.Windows.Forms.DataGridView dgvMaquinas;
+        private System.Windows.Forms.Button btnHardware;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnNovoSoftware;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnNovaMaquina;
+        private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtSoftware;
         private System.Windows.Forms.GroupBox groupBox2;
     }
 }
