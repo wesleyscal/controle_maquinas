@@ -20,7 +20,7 @@ namespace controle_maquinas
             InitializeComponent();
         }
 
-
+        //Metodos
         private void ConfigCBB()
         {
             cbbSoftware.Items.Clear();
@@ -51,13 +51,14 @@ namespace controle_maquinas
             }
         }
 
-
+        //Form
         private void NovoSoftware_Load(object sender, EventArgs e)
         {
             txtSoftware.Visible = false;
             ConfigCBB();
         }
 
+        //Botao
         private void btnSoftware_Click(object sender, EventArgs e)
         {
             if (btnSoftware.Text == "Selecionar Software")
@@ -67,6 +68,7 @@ namespace controle_maquinas
                 btnSoftware.Text = "Novo Software";
                 btnSaveClear.Text = "Limpar";
                 cbbSoftware.SelectedIndex = 0;
+                txtSoftware.Clear();
                 return;
             }
             if (btnSoftware.Text == "Novo Software")
@@ -76,10 +78,10 @@ namespace controle_maquinas
                 btnSoftware.Text = "Selecionar Software";
                 btnSaveClear.Text = "Salvar";
                 txtSoftware.Clear();
+                cbbSoftware.SelectedIndex = 0;
                 return;
             }
         }
-
         private void btnSaveClear_Click(object sender, EventArgs e)
         {
             if (btnSaveClear.Text == "Limpar")
@@ -111,41 +113,58 @@ namespace controle_maquinas
 
             }
         }
-
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             txtKey.Clear();
             txtNfe.Clear();
         }
-
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (txtKey.Text.Trim() != "")
+            if (cbbSoftware.Text != "Selecionar Software")
             {
-                if (txtNfe.Text.Trim() != "")
+                MessageBox.Show(cbbSoftware.Text);
+
+                if (txtKey.Text.Trim() != "")
                 {
-                    string Software = cbbSoftware.Text;
-                    string Key = txtKey.Text;
-                    string nfe = txtNfe.Text;
-                    string observacao = txtObservacao.Text;
+                    if (txtNfe.Text.Trim() != "")
+                    {
+                        string Software = cbbSoftware.Text;
+                        string Key = txtKey.Text;
+                        string nfe = txtNfe.Text;
+                        string observacao = txtObservacao.Text;
+                        string licenca = "";
 
-                    string cmd = "INSERT INTO `software_licencas` (`software`, `key`, `nf-e`, `observacao`) VALUES ('" + Software + "', '" + Key + "', '" + nfe + "', '" + observacao + "');";
-                    CG.ExecutarComandoSql(cmd);
+                        if (rdbUnica.Checked == true)
+                        {
+                            licenca = "s";
+                        }
+                        if (rdbMultiplas.Checked == false)
+                        {
+                            licenca = "n";
+                        }
 
-                    txtSoftware.Clear();
-                    txtKey.Clear();
-                    txtNfe.Clear();
-                    txtObservacao.Clear();
-                    cbbSoftware.SelectedIndex = 0;
+                        string cmd = "INSERT INTO `software_licencas` (`software`, `key`, `nfe`, `fpp`, `disponivel`, `observacao`) VALUES ('" + Software + "', '" + Key + "', '" + nfe + "', '" + licenca + "', '" + "s" + "', '" + observacao + "');";
+                        CG.ExecutarComandoSql(cmd);
+
+                        txtSoftware.Clear();
+                        txtKey.Clear();
+                        txtNfe.Clear();
+                        txtObservacao.Clear();
+                        cbbSoftware.SelectedIndex = 0;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Campo NF-e vazio");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Campo NF-e vazio");
+                    MessageBox.Show("Campo Key vazio");
                 }
             }
             else
             {
-                MessageBox.Show("Campo Key vazio");
+                MessageBox.Show("Software Não Selecionado");
             }
         }
     }

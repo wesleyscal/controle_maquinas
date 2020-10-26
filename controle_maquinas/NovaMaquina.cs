@@ -100,6 +100,7 @@ namespace controle_maquinas
         //Form
         private void NovaMaquina_Load(object sender, EventArgs e)
         {
+            rdbComputador.Checked = true;
             AtualizarForm();
         }
 
@@ -184,9 +185,9 @@ namespace controle_maquinas
         {
             string software = cbbSoftware.Text;
             string key = cbbKey.Text;
-            if(cbbSoftware.Text != "Selecionar Software")
+            if (cbbSoftware.Text != "Selecionar Software")
             {
-                if(cbbKey.Text != "Selecionar licença")
+                if (cbbKey.Text != "Selecionar licença")
                 {
                     dgvSoftware.Rows.Add(software, key);
                 }
@@ -200,7 +201,7 @@ namespace controle_maquinas
             {
                 MessageBox.Show("Selecione um Software");
                 return;
-            }            
+            }
 
             cbbSoftware.SelectedIndex = 0;
             cbbKey.SelectedIndex = 0;
@@ -213,6 +214,56 @@ namespace controle_maquinas
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            if(txtDominio.Text.Trim() == "")
+            {
+                MessageBox.Show("Informe o domínio!", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if(txtMaquina.Text.Trim() == "")
+            {
+                MessageBox.Show("Informe o Nome da maquina!", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if(txtUser.Text.Trim() == "")
+            {
+                MessageBox.Show("Informe o Usuário real!", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if(txtProcessador.Text.Trim() == "")
+            {
+                MessageBox.Show("Informe o Processador\nCaso não tenha Informe \"NA\" !", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if(txtMemoria.Text.Trim() == "")
+            {
+                MessageBox.Show("Informe a Memoria\nCaso não tenha Informe \"NA\" !", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if(txtArmazenamento.Text.Trim() == "")
+            {
+                MessageBox.Show("Informe o Armazenamento\nCaso não tenha Informe \"NA\" !", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if(txtGpu.Text.Trim() == "")
+            {
+                MessageBox.Show("Informe a GPU\nCaso não tenha Informe \"NA\" !", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if(cbbOS.SelectedIndex == 0)
+            {
+                MessageBox.Show("Selecione o Sistema Operacional!", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if(cbbKeyOS.SelectedIndex == 0)
+            {
+                MessageBox.Show("Selecione a Key do Sistema Operacional!", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+           
+
+
+
+
 
         }
     }

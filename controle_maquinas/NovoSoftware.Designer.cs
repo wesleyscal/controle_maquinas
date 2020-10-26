@@ -31,18 +31,20 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnSaveClear = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtSoftware = new System.Windows.Forms.TextBox();
             this.btnSoftware = new System.Windows.Forms.Button();
             this.cbbSoftware = new System.Windows.Forms.ComboBox();
+            this.txtSoftware = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtObservacao = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNfe = new System.Windows.Forms.TextBox();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.txtKey = new System.Windows.Forms.TextBox();
-            this.txtObservacao = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.rdbUnica = new System.Windows.Forms.RadioButton();
+            this.rdbMultiplas = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -85,17 +87,6 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Software";
             // 
-            // txtSoftware
-            // 
-            this.txtSoftware.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtSoftware.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSoftware.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtSoftware.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtSoftware.Location = new System.Drawing.Point(9, 30);
-            this.txtSoftware.Name = "txtSoftware";
-            this.txtSoftware.Size = new System.Drawing.Size(194, 20);
-            this.txtSoftware.TabIndex = 7;
-            // 
             // btnSoftware
             // 
             this.btnSoftware.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -120,8 +111,21 @@
             this.cbbSoftware.Size = new System.Drawing.Size(194, 21);
             this.cbbSoftware.TabIndex = 0;
             // 
+            // txtSoftware
+            // 
+            this.txtSoftware.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtSoftware.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSoftware.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtSoftware.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtSoftware.Location = new System.Drawing.Point(9, 30);
+            this.txtSoftware.Name = "txtSoftware";
+            this.txtSoftware.Size = new System.Drawing.Size(194, 20);
+            this.txtSoftware.TabIndex = 7;
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.rdbMultiplas);
+            this.groupBox2.Controls.Add(this.rdbUnica);
             this.groupBox2.Controls.Add(this.txtObservacao);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
@@ -138,6 +142,25 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Licença";
             // 
+            // txtObservacao
+            // 
+            this.txtObservacao.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtObservacao.Location = new System.Drawing.Point(9, 110);
+            this.txtObservacao.Multiline = true;
+            this.txtObservacao.Name = "txtObservacao";
+            this.txtObservacao.Size = new System.Drawing.Size(432, 68);
+            this.txtObservacao.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(6, 94);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Observação";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -152,7 +175,7 @@
             this.txtNfe.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNfe.Location = new System.Drawing.Point(9, 71);
             this.txtNfe.Name = "txtNfe";
-            this.txtNfe.Size = new System.Drawing.Size(432, 20);
+            this.txtNfe.Size = new System.Drawing.Size(194, 20);
             this.txtNfe.TabIndex = 2;
             // 
             // btnLimpar
@@ -200,24 +223,27 @@
             this.txtKey.Size = new System.Drawing.Size(194, 20);
             this.txtKey.TabIndex = 1;
             // 
-            // txtObservacao
+            // rdbUnica
             // 
-            this.txtObservacao.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtObservacao.Location = new System.Drawing.Point(9, 110);
-            this.txtObservacao.Multiline = true;
-            this.txtObservacao.Name = "txtObservacao";
-            this.txtObservacao.Size = new System.Drawing.Size(432, 68);
-            this.txtObservacao.TabIndex = 3;
+            this.rdbUnica.AutoSize = true;
+            this.rdbUnica.Checked = true;
+            this.rdbUnica.Location = new System.Drawing.Point(209, 74);
+            this.rdbUnica.Name = "rdbUnica";
+            this.rdbUnica.Size = new System.Drawing.Size(94, 17);
+            this.rdbUnica.TabIndex = 15;
+            this.rdbUnica.TabStop = true;
+            this.rdbUnica.Text = "Licença Unica";
+            this.rdbUnica.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // rdbMultiplas
             // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(6, 94);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 13);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Observação";
+            this.rdbMultiplas.AutoSize = true;
+            this.rdbMultiplas.Location = new System.Drawing.Point(328, 74);
+            this.rdbMultiplas.Name = "rdbMultiplas";
+            this.rdbMultiplas.Size = new System.Drawing.Size(106, 17);
+            this.rdbMultiplas.TabIndex = 16;
+            this.rdbMultiplas.Text = "Licença multiplas";
+            this.rdbMultiplas.UseVisualStyleBackColor = true;
             // 
             // NovoSoftware
             // 
@@ -258,5 +284,7 @@
         private System.Windows.Forms.TextBox txtSoftware;
         private System.Windows.Forms.TextBox txtObservacao;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.RadioButton rdbMultiplas;
+        private System.Windows.Forms.RadioButton rdbUnica;
     }
 }
