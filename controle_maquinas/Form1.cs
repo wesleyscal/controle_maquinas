@@ -79,5 +79,43 @@ namespace controle_maquinas
             NovaMaquina Form = new NovaMaquina();
             Form.ShowDialog();
         }
+
+        private void cbbSoftware_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string Software = "";
+
+            cbbKey.Items.Clear();
+            cbbKey.Items.Add("Selecionar licença");
+            cbbKey.SelectedIndex = 0;
+
+            if (cbbSoftware.Text != "Selecionar Software")
+            {
+                Software = cbbSoftware.Text;
+                string cmd = "SELECT * FROM software_licencas where software = '" + Software + "' and disponivel = 's';";
+                CG.ExecutarComandoSql(cmd);
+
+                //Declara um DataTable
+                DataTable dt;
+                //Instancia o DataTable e insere o retorno do banco de dados no mesmo
+                dt = new DataTable();
+                CG.RetornarDadosDataTable(dt);
+
+                string Key = "";
+
+                //Para Cada Software inserido no DataTable
+                foreach (DataRow r in dt.Rows)
+                {
+                    //Retorna o nome do cliente na variável
+                    Key = r[2].ToString();
+
+                    //Insere o nome do cliente na ComboBox
+                    cbbKey.Items.Add(Key);
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
     }
 }

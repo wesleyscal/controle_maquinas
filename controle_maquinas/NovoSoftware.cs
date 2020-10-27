@@ -66,7 +66,7 @@ namespace controle_maquinas
                 txtSoftware.Visible = false;
                 cbbSoftware.Visible = true;
                 btnSoftware.Text = "Novo Software";
-                btnSaveClear.Text = "Limpar";
+                btnSaveDel.Text = "Deletar";
                 cbbSoftware.SelectedIndex = 0;
                 txtSoftware.Clear();
                 return;
@@ -76,41 +76,10 @@ namespace controle_maquinas
                 cbbSoftware.Visible = false;
                 txtSoftware.Visible = true;
                 btnSoftware.Text = "Selecionar Software";
-                btnSaveClear.Text = "Salvar";
+                btnSaveDel.Text = "Salvar";
                 txtSoftware.Clear();
                 cbbSoftware.SelectedIndex = 0;
                 return;
-            }
-        }
-        private void btnSaveClear_Click(object sender, EventArgs e)
-        {
-            if (btnSaveClear.Text == "Limpar")
-            {
-                cbbSoftware.SelectedIndex = 0;
-                txtSoftware.Clear();
-            }
-            if (btnSaveClear.Text == "Salvar")
-            {
-                if (txtSoftware.Text.Trim() != "")
-                {
-                    string Software = txtSoftware.Text;
-                    string cmd = "INSERT INTO `software` (`nome`) VALUES ('" + Software + "');";
-                    CG.ExecutarComandoSql(cmd);
-
-                    ConfigCBB();
-                    txtSoftware.Visible = false;
-                    cbbSoftware.Visible = true;
-                    btnSoftware.Text = "Novo Software";
-                    btnSaveClear.Text = "Limpar";
-                    cbbSoftware.SelectedIndex = 0;
-
-                    return;
-                }
-                else
-                {
-                    MessageBox.Show("Campo Software vazio");
-                }
-
             }
         }
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -122,8 +91,6 @@ namespace controle_maquinas
         {
             if (cbbSoftware.Text != "Selecionar Software")
             {
-                MessageBox.Show(cbbSoftware.Text);
-
                 if (txtKey.Text.Trim() != "")
                 {
                     if (txtNfe.Text.Trim() != "")
@@ -138,7 +105,7 @@ namespace controle_maquinas
                         {
                             licenca = "s";
                         }
-                        if (rdbMultiplas.Checked == false)
+                        if (rdbMultiplas.Checked == true)
                         {
                             licenca = "n";
                         }
@@ -167,5 +134,49 @@ namespace controle_maquinas
                 MessageBox.Show("Software Não Selecionado");
             }
         }
+        private void btnSaveDel_Click(object sender, EventArgs e)
+        {
+
+            if (btnSaveDel.Text == "Deletar")
+            {
+                string DelSoftware = cbbSoftware.Text;
+
+                DialogResult res = MessageBox.Show("Tem certeza que quer excluir " + DelSoftware + " ?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (res == DialogResult.Yes)
+                {
+                    string dcmd = "delete FROM controle_maquina.software where nome = '" + DelSoftware + "';";
+                    CG.ExecutarComandoSql(dcmd);
+                }
+
+                ConfigCBB();
+                cbbSoftware.SelectedIndex = 0;
+            }
+            if (btnSaveDel.Text == "Salvar")
+            {
+                if (txtSoftware.Text.Trim() != "")
+                {
+                    string SavSoftware = txtSoftware.Text;
+                    string cmd = "INSERT INTO `software` (`nome`) VALUES ('" + SavSoftware + "');";
+                    CG.ExecutarComandoSql(cmd);
+
+                    ConfigCBB();
+                    txtSoftware.Visible = false;
+                    cbbSoftware.Visible = true;
+                    btnSoftware.Text = "Novo Software";
+                    btnSaveDel.Text = "Deletar";
+                    cbbSoftware.SelectedIndex = 0;
+
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Campo Software vazio");
+                }
+
+            }
+
+        }
+
     }
 }

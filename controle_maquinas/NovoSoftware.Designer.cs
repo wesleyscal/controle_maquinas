@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnSaveClear = new System.Windows.Forms.Button();
+            this.btnSaveDel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSoftware = new System.Windows.Forms.Button();
             this.cbbSoftware = new System.Windows.Forms.ComboBox();
             this.txtSoftware = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rdbMultiplas = new System.Windows.Forms.RadioButton();
+            this.rdbUnica = new System.Windows.Forms.RadioButton();
             this.txtObservacao = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,15 +45,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.txtKey = new System.Windows.Forms.TextBox();
-            this.rdbUnica = new System.Windows.Forms.RadioButton();
-            this.rdbMultiplas = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnSaveClear);
+            this.groupBox1.Controls.Add(this.btnSaveDel);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnSoftware);
             this.groupBox1.Controls.Add(this.cbbSoftware);
@@ -64,19 +64,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Software";
             // 
-            // btnSaveClear
+            // btnSaveDel
             // 
-            this.btnSaveClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnSaveClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveClear.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveClear.ForeColor = System.Drawing.Color.Gold;
-            this.btnSaveClear.Location = new System.Drawing.Point(328, 16);
-            this.btnSaveClear.Name = "btnSaveClear";
-            this.btnSaveClear.Size = new System.Drawing.Size(113, 49);
-            this.btnSaveClear.TabIndex = 2;
-            this.btnSaveClear.Text = "Limpar";
-            this.btnSaveClear.UseVisualStyleBackColor = false;
-            this.btnSaveClear.Click += new System.EventHandler(this.btnSaveClear_Click);
+            this.btnSaveDel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnSaveDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveDel.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveDel.ForeColor = System.Drawing.Color.Gold;
+            this.btnSaveDel.Location = new System.Drawing.Point(328, 16);
+            this.btnSaveDel.Name = "btnSaveDel";
+            this.btnSaveDel.Size = new System.Drawing.Size(113, 49);
+            this.btnSaveDel.TabIndex = 2;
+            this.btnSaveDel.Text = "Deletar";
+            this.btnSaveDel.UseVisualStyleBackColor = false;
+            this.btnSaveDel.Click += new System.EventHandler(this.btnSaveDel_Click);
             // 
             // label1
             // 
@@ -141,6 +141,28 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Licença";
+            // 
+            // rdbMultiplas
+            // 
+            this.rdbMultiplas.AutoSize = true;
+            this.rdbMultiplas.Location = new System.Drawing.Point(328, 74);
+            this.rdbMultiplas.Name = "rdbMultiplas";
+            this.rdbMultiplas.Size = new System.Drawing.Size(106, 17);
+            this.rdbMultiplas.TabIndex = 16;
+            this.rdbMultiplas.Text = "Licença multiplas";
+            this.rdbMultiplas.UseVisualStyleBackColor = true;
+            // 
+            // rdbUnica
+            // 
+            this.rdbUnica.AutoSize = true;
+            this.rdbUnica.Checked = true;
+            this.rdbUnica.Location = new System.Drawing.Point(209, 74);
+            this.rdbUnica.Name = "rdbUnica";
+            this.rdbUnica.Size = new System.Drawing.Size(94, 17);
+            this.rdbUnica.TabIndex = 15;
+            this.rdbUnica.TabStop = true;
+            this.rdbUnica.Text = "Licença Unica";
+            this.rdbUnica.UseVisualStyleBackColor = true;
             // 
             // txtObservacao
             // 
@@ -223,28 +245,6 @@
             this.txtKey.Size = new System.Drawing.Size(194, 20);
             this.txtKey.TabIndex = 1;
             // 
-            // rdbUnica
-            // 
-            this.rdbUnica.AutoSize = true;
-            this.rdbUnica.Checked = true;
-            this.rdbUnica.Location = new System.Drawing.Point(209, 74);
-            this.rdbUnica.Name = "rdbUnica";
-            this.rdbUnica.Size = new System.Drawing.Size(94, 17);
-            this.rdbUnica.TabIndex = 15;
-            this.rdbUnica.TabStop = true;
-            this.rdbUnica.Text = "Licença Unica";
-            this.rdbUnica.UseVisualStyleBackColor = true;
-            // 
-            // rdbMultiplas
-            // 
-            this.rdbMultiplas.AutoSize = true;
-            this.rdbMultiplas.Location = new System.Drawing.Point(328, 74);
-            this.rdbMultiplas.Name = "rdbMultiplas";
-            this.rdbMultiplas.Size = new System.Drawing.Size(106, 17);
-            this.rdbMultiplas.TabIndex = 16;
-            this.rdbMultiplas.Text = "Licença multiplas";
-            this.rdbMultiplas.UseVisualStyleBackColor = true;
-            // 
             // NovoSoftware
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -274,7 +274,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnSoftware;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnSaveClear;
+        private System.Windows.Forms.Button btnSaveDel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNfe;
         private System.Windows.Forms.Button btnLimpar;

@@ -116,7 +116,7 @@ namespace controle_maquinas
             if (cbbSoftware.Text != "Selecionar Software")
             {
                 Software = cbbSoftware.Text;
-                string cmd = "SELECT * FROM software_licencas where software = '" + Software + "';";
+                string cmd = "SELECT * FROM software_licencas where software = '" + Software + "' and disponivel = 's';";
                 CG.ExecutarComandoSql(cmd);
 
                 //Declara um DataTable
@@ -153,7 +153,7 @@ namespace controle_maquinas
             if (cbbOS.Text != "Selecionar S.O")
             {
                 Software = cbbOS.Text;
-                string cmd = "SELECT * FROM software_licencas where software = '" + Software + "';";
+                string cmd = "SELECT * FROM software_licencas where software = '" + Software + "' and disponivel = 's';";
                 CG.ExecutarComandoSql(cmd);
 
                 //Declara um DataTable
@@ -214,57 +214,124 @@ namespace controle_maquinas
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if(txtDominio.Text.Trim() == "")
+            string cmd = "";
+
+            //Validação
+            if (txtDominio.Text.Trim() == "")
             {
                 MessageBox.Show("Informe o domínio!", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            if(txtMaquina.Text.Trim() == "")
+            if (txtMaquina.Text.Trim() == "")
             {
                 MessageBox.Show("Informe o Nome da maquina!", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            if(txtUser.Text.Trim() == "")
+            if (txtUser.Text.Trim() == "")
             {
                 MessageBox.Show("Informe o Usuário real!", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            if(txtProcessador.Text.Trim() == "")
+            if (txtProcessador.Text.Trim() == "")
             {
                 MessageBox.Show("Informe o Processador\nCaso não tenha Informe \"NA\" !", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            if(txtMemoria.Text.Trim() == "")
+            if (txtMemoria.Text.Trim() == "")
             {
                 MessageBox.Show("Informe a Memoria\nCaso não tenha Informe \"NA\" !", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            if(txtArmazenamento.Text.Trim() == "")
+            if (txtArmazenamento.Text.Trim() == "")
             {
                 MessageBox.Show("Informe o Armazenamento\nCaso não tenha Informe \"NA\" !", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            if(txtGpu.Text.Trim() == "")
+            if (txtGpu.Text.Trim() == "")
             {
                 MessageBox.Show("Informe a GPU\nCaso não tenha Informe \"NA\" !", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            if(cbbOS.SelectedIndex == 0)
+            if (cbbOS.SelectedIndex == 0)
             {
                 MessageBox.Show("Selecione o Sistema Operacional!", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            if(cbbKeyOS.SelectedIndex == 0)
+            if (cbbKeyOS.SelectedIndex == 0)
             {
                 MessageBox.Show("Selecione a Key do Sistema Operacional!", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-           
 
+            //Maquina
+            string Nome_Maquina = txtMaquina.Text;
+            string Nome_Dominio = txtDominio.Text;
+            string Nome_Usuario = txtUser.Text;
+            string Id_Hardware = "";
+            string Pc_Note = "";
+            string Observacao = txtObservacao.Text;
+            string SO = cbbOS.Text;
+            string KeyOS = cbbKeyOS.Text;
 
+            //Hardware
+            string Processador = txtProcessador.Text;
+            string Memoria = txtMemoria.Text;
+            string Armazenamento = txtArmazenamento.Text;
+            string Gpu = txtGpu.Text;
 
+            //Software
+            string Id_Maquina = "";
+            string Id_Licenca = "";
+
+            //Salva Hardware e retorna o id
+            cmd = "INSERT INTO `hardware` " +
+                          "(`processador`, `memoria`, `armazenamento`, `gpu`) " +
+                          "VALUES ('" + Processador + "', '" + Memoria + "', '" + Armazenamento + "', '" + Gpu + "');";
+            CG.ExecutarComandoSql(cmd);
+
+            //Pega id do hardware
+            cmd = "select max(id) from hardware;";
+            CG.ExecutarComandoSql(cmd);
+            Id_Hardware = CG.RetornarValorSQL();
+
+            //Pc ou Notebook
+            if (rdbComputador.Checked == true)
+            {
+                Pc_Note = "pc";
+            }
+            if (rdbNotebook.Checked == true)
+            {
+                Pc_Note = "Notebook";
+            }
+
+            //Salva Maquina
+            cmd = "INSERT INTO `maquina` " +
+                          "(`nome_maquina`, `nome_dominio`, `nome_usuario`, `id_hardware`, `pc_and_note`, `observacao`, `sistema_operacional`, `keyos`) " +
+                          "VALUES ('" + Nome_Maquina + "', '" + Nome_Dominio + "', '" + Nome_Usuario + "', '" + Id_Hardware + "', '" + Pc_Note + "', '" + Observacao + "', '" + SO + "', '" + KeyOS + "');";
+            CG.ExecutarComandoSql(cmd);
+
+            //Pega id da maquina
+            cmd = "select max(id) from maquina;";
+            CG.ExecutarComandoSql(cmd);
+            Id_Maquina = CG.RetornarValorSQL();
+
+            //Salvar Software
+            foreach (DataGridViewRow dgv in dgvSoftware.Rows)
+            {
+                //Pega a Key
+                string Licenca = dgv.Cells[1].Value.ToString();
+
+                //Pega id Da key
+                string cmd3 = "SELECT id FROM software_licencas where `key` = '" + Licenca + "';";
+                CG.ExecutarComandoSql(cmd3);
+                Id_Licenca = CG.RetornarValorSQL();
+
+                string cmd4 = "INSERT INTO `controle_maquina`.`maquina_software` (`id_maquina`, `id_licenca`) VALUES ('" + Id_Maquina + "', '" + Id_Licenca + "');";
+                CG.ExecutarComandoSql(cmd4);
+            }
 
 
         }
     }
 }
+

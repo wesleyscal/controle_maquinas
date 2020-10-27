@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbbSoftware = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,9 +41,7 @@
             this.btnNovoSoftware = new System.Windows.Forms.Button();
             this.btnNovaMaquina = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.cbbSoftware = new System.Windows.Forms.ComboBox();
+            this.cbbKey = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaquinas)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -50,9 +50,9 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Gray;
+            this.groupBox1.Controls.Add(this.cbbKey);
             this.groupBox1.Controls.Add(this.cbbSoftware);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.btnPesquisar);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -65,6 +65,26 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pesquisa";
+            // 
+            // cbbSoftware
+            // 
+            this.cbbSoftware.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbbSoftware.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbSoftware.FormattingEnabled = true;
+            this.cbbSoftware.Location = new System.Drawing.Point(158, 36);
+            this.cbbSoftware.Name = "cbbSoftware";
+            this.cbbSoftware.Size = new System.Drawing.Size(146, 23);
+            this.cbbSoftware.TabIndex = 8;
+            this.cbbSoftware.SelectedIndexChanged += new System.EventHandler(this.cbbSoftware_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(307, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(27, 15);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Key";
             // 
             // btnPesquisar
             // 
@@ -82,7 +102,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(159, 20);
+            this.label2.Location = new System.Drawing.Point(155, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 15);
             this.label2.TabIndex = 3;
@@ -165,32 +185,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Novo";
             // 
-            // label3
+            // cbbKey
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(311, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(27, 15);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Key";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox1.Location = new System.Drawing.Point(310, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(236, 21);
-            this.textBox1.TabIndex = 6;
-            // 
-            // cbbSoftware
-            // 
-            this.cbbSoftware.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.cbbSoftware.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbSoftware.FormattingEnabled = true;
-            this.cbbSoftware.Location = new System.Drawing.Point(158, 36);
-            this.cbbSoftware.Name = "cbbSoftware";
-            this.cbbSoftware.Size = new System.Drawing.Size(146, 23);
-            this.cbbSoftware.TabIndex = 8;
+            this.cbbKey.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbbKey.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbKey.FormattingEnabled = true;
+            this.cbbKey.Location = new System.Drawing.Point(310, 36);
+            this.cbbKey.Name = "cbbKey";
+            this.cbbKey.Size = new System.Drawing.Size(236, 23);
+            this.cbbKey.TabIndex = 28;
             // 
             // Form1
             // 
@@ -231,8 +234,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox cbbSoftware;
+        private System.Windows.Forms.ComboBox cbbKey;
     }
 }
 
