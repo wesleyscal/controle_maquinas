@@ -65,16 +65,16 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="NovaMaquina.cs">
+    <Compile Include="Novo\NovaMaquina.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NovaMaquina.Designer.cs">
+    <Compile Include="Novo\NovaMaquina.Designer.cs">
       <DependentUpon>NovaMaquina.cs</DependentUpon>
     </Compile>
-    <Compile Include="NovoSoftware.cs">
+    <Compile Include="Novo\NovoSoftware.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NovoSoftware.Designer.cs">
+    <Compile Include="Novo\NovoSoftware.Designer.cs">
       <DependentUpon>NovoSoftware.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -82,10 +82,10 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NovaMaquina.resx">
+    <EmbeddedResource Include="Novo\NovaMaquina.resx">
       <DependentUpon>NovaMaquina.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NovoSoftware.resx">
+    <EmbeddedResource Include="Novo\NovoSoftware.resx">
       <DependentUpon>NovoSoftware.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -111,7 +111,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="icon.ico" />
     <Content Include="Principal.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

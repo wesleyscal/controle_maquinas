@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbbKey = new System.Windows.Forms.ComboBox();
             this.cbbSoftware = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnPesquisar = new System.Windows.Forms.Button();
@@ -41,7 +42,6 @@
             this.btnNovoSoftware = new System.Windows.Forms.Button();
             this.btnNovaMaquina = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbbKey = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaquinas)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -65,6 +65,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pesquisa";
+            // 
+            // cbbKey
+            // 
+            this.cbbKey.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbbKey.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbKey.FormattingEnabled = true;
+            this.cbbKey.Location = new System.Drawing.Point(310, 36);
+            this.cbbKey.Name = "cbbKey";
+            this.cbbKey.Size = new System.Drawing.Size(236, 23);
+            this.cbbKey.TabIndex = 28;
             // 
             // cbbSoftware
             // 
@@ -132,6 +142,7 @@
             this.dgvMaquinas.Name = "dgvMaquinas";
             this.dgvMaquinas.Size = new System.Drawing.Size(914, 439);
             this.dgvMaquinas.TabIndex = 1;
+            this.dgvMaquinas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaquinas_CellDoubleClick);
             // 
             // textBox2
             // 
@@ -184,16 +195,6 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Novo";
-            // 
-            // cbbKey
-            // 
-            this.cbbKey.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.cbbKey.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbKey.FormattingEnabled = true;
-            this.cbbKey.Location = new System.Drawing.Point(310, 36);
-            this.cbbKey.Name = "cbbKey";
-            this.cbbKey.Size = new System.Drawing.Size(236, 23);
-            this.cbbKey.TabIndex = 28;
             // 
             // Form1
             // 

@@ -15,12 +15,14 @@ namespace controle_maquinas
     public partial class Form1 : Form
     {
         DBC CG = new DBC();
+        public static DataTable dt = new DataTable();
 
         public Form1()
         {
             InitializeComponent();
         }
 
+        //Metodos
         private void ConfigCBB()
         {
             cbbSoftware.Items.Clear();
@@ -50,7 +52,16 @@ namespace controle_maquinas
                 cbbSoftware.Items.Add(Software);
             }
         }
+        private void CarregarDGV()
+        {
+            string cmd = "select id, nome_maquina 'Nome Maquina', nome_dominio 'Nome Dominio', nome_usuario 'Nome Usuario', sistema_operacional 'Sistema Operacional' from maquina";
+            CG.ExecutarComandoSql(cmd);
+            CG.ExibirDGV(dgvMaquinas);
+            CG.FormatarDGV(dgvMaquinas);
+            dgvMaquinas.Columns[0].Visible = false;
+        }
 
+        //Form
         private void Form1_Load(object sender, EventArgs e)
         {
             //Configurar Banco
@@ -59,27 +70,30 @@ namespace controle_maquinas
                 CG.ConectarBancoDeDados();
             }
             catch
-            {                
+            {
                 ConfigurarBanco CB = new ConfigurarBanco();
                 CB.ShowDialog();
             }
 
-            ConfigCBB();
+            
 
+            ConfigCBB();
+            CarregarDGV();
         }
 
+        //Botão
         private void btnNovoSoftware_Click(object sender, EventArgs e)
         {
             NovoSoftware form = new NovoSoftware();
             form.ShowDialog();
         }
-
         private void btnNovaMaquina_Click(object sender, EventArgs e)
         {
             NovaMaquina Form = new NovaMaquina();
             Form.ShowDialog();
         }
 
+        //ComboBox
         private void cbbSoftware_SelectedIndexChanged(object sender, EventArgs e)
         {
             string Software = "";
@@ -91,7 +105,7 @@ namespace controle_maquinas
             if (cbbSoftware.Text != "Selecionar Software")
             {
                 Software = cbbSoftware.Text;
-                string cmd = "SELECT * FROM software_licencas where software = '" + Software + "' and disponivel = 's';";
+                string cmd = "SELECT * FROM software_licencas where software = '" + Software + "' ;";
                 CG.ExecutarComandoSql(cmd);
 
                 //Declara um DataTable
@@ -115,6 +129,24 @@ namespace controle_maquinas
             else
             {
                 return;
+            }
+        }
+
+        private void dgvMaquinas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                string codigo = dgvMaquinas.CurrentRow.Cells[0].Value.ToString();
+
+                string cmd = "select id, nome_maquina 'Nome Maquina', nome_dominio 'Nome Dominio', nome_usuario 'Nome Usuario', sistema_operacional 'Sistema Operacional' " +
+                             "from maquina " +
+                             "where id = '" + codigo + "'";
+                CG.ExecutarComandoSql(cmd);
+                CG.RetornarDadosDataTable(dt);
+
+                //Ordem Form = new Ordem();
+                //Form.ShowDialog();
+                //atualizarform();
             }
         }
     }
