@@ -65,6 +65,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Maquina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maquina.Designer.cs">
+      <DependentUpon>Maquina.cs</DependentUpon>
+    </Compile>
     <Compile Include="Novo\NovaMaquina.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maquina.resx">
+      <DependentUpon>Maquina.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Novo\NovaMaquina.resx">
       <DependentUpon>NovaMaquina.cs</DependentUpon>

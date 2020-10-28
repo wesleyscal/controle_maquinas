@@ -36,3 +36,4 @@ C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\
 C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.exe
 C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.pdb
 C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.NovaMaquina.resources
+C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.Maquina.resources
