@@ -58,13 +58,14 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnLimparSoftware = new System.Windows.Forms.Button();
             this.dgvSoftware = new System.Windows.Forms.DataGridView();
+            this.Sofware = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Key = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.cbbKey = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.cbbSoftware = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.Sofware = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Key = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnFechar = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -307,7 +308,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(12, 328);
+            this.label9.Location = new System.Drawing.Point(12, 325);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 13);
             this.label9.TabIndex = 22;
@@ -316,10 +317,10 @@
             // txtObservacao
             // 
             this.txtObservacao.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtObservacao.Location = new System.Drawing.Point(12, 344);
+            this.txtObservacao.Location = new System.Drawing.Point(12, 341);
             this.txtObservacao.Multiline = true;
             this.txtObservacao.Name = "txtObservacao";
-            this.txtObservacao.Size = new System.Drawing.Size(604, 59);
+            this.txtObservacao.Size = new System.Drawing.Size(585, 52);
             this.txtObservacao.TabIndex = 17;
             // 
             // btnLimpar
@@ -328,9 +329,9 @@
             this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpar.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpar.ForeColor = System.Drawing.Color.Gold;
-            this.btnLimpar.Location = new System.Drawing.Point(782, 331);
+            this.btnLimpar.Location = new System.Drawing.Point(716, 331);
             this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(154, 72);
+            this.btnLimpar.Size = new System.Drawing.Size(107, 62);
             this.btnLimpar.TabIndex = 15;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = false;
@@ -341,9 +342,9 @@
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvar.ForeColor = System.Drawing.Color.Gold;
-            this.btnSalvar.Location = new System.Drawing.Point(622, 331);
+            this.btnSalvar.Location = new System.Drawing.Point(603, 331);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(154, 72);
+            this.btnSalvar.Size = new System.Drawing.Size(107, 62);
             this.btnSalvar.TabIndex = 14;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
@@ -390,6 +391,18 @@
             this.dgvSoftware.ReadOnly = true;
             this.dgvSoftware.Size = new System.Drawing.Size(453, 249);
             this.dgvSoftware.TabIndex = 28;
+            // 
+            // Sofware
+            // 
+            this.Sofware.HeaderText = "Software";
+            this.Sofware.Name = "Sofware";
+            this.Sofware.ReadOnly = true;
+            // 
+            // Key
+            // 
+            this.Key.HeaderText = "Key";
+            this.Key.Name = "Key";
+            this.Key.ReadOnly = true;
             // 
             // btnAdicionar
             // 
@@ -444,24 +457,26 @@
             this.label12.TabIndex = 25;
             this.label12.Text = "Software";
             // 
-            // Sofware
+            // btnFechar
             // 
-            this.Sofware.HeaderText = "Software";
-            this.Sofware.Name = "Sofware";
-            this.Sofware.ReadOnly = true;
-            // 
-            // Key
-            // 
-            this.Key.HeaderText = "Key";
-            this.Key.Name = "Key";
-            this.Key.ReadOnly = true;
+            this.btnFechar.BackColor = System.Drawing.Color.Maroon;
+            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFechar.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFechar.ForeColor = System.Drawing.Color.Gold;
+            this.btnFechar.Location = new System.Drawing.Point(829, 331);
+            this.btnFechar.Name = "btnFechar";
+            this.btnFechar.Size = new System.Drawing.Size(107, 62);
+            this.btnFechar.TabIndex = 24;
+            this.btnFechar.Text = "Fechar";
+            this.btnFechar.UseVisualStyleBackColor = false;
             // 
             // NovaMaquina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(948, 415);
+            this.ClientSize = new System.Drawing.Size(948, 403);
+            this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.label9);
@@ -528,5 +543,6 @@
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sofware;
         private System.Windows.Forms.DataGridViewTextBoxColumn Key;
+        private System.Windows.Forms.Button btnFechar;
     }
 }

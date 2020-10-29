@@ -132,21 +132,21 @@ namespace controle_maquinas
             }
         }
 
+        //DataGridView
         private void dgvMaquinas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
             {
                 string codigo = dgvMaquinas.CurrentRow.Cells[0].Value.ToString();
 
-                string cmd = "select id, nome_maquina 'Nome Maquina', nome_dominio 'Nome Dominio', nome_usuario 'Nome Usuario', sistema_operacional 'Sistema Operacional' " +
+                string cmd = "select * " +
                              "from maquina " +
                              "where id = '" + codigo + "'";
                 CG.ExecutarComandoSql(cmd);
                 CG.RetornarDadosDataTable(dt);
 
-                //Ordem Form = new Ordem();
-                //Form.ShowDialog();
-                //atualizarform();
+                Maquina Form = new Maquina();
+                Form.ShowDialog();                
             }
         }
     }
