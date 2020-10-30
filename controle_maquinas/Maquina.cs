@@ -341,12 +341,23 @@ namespace controle_maquinas
         }
         private void btnLimparSoftware_Click(object sender, EventArgs e)
         {
+            DialogResult confirm = MessageBox.Show("Deseja Remover todos os software?", "Limpar Software", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            if (confirm.ToString().ToUpper() != "YES")
+            {
+                return;
+            }
+
             dgvSoftware.Rows.Clear();
             cbbSoftware.SelectedIndex = 0;
             cbbKey.SelectedIndex = 0;
         }
         private void btnFechar_Click(object sender, EventArgs e)
         {
+            DialogResult confirm = MessageBox.Show("Deseja Fechar\n Todas as alterações serão perdidas?", "Fechar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            if (confirm.ToString().ToUpper() != "YES")
+            {
+                return;
+            }
             Close();
         }
         private void btnRemover_Click(object sender, EventArgs e)
@@ -361,6 +372,12 @@ namespace controle_maquinas
         }
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            DialogResult confirm = MessageBox.Show("Deseja Continuar?", "Salvar alterações", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            if (confirm.ToString().ToUpper() != "YES")
+            {
+                return;
+            }
+
             #region Validaçao
             //Validação
             if (txtDominio.Text.Trim() == "")
@@ -546,6 +563,12 @@ namespace controle_maquinas
         }
         private void btnResetar_Click(object sender, EventArgs e)
         {
+            DialogResult confirm = MessageBox.Show("Deseja Continuar?", "Resetar Padrão", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            if (confirm.ToString().ToUpper() != "YES")
+            {
+                return;
+            }
+
             AtualizarForm();
             CarregarInformacoesPesquisa();
         }
