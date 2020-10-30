@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rdbNotebook = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,6 +56,7 @@
             this.txtObservacao = new System.Windows.Forms.TextBox();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnRemover = new System.Windows.Forms.Button();
             this.btnLimparSoftware = new System.Windows.Forms.Button();
             this.dgvSoftware = new System.Windows.Forms.DataGridView();
             this.Sofware = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,7 +67,7 @@
             this.cbbSoftware = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.btnFechar = new System.Windows.Forms.Button();
-            this.btnRemover = new System.Windows.Forms.Button();
+            this.btnResetar = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -125,6 +127,7 @@
             // txtUser
             // 
             this.txtUser.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtUser.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtUser.Location = new System.Drawing.Point(178, 71);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(163, 20);
@@ -142,6 +145,7 @@
             // txtDominio
             // 
             this.txtDominio.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtDominio.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtDominio.Location = new System.Drawing.Point(178, 32);
             this.txtDominio.Name = "txtDominio";
             this.txtDominio.Size = new System.Drawing.Size(163, 20);
@@ -159,6 +163,7 @@
             // txtMaquina
             // 
             this.txtMaquina.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtMaquina.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtMaquina.Location = new System.Drawing.Point(9, 71);
             this.txtMaquina.Name = "txtMaquina";
             this.txtMaquina.Size = new System.Drawing.Size(163, 20);
@@ -185,6 +190,7 @@
             // txtProcessador
             // 
             this.txtProcessador.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtProcessador.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtProcessador.Location = new System.Drawing.Point(9, 30);
             this.txtProcessador.Name = "txtProcessador";
             this.txtProcessador.Size = new System.Drawing.Size(163, 20);
@@ -193,6 +199,7 @@
             // txtGpu
             // 
             this.txtGpu.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtGpu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtGpu.Location = new System.Drawing.Point(9, 69);
             this.txtGpu.Name = "txtGpu";
             this.txtGpu.Size = new System.Drawing.Size(163, 20);
@@ -201,6 +208,7 @@
             // txtMemoria
             // 
             this.txtMemoria.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtMemoria.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtMemoria.Location = new System.Drawing.Point(178, 69);
             this.txtMemoria.Name = "txtMemoria";
             this.txtMemoria.Size = new System.Drawing.Size(163, 20);
@@ -227,6 +235,7 @@
             // txtArmazenamento
             // 
             this.txtArmazenamento.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtArmazenamento.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtArmazenamento.Location = new System.Drawing.Point(178, 30);
             this.txtArmazenamento.Name = "txtArmazenamento";
             this.txtArmazenamento.Size = new System.Drawing.Size(163, 20);
@@ -269,6 +278,7 @@
             // 
             this.cbbKeyOS.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbbKeyOS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbKeyOS.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cbbKeyOS.FormattingEnabled = true;
             this.cbbKeyOS.Location = new System.Drawing.Point(9, 70);
             this.cbbKeyOS.Name = "cbbKeyOS";
@@ -297,6 +307,7 @@
             // 
             this.cbbOS.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbbOS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbOS.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cbbOS.FormattingEnabled = true;
             this.cbbOS.Location = new System.Drawing.Point(9, 29);
             this.cbbOS.Name = "cbbOS";
@@ -308,7 +319,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(11, 324);
+            this.label9.Location = new System.Drawing.Point(124, 326);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 13);
             this.label9.TabIndex = 22;
@@ -317,10 +328,11 @@
             // txtObservacao
             // 
             this.txtObservacao.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtObservacao.Location = new System.Drawing.Point(12, 340);
+            this.txtObservacao.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtObservacao.Location = new System.Drawing.Point(125, 340);
             this.txtObservacao.Multiline = true;
             this.txtObservacao.Name = "txtObservacao";
-            this.txtObservacao.Size = new System.Drawing.Size(671, 53);
+            this.txtObservacao.Size = new System.Drawing.Size(238, 134);
             this.txtObservacao.TabIndex = 17;
             // 
             // btnSalvar
@@ -329,9 +341,9 @@
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvar.ForeColor = System.Drawing.Color.Gold;
-            this.btnSalvar.Location = new System.Drawing.Point(689, 331);
+            this.btnSalvar.Location = new System.Drawing.Point(12, 328);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(107, 62);
+            this.btnSalvar.Size = new System.Drawing.Size(107, 46);
             this.btnSalvar.TabIndex = 14;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
@@ -347,12 +359,27 @@
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.cbbSoftware);
             this.groupBox4.Controls.Add(this.label12);
+            this.groupBox4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox4.Location = new System.Drawing.Point(369, 12);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(540, 313);
+            this.groupBox4.Size = new System.Drawing.Size(540, 462);
             this.groupBox4.TabIndex = 23;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Software";
+            this.groupBox4.Text = "Licença";
+            // 
+            // btnRemover
+            // 
+            this.btnRemover.BackColor = System.Drawing.Color.Maroon;
+            this.btnRemover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemover.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemover.ForeColor = System.Drawing.Color.Gold;
+            this.btnRemover.Location = new System.Drawing.Point(439, 71);
+            this.btnRemover.Name = "btnRemover";
+            this.btnRemover.Size = new System.Drawing.Size(93, 46);
+            this.btnRemover.TabIndex = 30;
+            this.btnRemover.Text = "Remover";
+            this.btnRemover.UseVisualStyleBackColor = false;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // btnLimparSoftware
             // 
@@ -360,7 +387,7 @@
             this.btnLimparSoftware.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimparSoftware.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimparSoftware.ForeColor = System.Drawing.Color.Gold;
-            this.btnLimparSoftware.Location = new System.Drawing.Point(439, 261);
+            this.btnLimparSoftware.Location = new System.Drawing.Point(439, 410);
             this.btnLimparSoftware.Name = "btnLimparSoftware";
             this.btnLimparSoftware.Size = new System.Drawing.Size(93, 46);
             this.btnLimparSoftware.TabIndex = 24;
@@ -376,10 +403,13 @@
             this.dgvSoftware.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Sofware,
             this.Key});
+            this.dgvSoftware.GridColor = System.Drawing.Color.DimGray;
             this.dgvSoftware.Location = new System.Drawing.Point(9, 56);
             this.dgvSoftware.Name = "dgvSoftware";
             this.dgvSoftware.ReadOnly = true;
-            this.dgvSoftware.Size = new System.Drawing.Size(424, 249);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgvSoftware.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvSoftware.Size = new System.Drawing.Size(424, 400);
             this.dgvSoftware.TabIndex = 28;
             // 
             // Sofware
@@ -412,6 +442,7 @@
             // 
             this.cbbKey.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbbKey.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbKey.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cbbKey.FormattingEnabled = true;
             this.cbbKey.Location = new System.Drawing.Point(221, 29);
             this.cbbKey.Name = "cbbKey";
@@ -421,6 +452,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label10.Location = new System.Drawing.Point(218, 12);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(25, 13);
@@ -431,6 +463,7 @@
             // 
             this.cbbSoftware.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbbSoftware.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbSoftware.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cbbSoftware.FormattingEnabled = true;
             this.cbbSoftware.Location = new System.Drawing.Point(9, 29);
             this.cbbSoftware.Name = "cbbSoftware";
@@ -441,6 +474,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label12.Location = new System.Drawing.Point(6, 16);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(49, 13);
@@ -453,34 +487,35 @@
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFechar.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFechar.ForeColor = System.Drawing.Color.Gold;
-            this.btnFechar.Location = new System.Drawing.Point(802, 331);
+            this.btnFechar.Location = new System.Drawing.Point(12, 428);
             this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(107, 62);
+            this.btnFechar.Size = new System.Drawing.Size(107, 46);
             this.btnFechar.TabIndex = 29;
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = false;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
-            // btnRemover
+            // btnResetar
             // 
-            this.btnRemover.BackColor = System.Drawing.Color.Maroon;
-            this.btnRemover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemover.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemover.ForeColor = System.Drawing.Color.Gold;
-            this.btnRemover.Location = new System.Drawing.Point(439, 71);
-            this.btnRemover.Name = "btnRemover";
-            this.btnRemover.Size = new System.Drawing.Size(93, 46);
-            this.btnRemover.TabIndex = 30;
-            this.btnRemover.Text = "Remover";
-            this.btnRemover.UseVisualStyleBackColor = false;
-            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
+            this.btnResetar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnResetar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResetar.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetar.ForeColor = System.Drawing.Color.Gold;
+            this.btnResetar.Location = new System.Drawing.Point(12, 378);
+            this.btnResetar.Name = "btnResetar";
+            this.btnResetar.Size = new System.Drawing.Size(107, 46);
+            this.btnResetar.TabIndex = 30;
+            this.btnResetar.Text = "Resetar Padrão";
+            this.btnResetar.UseVisualStyleBackColor = false;
+            this.btnResetar.Click += new System.EventHandler(this.btnResetar_Click);
             // 
             // Maquina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(923, 408);
+            this.ClientSize = new System.Drawing.Size(923, 485);
+            this.Controls.Add(this.btnResetar);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.label9);
@@ -489,6 +524,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
+            this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Maquina";
@@ -549,5 +585,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Key;
         private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.Button btnRemover;
+        private System.Windows.Forms.Button btnResetar;
     }
 }

@@ -203,7 +203,6 @@ namespace controle_maquinas
         //Botão
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            string cmd = "";
             string Verificar = "";
             string software = cbbSoftware.Text;
             string key = cbbKey.Text;
@@ -240,20 +239,6 @@ namespace controle_maquinas
         }
         private void btnLimparSoftware_Click(object sender, EventArgs e)
         {
-            string Id_Licenca = "";
-            string cmd = "";
-
-            //Salvar Software
-            foreach (DataGridViewRow dgv in dgvSoftware.Rows)
-            {
-                //Pega a Key
-                string key = dgv.Cells[1].Value.ToString();
-
-                //Pega id Da key
-                cmd = "SELECT id FROM software_licencas where `key` = '" + key + "';";
-                CG.ExecutarComandoSql(cmd);
-                Id_Licenca = CG.RetornarValorSQL();
-            }
             dgvSoftware.Rows.Clear();
             cbbSoftware.SelectedIndex = 0;
             cbbKey.SelectedIndex = 0;
@@ -422,7 +407,6 @@ namespace controle_maquinas
         {
             Close();
         }
-
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             txtMaquina.Clear();

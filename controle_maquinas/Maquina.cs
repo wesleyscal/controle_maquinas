@@ -16,9 +16,10 @@ namespace controle_maquinas
         DBC CG = new DBC();
 
         //Variaveis Form
-        string KeyOS = "";
+        string OSAntiga = "";
+        string KeyOSAntiga = "";
         string Id_Maquina = "";
-
+        string Id_hardware = "";
 
         public Maquina()
         {
@@ -118,12 +119,99 @@ namespace controle_maquinas
             AtualizarCbbOs();
             AtualizarCbbSoftware();
         }
+        private void CarregarInformacoesPesquisa()
+        {
+            //Declara os DataTable
+            DataTable Dt_Maquina = new DataTable();
+            DataTable Dt_Software = new DataTable();
+
+            //Variaveis
+            string cmd = "";
+            string PcNote = "";
+            string Id_Software = "";
+            string Software = "";
+            string KeySoftware = "";
+
+            //Se o retorno for null Fecha o forme
+            if (Form1.dt.Rows.Count == 0)
+            {
+                Close();
+            }
+
+            //Preenche Maquina e Sistemo Operacional
+            foreach (DataRow r in Form1.dt.Rows)
+            {
+                Id_Maquina = r[0].ToString();
+                txtMaquina.Text = r[1].ToString();
+                txtDominio.Text = r[2].ToString();
+                txtUser.Text = r[3].ToString();
+                Id_hardware = r[4].ToString();
+                PcNote = r[5].ToString();
+                txtObservacao.Text = r[6].ToString();
+                cbbOS.SelectedItem = r[7].ToString();
+                OSAntiga = r[7].ToString();
+                KeyOSAntiga = r[8].ToString();
+                cbbKeyOS.Items.Add(KeyOSAntiga);
+                cbbKeyOS.SelectedItem = KeyOSAntiga;
+            }
+            if (PcNote == "pc")
+            {
+                rdbComputador.Checked = true;
+            }
+            if (PcNote == "Notebook")
+            {
+                rdbNotebook.Checked = true;
+            }
+
+            //Preenche hardware
+            cmd = "SELECT * FROM hardware where id = " + Id_hardware + ";";
+            CG.ExecutarComandoSql(cmd);
+            CG.RetornarDadosDataTable(Dt_Maquina);
+            foreach (DataRow r in Dt_Maquina.Rows)
+            {
+                txtProcessador.Text = r[1].ToString();
+                txtMemoria.Text = r[2].ToString();
+                txtArmazenamento.Text = r[3].ToString();
+                txtGpu.Text = r[4].ToString();
+            }
+
+            //Limpa o DataTable
+            Dt_Maquina.Rows.Clear();
+            Dt_Maquina.Columns.Clear();
+
+            //Pega os Id do Software
+            cmd = "SELECT id_licenca FROM maquina_software where id_maquina = " + Id_Maquina + ";";
+            CG.ExecutarComandoSql(cmd);
+            CG.RetornarDadosDataTable(Dt_Maquina);
+
+            //Preenche Software
+            foreach (DataRow r in Dt_Maquina.Rows)
+            {
+                Id_Software = r[0].ToString();
+                Software = "";
+                KeySoftware = "";
+
+                cmd = "SELECT software, `key` FROM software_licencas where id = " + Id_Software + ";";
+                CG.ExecutarComandoSql(cmd);
+                CG.RetornarDadosDataTable(Dt_Software);
+
+                //Adicona os software no datagridview
+                foreach (DataRow r2 in Dt_Software.Rows)
+                {
+                    Software = r2[0].ToString();
+                    KeySoftware = r2[1].ToString();
+                }
+
+                Dt_Software.Rows.Clear();
+                dgvSoftware.Rows.Add(Software, KeySoftware);
+            }
+        }
 
         //Form
         private void NovaMaquina_Load(object sender, EventArgs e)
         {
             //Formata DGV
-            CG.FormatarDGV(dgvSoftware); 
+            CG.FormatarDGV(dgvSoftware);
 
             //Remover linha em branco DataGridView
             dgvSoftware.AllowUserToAddRows = false;
@@ -207,6 +295,12 @@ namespace controle_maquinas
             {
                 return;
             }
+
+            if (cbbOS.Text == OSAntiga)
+            {
+                cbbKeyOS.Items.Add(KeyOSAntiga);
+                cbbKeyOS.SelectedItem = KeyOSAntiga;
+            }
         }
 
         //Botão
@@ -227,6 +321,7 @@ namespace controle_maquinas
                 return;
             }
 
+
             foreach (DataGridViewRow dgv in dgvSoftware.Rows)
             {
                 Verificar = dgv.Cells[1].Value.ToString();
@@ -246,146 +341,213 @@ namespace controle_maquinas
         }
         private void btnLimparSoftware_Click(object sender, EventArgs e)
         {
-            string Id_Licenca = "";
-            string cmd = "";
-
-            //Limpar Software
-            foreach (DataGridViewRow dgv in dgvSoftware.Rows)
-            {
-                //Pega a Key
-                string key = dgv.Cells[1].Value.ToString();
-
-                //Pega id Da key
-                cmd = "SELECT id FROM software_licencas where `key` = '" + key + "';";
-                CG.ExecutarComandoSql(cmd);
-                Id_Licenca = CG.RetornarValorSQL();
-
-                //Marca Software como Disponivel
-                cmd = "UPDATE `software_licencas` SET `disponivel` = 's' WHERE (`id` = '" + Id_Licenca + "' and fpp = 's');";
-                CG.ExecutarComandoSql(cmd);
-            }
-
             dgvSoftware.Rows.Clear();
             cbbSoftware.SelectedIndex = 0;
             cbbKey.SelectedIndex = 0;
-
-            cmd = "DELETE FROM `maquina_software` WHERE (`id_maquina` = '" + Id_Maquina + "');";
-            CG.ExecutarComandoSql(cmd);
         }
-        private void btnSalvar_Click(object sender, EventArgs e)
-        {            
-
-        }
-
-        /*----------------------------------------------------------------------------------------------------------------------------------------------
-         * ----------------------------------------------------------------------------------------------------------------------------------------------
-         * --------------------------------------------VVVVVVVVV-Nova Parte-VVVVVVVVV---------------------------------------------------------------------
-         * ----------------------------------------------------------------------------------------------------------------------------------------------
-         * ----------------------------------------------------------------------------------------------------------------------------------------------
-         * ----------------------------------------------------------------------------------------------------------------------------------------------
-         */
-
-        private void CarregarInformacoesPesquisa()
-        {
-            //Declara os DataTable
-            DataTable Dt_Maquina = new DataTable();
-            DataTable Dt_Software = new DataTable();
-
-            //Variaveis
-            string cmd = "";
-            string PcNote = "";            
-            string Id_hardware = "";
-            string Id_Software = "";
-            string Software = "";
-            string KeySoftware = "";
-
-            //Se o retorno for null Fecha o forme
-            if (Form1.dt.Rows.Count == 0)
-            {
-                Close();
-            }
-
-            //Preenche Maquina e Sistemo Operacional
-            foreach (DataRow r in Form1.dt.Rows)
-            {
-                Id_Maquina = r[0].ToString();
-                txtMaquina.Text = r[1].ToString();
-                txtDominio.Text = r[2].ToString();
-                txtUser.Text = r[3].ToString();
-                Id_hardware = r[4].ToString();
-                PcNote = r[5].ToString();
-                txtObservacao.Text = r[6].ToString();
-                cbbOS.SelectedItem = r[7].ToString();
-                cbbKeyOS.SelectedItem = r[8].ToString();
-                KeyOS = r[8].ToString();
-            }
-            if (PcNote == "pc")
-            {
-                rdbComputador.Checked = true;
-            }
-            if (PcNote == "Notebook")
-            {
-                rdbNotebook.Checked = true;
-            }
-
-            //Preenche hardware
-            cmd = "SELECT * FROM hardware where id = " + Id_hardware + ";";
-            CG.ExecutarComandoSql(cmd);
-            CG.RetornarDadosDataTable(Dt_Maquina);
-            foreach (DataRow r in Dt_Maquina.Rows)
-            {
-                txtProcessador.Text = r[1].ToString();
-                txtMemoria.Text = r[2].ToString();
-                txtArmazenamento.Text = r[3].ToString();
-                txtGpu.Text = r[4].ToString();
-            }
-
-            //Limpa o DataTable
-            Dt_Maquina.Rows.Clear();
-            Dt_Maquina.Columns.Clear();
-            
-            //Pega os Id do Software
-            cmd = "SELECT id_licenca FROM maquina_software where id_maquina = " + Id_Maquina + ";";
-            CG.ExecutarComandoSql(cmd);
-            CG.RetornarDadosDataTable(Dt_Maquina);
-
-            //Preenche Software
-            foreach (DataRow r in Dt_Maquina.Rows)
-            {
-                Id_Software = r[0].ToString();
-                Software = "";
-                KeySoftware = "";
-
-                cmd = "SELECT software, `key` FROM software_licencas where id = " + Id_Software + ";";
-                CG.ExecutarComandoSql(cmd);
-                CG.RetornarDadosDataTable(Dt_Software);
-
-                //Adicona os software no datagridview
-                foreach (DataRow r2 in Dt_Software.Rows)
-                {
-                    Software = r2[0].ToString();
-                    KeySoftware = r2[1].ToString();
-                }
-
-                Dt_Software.Rows.Clear();
-                dgvSoftware.Rows.Add(Software, KeySoftware);
-            }
-        }
-
         private void btnFechar_Click(object sender, EventArgs e)
         {
             Close();
         }
-
         private void btnRemover_Click(object sender, EventArgs e)
         {
-            if(dgvSoftware.RowCount == 0)
+            if (dgvSoftware.RowCount == 0)
             {
                 MessageBox.Show("Não a Licenca");
                 return;
             }
 
             dgvSoftware.Rows.RemoveAt(dgvSoftware.CurrentRow.Index);
+        }
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            #region Validaçao
+            //Validação
+            if (txtDominio.Text.Trim() == "")
+            {
+                MessageBox.Show("Informe o domínio!", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (txtMaquina.Text.Trim() == "")
+            {
+                MessageBox.Show("Informe o Nome da maquina!", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (txtUser.Text.Trim() == "")
+            {
+                MessageBox.Show("Informe o Usuário real!", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (txtProcessador.Text.Trim() == "")
+            {
+                MessageBox.Show("Informe o Processador\nCaso não tenha Informe \"NA\" !", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (txtMemoria.Text.Trim() == "")
+            {
+                MessageBox.Show("Informe a Memoria\nCaso não tenha Informe \"NA\" !", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (txtArmazenamento.Text.Trim() == "")
+            {
+                MessageBox.Show("Informe o Armazenamento\nCaso não tenha Informe \"NA\" !", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (txtGpu.Text.Trim() == "")
+            {
+                MessageBox.Show("Informe a GPU\nCaso não tenha Informe \"NA\" !", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (cbbOS.SelectedIndex == 0)
+            {
+                MessageBox.Show("Selecione o Sistema Operacional!", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (cbbKeyOS.SelectedIndex == 0)
+            {
+                MessageBox.Show("Selecione a Key do Sistema Operacional!", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            #endregion
+
+            #region Variaveis
+            DataTable Dt_Software = new DataTable();
+
+            //Comando Mysql
+            string cmd = "";
+
+            //Verificar
+            string disponibilidade = "";
+
+            //Maquina
+            string Nome_Maquina = txtMaquina.Text;
+            string Nome_Dominio = txtDominio.Text;
+            string Nome_Usuario = txtUser.Text;
+            string Pc_Note = "";
+            string Observacao = txtObservacao.Text;
+            string SO = cbbOS.Text;
+            string KeyOS = cbbKeyOS.Text;
+
+            //Hardware
+            string Processador = txtProcessador.Text;
+            string Memoria = txtMemoria.Text;
+            string Armazenamento = txtArmazenamento.Text;
+            string Gpu = txtGpu.Text;
+
+            //Pc ou Notebook
+            if (rdbComputador.Checked == true)
+            {
+                Pc_Note = "pc";
+            }
+            if (rdbNotebook.Checked == true)
+            {
+                Pc_Note = "Notebook";
+            }
+
+            //Software
+            string Id_Software = "";
+            #endregion
+
+            #region HardWare
+            //Update Hardware
+            cmd = "UPDATE `hardware` " +
+                  "SET `processador` = '" + Processador + "', `memoria` = '" + Memoria + "', `armazenamento` = '" + Armazenamento + "', `gpu` = '" + Gpu + "' " +
+                  "WHERE `id` = '" + Id_hardware + "';";
+            CG.ExecutarComandoSql(cmd);
+            #endregion
+
+            #region Maquina
+            //Libera a Key se for alterada
+            if (KeyOSAntiga != KeyOS)
+            {
+                //Marca OS como disponivel
+                cmd = "UPDATE `software_licencas` SET `disponivel` = 's' WHERE (`key` = '" + KeyOSAntiga + "');";
+                CG.ExecutarComandoSql(cmd);
+            }
+
+            //Salva Maquina
+            cmd = "UPDATE `maquina` " +
+                  "SET `nome_maquina` = '" + Nome_Maquina + "', " +
+                  "`nome_dominio` = '" + Nome_Dominio + "', " +
+                  "`nome_usuario` = '" + Nome_Usuario + "', " +
+                  "`pc_and_note` = '" + Pc_Note + "', " +
+                  "`observacao` = '" + Observacao + "', " +
+                  "`sistema_operacional` = '" + SO + "', " +
+                  "`keyos` = '" + KeyOS + "' " +
+                  "WHERE (`id` = '" + Id_Maquina + "');";
+            CG.ExecutarComandoSql(cmd);
+
+            //Marca licença Sistemo Operacional em uso
+            cmd = "UPDATE `software_licencas` SET `disponivel` = 'n' WHERE (`key` = '" + KeyOS + "' and fpp = 's');";
+            CG.ExecutarComandoSql(cmd);
+            #endregion            
+
+            #region SoftWare
+            //Verifica se o datagridview esta vazio
+            if (dgvSoftware.RowCount != 0)
+            {
+
+                //Pega os Id do Software
+                cmd = "SELECT id_licenca FROM maquina_software where id_maquina = " + Id_Maquina + ";";
+                CG.ExecutarComandoSql(cmd);
+                CG.RetornarDadosDataTable(Dt_Software);
+
+                //Liberar os software
+                foreach (DataRow r in Dt_Software.Rows)
+                {
+                    Id_Software = r[0].ToString();
+
+                    cmd = "UPDATE `software_licencas` SET `disponivel` = 's' WHERE (`id` = '" + Id_Software + "');";
+                    CG.ExecutarComandoSql(cmd);
+                }
+
+                //Limpa a lista de software
+                cmd = "DELETE FROM `maquina_software` WHERE (`id_maquina` = '" + Id_Maquina + "');";
+                CG.ExecutarComandoSql(cmd);
+
+                Id_Software = "";
+
+                //Salvar Software
+                foreach (DataGridViewRow dgv in dgvSoftware.Rows)
+                {
+                    //Pega a Key e software
+                    string Software = dgv.Cells[0].Value.ToString();
+                    string Licenca = dgv.Cells[1].Value.ToString();
+
+                    //Pega id Da key
+                    cmd = "SELECT id FROM software_licencas where `key` = '" + Licenca + "';";
+                    CG.ExecutarComandoSql(cmd);
+                    Id_Software = CG.RetornarValorSQL();
+
+                    //Verifica se esta disponivel
+                    cmd = "SELECT disponivel FROM software_licencas where `id` = '" + Id_Software + "';";
+                    CG.ExecutarComandoSql(cmd);
+                    disponibilidade = CG.RetornarValorSQL();
+
+                    if (disponibilidade == "s")
+                    {
+                        //Insere no banco de dados
+                        cmd = "INSERT INTO `maquina_software` (`id_maquina`, `id_licenca`) VALUES ('" + Id_Maquina + "', '" + Id_Software + "');";
+                        CG.ExecutarComandoSql(cmd);
+
+                        //Marca Software em uso
+                        cmd = "UPDATE `software_licencas` SET `disponivel` = 'n' WHERE (`id` = '" + Id_Software + "' and fpp = 's');";
+                        CG.ExecutarComandoSql(cmd);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Esta em Uso\n\n" + "Software: " + Software + "key: " + Licenca);
+                    }
+                }
+            }
+            #endregion
+
+            Close();
+        }
+        private void btnResetar_Click(object sender, EventArgs e)
+        {
+            AtualizarForm();
+            CarregarInformacoesPesquisa();
         }
     }
 }
