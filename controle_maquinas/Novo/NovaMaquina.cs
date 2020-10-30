@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace controle_maquinas
 {
     public partial class NovaMaquina : Form
@@ -117,10 +116,10 @@ namespace controle_maquinas
 
         //Form
         private void NovaMaquina_Load(object sender, EventArgs e)
-        {           
-
+        {
             //Remover linha em branco DataGridView
             dgvSoftware.AllowUserToAddRows = false;
+
             rdbComputador.Checked = true;
             AtualizarForm();
         }
@@ -205,30 +204,35 @@ namespace controle_maquinas
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             string cmd = "";
+            string Verificar = "";
             string software = cbbSoftware.Text;
             string key = cbbKey.Text;
 
-            if (cbbSoftware.Text != "Selecionar Software")
-            {
-                if (cbbKey.Text != "Selecionar licença")
-                {
-                    //Marca Software em uso
-                    cmd = "UPDATE `software_licencas` SET `disponivel` = 'n' WHERE (`software` = '" + software + "'and `key` = '" + key + "' and fpp = 's');";
-                    CG.ExecutarComandoSql(cmd);
-
-                    dgvSoftware.Rows.Add(software, key);
-                }
-                else
-                {
-                    MessageBox.Show("Selecione a key");
-                    return;
-                }
-            }
-            else
+            if (cbbSoftware.Text == "Selecionar Software")
             {
                 MessageBox.Show("Selecione um Software");
                 return;
             }
+            if (cbbKey.Text == "Selecionar licença")
+            {
+                MessageBox.Show("Selecione a key");
+                return;
+            }
+
+
+            foreach (DataGridViewRow dgv in dgvSoftware.Rows)
+            {
+                Verificar = dgv.Cells[1].Value.ToString();
+
+                if (key == Verificar)
+                {
+                    MessageBox.Show("Licença ja adicionada");
+                    return;
+                }
+
+            }
+
+            dgvSoftware.Rows.Add(software, key);
 
             cbbSoftware.SelectedIndex = 0;
             cbbKey.SelectedIndex = 0;
@@ -249,11 +253,6 @@ namespace controle_maquinas
                 cmd = "SELECT id FROM software_licencas where `key` = '" + key + "';";
                 CG.ExecutarComandoSql(cmd);
                 Id_Licenca = CG.RetornarValorSQL();
-
-                //Marca Software em uso
-                cmd = "UPDATE `software_licencas` SET `disponivel` = 's' WHERE (`id` = '" + Id_Licenca + "' and fpp = 's');";
-                CG.ExecutarComandoSql(cmd);
-
             }
             dgvSoftware.Rows.Clear();
             cbbSoftware.SelectedIndex = 0;
@@ -313,6 +312,9 @@ namespace controle_maquinas
             #region Variaveis
             //Comando Mysql
             string cmd = "";
+
+            //Verificar
+            string disponibilidade = "";
 
             //Maquina
             string Nome_Maquina = txtMaquina.Text;
@@ -381,7 +383,8 @@ namespace controle_maquinas
                 //Salvar Software
                 foreach (DataGridViewRow dgv in dgvSoftware.Rows)
                 {
-                    //Pega a Key
+                    //Pega a Key e software
+                    string Software = dgv.Cells[0].Value.ToString();
                     string Licenca = dgv.Cells[1].Value.ToString();
 
                     //Pega id Da key
@@ -389,15 +392,50 @@ namespace controle_maquinas
                     CG.ExecutarComandoSql(cmd);
                     Id_Licenca = CG.RetornarValorSQL();
 
-                    //Marca Software em uso
-                    cmd = "UPDATE `software_licencas` SET `disponivel` = 'n' WHERE (`id` = '" + Id_Licenca + "' and fpp = 's');";
+                    cmd = "SELECT disponivel FROM software_licencas where `id` = '" + Id_Licenca + "';";
                     CG.ExecutarComandoSql(cmd);
+                    disponibilidade = CG.RetornarValorSQL();
 
-                    cmd = "INSERT INTO `maquina_software` (`id_maquina`, `id_licenca`) VALUES ('" + Id_Maquina + "', '" + Id_Licenca + "');";
-                    CG.ExecutarComandoSql(cmd);
+                    if(disponibilidade == "s")
+                    {
+                        //Insere no banco de dados
+                        cmd = "INSERT INTO `maquina_software` (`id_maquina`, `id_licenca`) VALUES ('" + Id_Maquina + "', '" + Id_Licenca + "');";
+                        CG.ExecutarComandoSql(cmd);
+
+                        //Marca Software em uso
+                        cmd = "UPDATE `software_licencas` SET `disponivel` = 'n' WHERE (`id` = '" + Id_Licenca + "' and fpp = 's');";
+                        CG.ExecutarComandoSql(cmd);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Esta em Uso\n\n" + "Software: " + Software + "key: " + Licenca);                        
+                    }                   
                 }
             }
             #endregion
+
+            AtualizarForm();
+
+        }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            txtMaquina.Clear();
+            txtDominio.Clear();
+            txtUser.Clear();
+            txtObservacao.Clear();
+            cbbOS.Items.Clear();
+            cbbKeyOS.Items.Clear();
+            txtProcessador.Clear();
+            txtMemoria.Clear();
+            txtArmazenamento.Clear();
+            txtGpu.Clear();
+            rdbComputador.Checked = true;
 
             AtualizarForm();
 

@@ -53,7 +53,6 @@
             this.cbbOS = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtObservacao = new System.Windows.Forms.TextBox();
-            this.btnLimpar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnLimparSoftware = new System.Windows.Forms.Button();
@@ -65,6 +64,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.cbbSoftware = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.btnFechar = new System.Windows.Forms.Button();
+            this.btnRemover = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -307,7 +308,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(12, 328);
+            this.label9.Location = new System.Drawing.Point(11, 324);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 13);
             this.label9.TabIndex = 22;
@@ -316,24 +317,11 @@
             // txtObservacao
             // 
             this.txtObservacao.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtObservacao.Location = new System.Drawing.Point(12, 344);
+            this.txtObservacao.Location = new System.Drawing.Point(12, 340);
             this.txtObservacao.Multiline = true;
             this.txtObservacao.Name = "txtObservacao";
-            this.txtObservacao.Size = new System.Drawing.Size(604, 59);
+            this.txtObservacao.Size = new System.Drawing.Size(671, 53);
             this.txtObservacao.TabIndex = 17;
-            // 
-            // btnLimpar
-            // 
-            this.btnLimpar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpar.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpar.ForeColor = System.Drawing.Color.Gold;
-            this.btnLimpar.Location = new System.Drawing.Point(782, 331);
-            this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(154, 72);
-            this.btnLimpar.TabIndex = 15;
-            this.btnLimpar.Text = "Limpar";
-            this.btnLimpar.UseVisualStyleBackColor = false;
             // 
             // btnSalvar
             // 
@@ -341,9 +329,9 @@
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvar.ForeColor = System.Drawing.Color.Gold;
-            this.btnSalvar.Location = new System.Drawing.Point(622, 331);
+            this.btnSalvar.Location = new System.Drawing.Point(689, 331);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(154, 72);
+            this.btnSalvar.Size = new System.Drawing.Size(107, 62);
             this.btnSalvar.TabIndex = 14;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
@@ -351,6 +339,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.btnRemover);
             this.groupBox4.Controls.Add(this.btnLimparSoftware);
             this.groupBox4.Controls.Add(this.dgvSoftware);
             this.groupBox4.Controls.Add(this.btnAdicionar);
@@ -360,7 +349,7 @@
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Location = new System.Drawing.Point(369, 12);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(567, 313);
+            this.groupBox4.Size = new System.Drawing.Size(540, 313);
             this.groupBox4.TabIndex = 23;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Software";
@@ -371,7 +360,7 @@
             this.btnLimparSoftware.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimparSoftware.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimparSoftware.ForeColor = System.Drawing.Color.Gold;
-            this.btnLimparSoftware.Location = new System.Drawing.Point(468, 71);
+            this.btnLimparSoftware.Location = new System.Drawing.Point(439, 261);
             this.btnLimparSoftware.Name = "btnLimparSoftware";
             this.btnLimparSoftware.Size = new System.Drawing.Size(93, 46);
             this.btnLimparSoftware.TabIndex = 24;
@@ -381,6 +370,8 @@
             // 
             // dgvSoftware
             // 
+            this.dgvSoftware.AllowUserToAddRows = false;
+            this.dgvSoftware.AllowUserToDeleteRows = false;
             this.dgvSoftware.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSoftware.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Sofware,
@@ -388,7 +379,7 @@
             this.dgvSoftware.Location = new System.Drawing.Point(9, 56);
             this.dgvSoftware.Name = "dgvSoftware";
             this.dgvSoftware.ReadOnly = true;
-            this.dgvSoftware.Size = new System.Drawing.Size(453, 249);
+            this.dgvSoftware.Size = new System.Drawing.Size(424, 249);
             this.dgvSoftware.TabIndex = 28;
             // 
             // Sofware
@@ -409,7 +400,7 @@
             this.btnAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdicionar.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdicionar.ForeColor = System.Drawing.Color.Gold;
-            this.btnAdicionar.Location = new System.Drawing.Point(468, 19);
+            this.btnAdicionar.Location = new System.Drawing.Point(439, 19);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(93, 46);
             this.btnAdicionar.TabIndex = 24;
@@ -422,15 +413,15 @@
             this.cbbKey.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbbKey.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbKey.FormattingEnabled = true;
-            this.cbbKey.Location = new System.Drawing.Point(234, 29);
+            this.cbbKey.Location = new System.Drawing.Point(221, 29);
             this.cbbKey.Name = "cbbKey";
-            this.cbbKey.Size = new System.Drawing.Size(228, 21);
+            this.cbbKey.Size = new System.Drawing.Size(212, 21);
             this.cbbKey.TabIndex = 27;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(231, 12);
+            this.label10.Location = new System.Drawing.Point(218, 12);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(25, 13);
             this.label10.TabIndex = 26;
@@ -443,7 +434,7 @@
             this.cbbSoftware.FormattingEnabled = true;
             this.cbbSoftware.Location = new System.Drawing.Point(9, 29);
             this.cbbSoftware.Name = "cbbSoftware";
-            this.cbbSoftware.Size = new System.Drawing.Size(219, 21);
+            this.cbbSoftware.Size = new System.Drawing.Size(206, 21);
             this.cbbSoftware.TabIndex = 24;
             this.cbbSoftware.SelectedIndexChanged += new System.EventHandler(this.cbbSoftware_SelectedIndexChanged);
             // 
@@ -456,14 +447,42 @@
             this.label12.TabIndex = 25;
             this.label12.Text = "Software";
             // 
+            // btnFechar
+            // 
+            this.btnFechar.BackColor = System.Drawing.Color.Maroon;
+            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFechar.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFechar.ForeColor = System.Drawing.Color.Gold;
+            this.btnFechar.Location = new System.Drawing.Point(802, 331);
+            this.btnFechar.Name = "btnFechar";
+            this.btnFechar.Size = new System.Drawing.Size(107, 62);
+            this.btnFechar.TabIndex = 29;
+            this.btnFechar.Text = "Fechar";
+            this.btnFechar.UseVisualStyleBackColor = false;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
+            // 
+            // btnRemover
+            // 
+            this.btnRemover.BackColor = System.Drawing.Color.Maroon;
+            this.btnRemover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemover.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemover.ForeColor = System.Drawing.Color.Gold;
+            this.btnRemover.Location = new System.Drawing.Point(439, 71);
+            this.btnRemover.Name = "btnRemover";
+            this.btnRemover.Size = new System.Drawing.Size(93, 46);
+            this.btnRemover.TabIndex = 30;
+            this.btnRemover.Text = "Remover";
+            this.btnRemover.UseVisualStyleBackColor = false;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
+            // 
             // Maquina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(948, 415);
+            this.ClientSize = new System.Drawing.Size(923, 408);
+            this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtObservacao);
             this.Controls.Add(this.btnSalvar);
@@ -471,6 +490,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Maquina";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Maquina";
@@ -516,7 +536,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cbbKeyOS;
-        private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dgvSoftware;
@@ -528,5 +547,7 @@
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sofware;
         private System.Windows.Forms.DataGridViewTextBoxColumn Key;
+        private System.Windows.Forms.Button btnFechar;
+        private System.Windows.Forms.Button btnRemover;
     }
 }

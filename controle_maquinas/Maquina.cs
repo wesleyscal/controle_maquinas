@@ -122,8 +122,12 @@ namespace controle_maquinas
         //Form
         private void NovaMaquina_Load(object sender, EventArgs e)
         {
+            //Formata DGV
+            CG.FormatarDGV(dgvSoftware); 
+
             //Remover linha em branco DataGridView
             dgvSoftware.AllowUserToAddRows = false;
+            dgvSoftware.AllowUserToDeleteRows = false;
 
             AtualizarForm();
             CarregarInformacoesPesquisa();
@@ -208,31 +212,34 @@ namespace controle_maquinas
         //Botão
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            string cmd = "";
+            string Verificar = "";
             string software = cbbSoftware.Text;
             string key = cbbKey.Text;
 
-            if (cbbSoftware.Text != "Selecionar Software")
-            {
-                if (cbbKey.Text != "Selecionar licença")
-                {
-                    //Marca Software em uso
-                    cmd = "UPDATE `software_licencas` SET `disponivel` = 'n' WHERE (`software` = '" + software + "'and `key` = '" + key + "' and fpp = 's');";
-                    CG.ExecutarComandoSql(cmd);
-
-                    dgvSoftware.Rows.Add(software, key);
-                }
-                else
-                {
-                    MessageBox.Show("Selecione a key");
-                    return;
-                }
-            }
-            else
+            if (cbbSoftware.Text == "Selecionar Software")
             {
                 MessageBox.Show("Selecione um Software");
                 return;
             }
+            if (cbbKey.Text == "Selecionar licença")
+            {
+                MessageBox.Show("Selecione a key");
+                return;
+            }
+
+            foreach (DataGridViewRow dgv in dgvSoftware.Rows)
+            {
+                Verificar = dgv.Cells[1].Value.ToString();
+
+                if (key == Verificar)
+                {
+                    MessageBox.Show("Licença ja adicionada");
+                    return;
+                }
+
+            }
+
+            dgvSoftware.Rows.Add(software, key);
 
             cbbSoftware.SelectedIndex = 0;
             cbbKey.SelectedIndex = 0;
@@ -242,7 +249,7 @@ namespace controle_maquinas
             string Id_Licenca = "";
             string cmd = "";
 
-            //Salvar Software
+            //Limpar Software
             foreach (DataGridViewRow dgv in dgvSoftware.Rows)
             {
                 //Pega a Key
@@ -257,6 +264,7 @@ namespace controle_maquinas
                 cmd = "UPDATE `software_licencas` SET `disponivel` = 's' WHERE (`id` = '" + Id_Licenca + "' and fpp = 's');";
                 CG.ExecutarComandoSql(cmd);
             }
+
             dgvSoftware.Rows.Clear();
             cbbSoftware.SelectedIndex = 0;
             cbbKey.SelectedIndex = 0;
@@ -265,145 +273,7 @@ namespace controle_maquinas
             CG.ExecutarComandoSql(cmd);
         }
         private void btnSalvar_Click(object sender, EventArgs e)
-        {
-            #region Validaçao
-            //Validação
-            if (txtDominio.Text.Trim() == "")
-            {
-                MessageBox.Show("Informe o domínio!", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (txtMaquina.Text.Trim() == "")
-            {
-                MessageBox.Show("Informe o Nome da maquina!", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (txtUser.Text.Trim() == "")
-            {
-                MessageBox.Show("Informe o Usuário real!", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (txtProcessador.Text.Trim() == "")
-            {
-                MessageBox.Show("Informe o Processador\nCaso não tenha Informe \"NA\" !", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (txtMemoria.Text.Trim() == "")
-            {
-                MessageBox.Show("Informe a Memoria\nCaso não tenha Informe \"NA\" !", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (txtArmazenamento.Text.Trim() == "")
-            {
-                MessageBox.Show("Informe o Armazenamento\nCaso não tenha Informe \"NA\" !", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (txtGpu.Text.Trim() == "")
-            {
-                MessageBox.Show("Informe a GPU\nCaso não tenha Informe \"NA\" !", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (cbbOS.SelectedIndex == 0)
-            {
-                MessageBox.Show("Selecione o Sistema Operacional!", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (cbbKeyOS.SelectedIndex == 0)
-            {
-                MessageBox.Show("Selecione a Key do Sistema Operacional!", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            #endregion
-
-            #region Variaveis
-            //Comando Mysql
-            string cmd = "";
-
-            //Maquina
-            string Nome_Maquina = txtMaquina.Text;
-            string Nome_Dominio = txtDominio.Text;
-            string Nome_Usuario = txtUser.Text;
-            string Id_Hardware = "";
-            string Pc_Note = "";
-            string Observacao = txtObservacao.Text;
-            string SO = cbbOS.Text;
-            string KeyOS = cbbKeyOS.Text;
-
-            //Hardware
-            string Processador = txtProcessador.Text;
-            string Memoria = txtMemoria.Text;
-            string Armazenamento = txtArmazenamento.Text;
-            string Gpu = txtGpu.Text;
-            //Pc ou Notebook
-            if (rdbComputador.Checked == true)
-            {
-                Pc_Note = "pc";
-            }
-            if (rdbNotebook.Checked == true)
-            {
-                Pc_Note = "Notebook";
-            }
-
-            //Software
-            string Id_Maquina = "";
-            string Id_Licenca = "";
-            #endregion
-
-            #region HardWare
-            //Salva Hardware e retorna o id
-            cmd = "INSERT INTO `hardware` " +
-                  "(`processador`, `memoria`, `armazenamento`, `gpu`) " +
-                  "VALUES ('" + Processador + "', '" + Memoria + "', '" + Armazenamento + "', '" + Gpu + "');";
-            CG.ExecutarComandoSql(cmd);
-
-            //Pega id do hardware
-            cmd = "select max(id) from hardware;";
-            CG.ExecutarComandoSql(cmd);
-            Id_Hardware = CG.RetornarValorSQL();
-            #endregion
-
-            #region Maquina
-            //Salva Maquina
-            cmd = "INSERT INTO `maquina` " +
-                  "(`nome_maquina`, `nome_dominio`, `nome_usuario`, `id_hardware`, `pc_and_note`, `observacao`, `sistema_operacional`, `keyos`) " +
-                  "VALUES ('" + Nome_Maquina + "', '" + Nome_Dominio + "', '" + Nome_Usuario + "', '" + Id_Hardware + "', '" + Pc_Note + "', '" + Observacao + "', '" + SO + "', '" + KeyOS + "');";
-            CG.ExecutarComandoSql(cmd);
-
-            //Marca licença Sistemo Operacional em uso
-            cmd = "UPDATE `software_licencas` SET `disponivel` = 'n' WHERE (`key` = '" + KeyOS + "' and fpp = 's');";
-            CG.ExecutarComandoSql(cmd);
-
-            //Pega id da maquina
-            cmd = "select max(id) from maquina;";
-            CG.ExecutarComandoSql(cmd);
-            Id_Maquina = CG.RetornarValorSQL();
-            #endregion
-
-            #region SoftWare
-            //Verifica se o datagridview esta vazio
-            if (dgvSoftware.RowCount != 0)
-            {
-                //Salvar Software
-                foreach (DataGridViewRow dgv in dgvSoftware.Rows)
-                {
-                    //Pega a Key
-                    string Licenca = dgv.Cells[1].Value.ToString();
-
-                    //Pega id Da key
-                    cmd = "SELECT id FROM software_licencas where `key` = '" + Licenca + "';";
-                    CG.ExecutarComandoSql(cmd);
-                    Id_Licenca = CG.RetornarValorSQL();
-
-                    cmd = "UPDATE `software_licencas` SET `disponivel` = 'n' WHERE (`id` = '" + Id_Licenca + "' and fpp = 's');";
-                    CG.ExecutarComandoSql(cmd);
-
-                    cmd = "INSERT INTO `maquina_software` (`id_maquina`, `id_licenca`) VALUES ('" + Id_Maquina + "', '" + Id_Licenca + "');";
-                    CG.ExecutarComandoSql(cmd);
-                }
-            }
-            #endregion
-
-            AtualizarForm();
+        {            
 
         }
 
@@ -502,6 +372,21 @@ namespace controle_maquinas
             }
         }
 
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+            if(dgvSoftware.RowCount == 0)
+            {
+                MessageBox.Show("Não a Licenca");
+                return;
+            }
+
+            dgvSoftware.Rows.RemoveAt(dgvSoftware.CurrentRow.Index);
+        }
     }
 }
 
