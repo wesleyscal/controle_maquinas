@@ -85,6 +85,13 @@ namespace controle_maquinas
                 ConfigCBB();
                 CarregarDGV();
             }
+
+            if (e.KeyCode == Keys.F4)
+            {
+                ConfigurarBanco CB = new ConfigurarBanco();
+                CB.ShowDialog();
+            }
+
         }
 
         //Botão
@@ -164,7 +171,8 @@ namespace controle_maquinas
 
         private void btnSoftwareLicenca_Click(object sender, EventArgs e)
         {
-
+            SoftwareLicenca form = new SoftwareLicenca();
+            form.ShowDialog();
         }
     }
 }

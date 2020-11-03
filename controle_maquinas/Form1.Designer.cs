@@ -155,7 +155,7 @@
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(941, 20);
             this.textBox2.TabIndex = 1;
-            this.textBox2.Text = "|| F2 - Atualizar ||";
+            this.textBox2.Text = "|| F2 - Atualizar || F4 - banco de dados ||";
             // 
             // btnNovoSoftware
             // 
