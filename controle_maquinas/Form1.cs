@@ -75,22 +75,31 @@ namespace controle_maquinas
                 CB.ShowDialog();
             }
 
-            
-
             ConfigCBB();
             CarregarDGV();
+        }
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                ConfigCBB();
+                CarregarDGV();
+            }
         }
 
         //Botão
         private void btnNovoSoftware_Click(object sender, EventArgs e)
         {
-            NovoSoftware form = new NovoSoftware();
+            NovaLicenca form = new NovaLicenca();
             form.ShowDialog();
         }
         private void btnNovaMaquina_Click(object sender, EventArgs e)
         {
             NovaMaquina Form = new NovaMaquina();
             Form.ShowDialog();
+
+            ConfigCBB();
+            CarregarDGV();
         }
 
         //ComboBox
@@ -146,8 +155,16 @@ namespace controle_maquinas
                 CG.RetornarDadosDataTable(dt);
 
                 Maquina Form = new Maquina();
-                Form.ShowDialog();                
+                Form.ShowDialog();
+
+                ConfigCBB();
+                CarregarDGV();
             }
+        }
+
+        private void btnSoftwareLicenca_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

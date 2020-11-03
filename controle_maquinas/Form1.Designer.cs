@@ -42,6 +42,7 @@
             this.btnNovoSoftware = new System.Windows.Forms.Button();
             this.btnNovaMaquina = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnSoftwareLicenca = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaquinas)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -71,9 +72,9 @@
             this.cbbKey.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbbKey.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbKey.FormattingEnabled = true;
-            this.cbbKey.Location = new System.Drawing.Point(310, 36);
+            this.cbbKey.Location = new System.Drawing.Point(285, 36);
             this.cbbKey.Name = "cbbKey";
-            this.cbbKey.Size = new System.Drawing.Size(236, 23);
+            this.cbbKey.Size = new System.Drawing.Size(187, 23);
             this.cbbKey.TabIndex = 28;
             // 
             // cbbSoftware
@@ -81,16 +82,16 @@
             this.cbbSoftware.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbbSoftware.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbSoftware.FormattingEnabled = true;
-            this.cbbSoftware.Location = new System.Drawing.Point(158, 36);
+            this.cbbSoftware.Location = new System.Drawing.Point(144, 36);
             this.cbbSoftware.Name = "cbbSoftware";
-            this.cbbSoftware.Size = new System.Drawing.Size(146, 23);
+            this.cbbSoftware.Size = new System.Drawing.Size(135, 23);
             this.cbbSoftware.TabIndex = 8;
             this.cbbSoftware.SelectedIndexChanged += new System.EventHandler(this.cbbSoftware_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(307, 20);
+            this.label3.Location = new System.Drawing.Point(282, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 15);
             this.label3.TabIndex = 7;
@@ -112,7 +113,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(155, 20);
+            this.label2.Location = new System.Drawing.Point(141, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 15);
             this.label2.TabIndex = 3;
@@ -132,7 +133,7 @@
             this.txtMaquina.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtMaquina.Location = new System.Drawing.Point(6, 36);
             this.txtMaquina.Name = "txtMaquina";
-            this.txtMaquina.Size = new System.Drawing.Size(146, 21);
+            this.txtMaquina.Size = new System.Drawing.Size(132, 21);
             this.txtMaquina.TabIndex = 0;
             // 
             // dgvMaquinas
@@ -149,12 +150,12 @@
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(0, 530);
+            this.textBox2.Location = new System.Drawing.Point(0, 588);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(941, 20);
             this.textBox2.TabIndex = 1;
-            this.textBox2.Text = "|| F1 - Faz alguma coisa ||";
+            this.textBox2.Text = "|| F2 - Atualizar ||";
             // 
             // btnNovoSoftware
             // 
@@ -166,7 +167,7 @@
             this.btnNovoSoftware.Name = "btnNovoSoftware";
             this.btnNovoSoftware.Size = new System.Drawing.Size(107, 41);
             this.btnNovoSoftware.TabIndex = 3;
-            this.btnNovoSoftware.Text = "Novo Software";
+            this.btnNovoSoftware.Text = " Nova  Licença";
             this.btnNovoSoftware.UseVisualStyleBackColor = false;
             this.btnNovoSoftware.Click += new System.EventHandler(this.btnNovoSoftware_Click);
             // 
@@ -196,23 +197,40 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Novo";
             // 
+            // btnSoftwareLicenca
+            // 
+            this.btnSoftwareLicenca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnSoftwareLicenca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSoftwareLicenca.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSoftwareLicenca.ForeColor = System.Drawing.Color.Gold;
+            this.btnSoftwareLicenca.Location = new System.Drawing.Point(820, 530);
+            this.btnSoftwareLicenca.Name = "btnSoftwareLicenca";
+            this.btnSoftwareLicenca.Size = new System.Drawing.Size(107, 52);
+            this.btnSoftwareLicenca.TabIndex = 29;
+            this.btnSoftwareLicenca.Text = "Softwares Licenças";
+            this.btnSoftwareLicenca.UseVisualStyleBackColor = false;
+            this.btnSoftwareLicenca.Click += new System.EventHandler(this.btnSoftwareLicenca_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(939, 550);
+            this.ClientSize = new System.Drawing.Size(939, 607);
+            this.Controls.Add(this.btnSoftwareLicenca);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.dgvMaquinas);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Controle De Maquinas";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaquinas)).EndInit();
@@ -237,6 +255,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbbSoftware;
         private System.Windows.Forms.ComboBox cbbKey;
+        private System.Windows.Forms.Button btnSoftwareLicenca;
     }
 }
 

@@ -119,6 +119,7 @@ namespace controle_maquinas
         {
             //Remover linha em branco DataGridView
             dgvSoftware.AllowUserToAddRows = false;
+            CG.FormatarDGV(dgvSoftware);
 
             rdbComputador.Checked = true;
             AtualizarForm();
@@ -203,7 +204,8 @@ namespace controle_maquinas
         //Botão
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            string Verificar = "";
+            string VerificarKey = "";
+            string VerificarSoft = "";
             string software = cbbSoftware.Text;
             string key = cbbKey.Text;
 
@@ -221,14 +223,17 @@ namespace controle_maquinas
 
             foreach (DataGridViewRow dgv in dgvSoftware.Rows)
             {
-                Verificar = dgv.Cells[1].Value.ToString();
+                VerificarKey = dgv.Cells[1].Value.ToString();
+                VerificarSoft = dgv.Cells[0].Value.ToString();
 
-                if (key == Verificar)
+                if (software == VerificarSoft)
                 {
-                    MessageBox.Show("Licença ja adicionada");
-                    return;
+                    if (key == VerificarKey)
+                    {
+                        MessageBox.Show("Licença ja adicionada");
+                        return;
+                    }
                 }
-
             }
 
             dgvSoftware.Rows.Add(software, key);

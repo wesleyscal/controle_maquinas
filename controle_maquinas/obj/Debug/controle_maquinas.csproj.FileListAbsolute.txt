@@ -28,7 +28,6 @@ C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\bin\Debug\
 C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.csprojAssemblyReference.cache
 C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.exe.config
 C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.Form1.resources
-C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.NovoSoftware.resources
 C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.Properties.Resources.resources
 C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.csproj.GenerateResource.cache
 C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.csproj.CoreCompileInputs.cache
@@ -37,3 +36,6 @@ C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\
 C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.pdb
 C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.NovaMaquina.resources
 C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.Maquina.resources
+C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.NovaLicenca.resources
+C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.NovoSoftware.resources
+C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\ordem_de_servico.ConfigurarBanco.resources

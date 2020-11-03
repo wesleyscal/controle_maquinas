@@ -211,7 +211,7 @@ namespace controle_maquinas
         private void NovaMaquina_Load(object sender, EventArgs e)
         {
             //Formata DGV
-            CG.FormatarDGV(dgvSoftware);
+            CG.FormatarDGV(dgvSoftware);            
 
             //Remover linha em branco DataGridView
             dgvSoftware.AllowUserToAddRows = false;
@@ -219,6 +219,9 @@ namespace controle_maquinas
 
             AtualizarForm();
             CarregarInformacoesPesquisa();
+
+            //texto do form
+            Text = txtMaquina.Text;
         }
 
         //ComboBox
@@ -306,7 +309,8 @@ namespace controle_maquinas
         //Botão
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            string Verificar = "";
+            string VerificarKey = "";
+            string VerificarSoft = "";
             string software = cbbSoftware.Text;
             string key = cbbKey.Text;
 
@@ -324,12 +328,16 @@ namespace controle_maquinas
 
             foreach (DataGridViewRow dgv in dgvSoftware.Rows)
             {
-                Verificar = dgv.Cells[1].Value.ToString();
+                VerificarKey = dgv.Cells[1].Value.ToString();
+                VerificarSoft = dgv.Cells[0].Value.ToString();
 
-                if (key == Verificar)
+                if (software == VerificarSoft)
                 {
-                    MessageBox.Show("Licença ja adicionada");
-                    return;
+                    if (key == VerificarKey)
+                    {
+                        MessageBox.Show("Licença ja adicionada");
+                        return;
+                    }
                 }
 
             }
@@ -353,7 +361,7 @@ namespace controle_maquinas
         }
         private void btnFechar_Click(object sender, EventArgs e)
         {
-            DialogResult confirm = MessageBox.Show("Deseja Fechar\n Todas as alterações serão perdidas?", "Fechar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            DialogResult confirm = MessageBox.Show("Deseja Fechar ?\nTodas as alterações serão perdidas !", "Fechar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
             if (confirm.ToString().ToUpper() != "YES")
             {
                 return;
@@ -503,7 +511,6 @@ namespace controle_maquinas
             //Verifica se o datagridview esta vazio
             if (dgvSoftware.RowCount != 0)
             {
-
                 //Pega os Id do Software
                 cmd = "SELECT id_licenca FROM maquina_software where id_maquina = " + Id_Maquina + ";";
                 CG.ExecutarComandoSql(cmd);
@@ -532,7 +539,7 @@ namespace controle_maquinas
                     string Licenca = dgv.Cells[1].Value.ToString();
 
                     //Pega id Da key
-                    cmd = "SELECT id FROM software_licencas where `key` = '" + Licenca + "';";
+                    cmd = "SELECT id FROM software_licencas where `key` = '" + Licenca + "' and software = '" + Software + "';";
                     CG.ExecutarComandoSql(cmd);
                     Id_Software = CG.RetornarValorSQL();
 

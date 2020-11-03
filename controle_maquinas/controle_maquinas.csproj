@@ -71,20 +71,29 @@
     <Compile Include="Maquina.Designer.cs">
       <DependentUpon>Maquina.cs</DependentUpon>
     </Compile>
-    <Compile Include="Novo\NovaMaquina.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Novo\NovaMaquina.Designer.cs">
-      <DependentUpon>NovaMaquina.cs</DependentUpon>
-    </Compile>
     <Compile Include="Novo\NovoSoftware.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Novo\NovoSoftware.Designer.cs">
       <DependentUpon>NovoSoftware.cs</DependentUpon>
     </Compile>
+    <Compile Include="Novo\NovaMaquina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Novo\NovaMaquina.Designer.cs">
+      <DependentUpon>NovaMaquina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Novo\NovaLicenca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Novo\NovaLicenca.Designer.cs">
+      <DependentUpon>NovaLicenca.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ConfigurarBanco.resx">
+      <DependentUpon>ConfigurarBanco.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Novo\NovaMaquina.resx">
       <DependentUpon>NovaMaquina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Novo\NovaLicenca.resx">
+      <DependentUpon>NovaLicenca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Novo\NovoSoftware.resx">
       <DependentUpon>NovoSoftware.cs</DependentUpon>

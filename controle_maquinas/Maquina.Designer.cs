@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Maquina));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rdbNotebook = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.rdbComputador = new System.Windows.Forms.RadioButton();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtDominio = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMaquina = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -68,6 +68,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.btnFechar = new System.Windows.Forms.Button();
             this.btnResetar = new System.Windows.Forms.Button();
+            this.txtDominio = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -89,7 +90,7 @@
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(351, 101);
-            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Domínio";
             // 
@@ -119,7 +120,7 @@
             this.rdbComputador.Location = new System.Drawing.Point(9, 25);
             this.rdbComputador.Name = "rdbComputador";
             this.rdbComputador.Size = new System.Drawing.Size(82, 17);
-            this.rdbComputador.TabIndex = 18;
+            this.rdbComputador.TabIndex = 0;
             this.rdbComputador.TabStop = true;
             this.rdbComputador.Text = "Computador";
             this.rdbComputador.UseVisualStyleBackColor = true;
@@ -131,7 +132,7 @@
             this.txtUser.Location = new System.Drawing.Point(178, 71);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(163, 20);
-            this.txtUser.TabIndex = 11;
+            this.txtUser.TabIndex = 3;
             // 
             // label2
             // 
@@ -141,15 +142,6 @@
             this.label2.Size = new System.Drawing.Size(86, 13);
             this.label2.TabIndex = 10;
             this.label2.Text = "Usuário Domínio";
-            // 
-            // txtDominio
-            // 
-            this.txtDominio.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtDominio.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtDominio.Location = new System.Drawing.Point(178, 32);
-            this.txtDominio.Name = "txtDominio";
-            this.txtDominio.Size = new System.Drawing.Size(163, 20);
-            this.txtDominio.TabIndex = 9;
             // 
             // label1
             // 
@@ -167,7 +159,7 @@
             this.txtMaquina.Location = new System.Drawing.Point(9, 71);
             this.txtMaquina.Name = "txtMaquina";
             this.txtMaquina.Size = new System.Drawing.Size(163, 20);
-            this.txtMaquina.TabIndex = 7;
+            this.txtMaquina.TabIndex = 2;
             // 
             // groupBox1
             // 
@@ -183,7 +175,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 119);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(351, 101);
-            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hardware";
             // 
@@ -194,7 +186,7 @@
             this.txtProcessador.Location = new System.Drawing.Point(9, 30);
             this.txtProcessador.Name = "txtProcessador";
             this.txtProcessador.Size = new System.Drawing.Size(163, 20);
-            this.txtProcessador.TabIndex = 17;
+            this.txtProcessador.TabIndex = 0;
             // 
             // txtGpu
             // 
@@ -203,7 +195,7 @@
             this.txtGpu.Location = new System.Drawing.Point(9, 69);
             this.txtGpu.Name = "txtGpu";
             this.txtGpu.Size = new System.Drawing.Size(163, 20);
-            this.txtGpu.TabIndex = 16;
+            this.txtGpu.TabIndex = 2;
             // 
             // txtMemoria
             // 
@@ -212,7 +204,7 @@
             this.txtMemoria.Location = new System.Drawing.Point(178, 69);
             this.txtMemoria.Name = "txtMemoria";
             this.txtMemoria.Size = new System.Drawing.Size(163, 20);
-            this.txtMemoria.TabIndex = 15;
+            this.txtMemoria.TabIndex = 3;
             // 
             // label8
             // 
@@ -239,7 +231,7 @@
             this.txtArmazenamento.Location = new System.Drawing.Point(178, 30);
             this.txtArmazenamento.Name = "txtArmazenamento";
             this.txtArmazenamento.Size = new System.Drawing.Size(163, 20);
-            this.txtArmazenamento.TabIndex = 11;
+            this.txtArmazenamento.TabIndex = 1;
             // 
             // label5
             // 
@@ -270,7 +262,7 @@
             this.groupBox3.Location = new System.Drawing.Point(12, 226);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(351, 99);
-            this.groupBox3.TabIndex = 13;
+            this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Sistema Operacional";
             // 
@@ -283,7 +275,7 @@
             this.cbbKeyOS.Location = new System.Drawing.Point(9, 70);
             this.cbbKeyOS.Name = "cbbKeyOS";
             this.cbbKeyOS.Size = new System.Drawing.Size(332, 21);
-            this.cbbKeyOS.TabIndex = 23;
+            this.cbbKeyOS.TabIndex = 1;
             // 
             // label11
             // 
@@ -312,7 +304,7 @@
             this.cbbOS.Location = new System.Drawing.Point(9, 29);
             this.cbbOS.Name = "cbbOS";
             this.cbbOS.Size = new System.Drawing.Size(332, 21);
-            this.cbbOS.TabIndex = 9;
+            this.cbbOS.TabIndex = 0;
             this.cbbOS.SelectedIndexChanged += new System.EventHandler(this.cbbOS_SelectedIndexChanged);
             // 
             // label9
@@ -333,7 +325,7 @@
             this.txtObservacao.Multiline = true;
             this.txtObservacao.Name = "txtObservacao";
             this.txtObservacao.Size = new System.Drawing.Size(238, 134);
-            this.txtObservacao.TabIndex = 17;
+            this.txtObservacao.TabIndex = 4;
             // 
             // btnSalvar
             // 
@@ -344,7 +336,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(12, 328);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(107, 46);
-            this.btnSalvar.TabIndex = 14;
+            this.btnSalvar.TabIndex = 5;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -363,7 +355,7 @@
             this.groupBox4.Location = new System.Drawing.Point(369, 12);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(540, 462);
-            this.groupBox4.TabIndex = 23;
+            this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Licença";
             // 
@@ -376,7 +368,7 @@
             this.btnRemover.Location = new System.Drawing.Point(439, 71);
             this.btnRemover.Name = "btnRemover";
             this.btnRemover.Size = new System.Drawing.Size(93, 46);
-            this.btnRemover.TabIndex = 30;
+            this.btnRemover.TabIndex = 4;
             this.btnRemover.Text = "Remover";
             this.btnRemover.UseVisualStyleBackColor = false;
             this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
@@ -390,7 +382,7 @@
             this.btnLimparSoftware.Location = new System.Drawing.Point(439, 410);
             this.btnLimparSoftware.Name = "btnLimparSoftware";
             this.btnLimparSoftware.Size = new System.Drawing.Size(93, 46);
-            this.btnLimparSoftware.TabIndex = 24;
+            this.btnLimparSoftware.TabIndex = 5;
             this.btnLimparSoftware.Text = "Limpar";
             this.btnLimparSoftware.UseVisualStyleBackColor = false;
             this.btnLimparSoftware.Click += new System.EventHandler(this.btnLimparSoftware_Click);
@@ -407,10 +399,10 @@
             this.dgvSoftware.Location = new System.Drawing.Point(9, 56);
             this.dgvSoftware.Name = "dgvSoftware";
             this.dgvSoftware.ReadOnly = true;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dgvSoftware.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.dgvSoftware.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvSoftware.Size = new System.Drawing.Size(424, 400);
-            this.dgvSoftware.TabIndex = 28;
+            this.dgvSoftware.TabIndex = 3;
             // 
             // Sofware
             // 
@@ -433,7 +425,7 @@
             this.btnAdicionar.Location = new System.Drawing.Point(439, 19);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(93, 46);
-            this.btnAdicionar.TabIndex = 24;
+            this.btnAdicionar.TabIndex = 2;
             this.btnAdicionar.Text = "Adicionar";
             this.btnAdicionar.UseVisualStyleBackColor = false;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
@@ -447,7 +439,7 @@
             this.cbbKey.Location = new System.Drawing.Point(221, 29);
             this.cbbKey.Name = "cbbKey";
             this.cbbKey.Size = new System.Drawing.Size(212, 21);
-            this.cbbKey.TabIndex = 27;
+            this.cbbKey.TabIndex = 1;
             // 
             // label10
             // 
@@ -468,7 +460,7 @@
             this.cbbSoftware.Location = new System.Drawing.Point(9, 29);
             this.cbbSoftware.Name = "cbbSoftware";
             this.cbbSoftware.Size = new System.Drawing.Size(206, 21);
-            this.cbbSoftware.TabIndex = 24;
+            this.cbbSoftware.TabIndex = 0;
             this.cbbSoftware.SelectedIndexChanged += new System.EventHandler(this.cbbSoftware_SelectedIndexChanged);
             // 
             // label12
@@ -490,7 +482,7 @@
             this.btnFechar.Location = new System.Drawing.Point(12, 428);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(107, 46);
-            this.btnFechar.TabIndex = 29;
+            this.btnFechar.TabIndex = 6;
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = false;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
@@ -504,10 +496,19 @@
             this.btnResetar.Location = new System.Drawing.Point(12, 378);
             this.btnResetar.Name = "btnResetar";
             this.btnResetar.Size = new System.Drawing.Size(107, 46);
-            this.btnResetar.TabIndex = 30;
+            this.btnResetar.TabIndex = 6;
             this.btnResetar.Text = "Resetar Padrão";
             this.btnResetar.UseVisualStyleBackColor = false;
             this.btnResetar.Click += new System.EventHandler(this.btnResetar_Click);
+            // 
+            // txtDominio
+            // 
+            this.txtDominio.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtDominio.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtDominio.Location = new System.Drawing.Point(178, 32);
+            this.txtDominio.Name = "txtDominio";
+            this.txtDominio.Size = new System.Drawing.Size(163, 20);
+            this.txtDominio.TabIndex = 1;
             // 
             // Maquina
             // 
@@ -526,6 +527,7 @@
             this.Controls.Add(this.groupBox2);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Maquina";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -552,7 +554,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtDominio;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rdbNotebook;
@@ -586,5 +587,6 @@
         private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.Button btnRemover;
         private System.Windows.Forms.Button btnResetar;
+        private System.Windows.Forms.TextBox txtDominio;
     }
 }
