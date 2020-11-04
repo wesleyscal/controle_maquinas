@@ -62,7 +62,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(13, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(669, 67);
+            this.groupBox1.Size = new System.Drawing.Size(740, 67);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pesquisa";
@@ -72,9 +72,9 @@
             this.cbbKey.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbbKey.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbKey.FormattingEnabled = true;
-            this.cbbKey.Location = new System.Drawing.Point(285, 36);
+            this.cbbKey.Location = new System.Drawing.Point(372, 33);
             this.cbbKey.Name = "cbbKey";
-            this.cbbKey.Size = new System.Drawing.Size(187, 23);
+            this.cbbKey.Size = new System.Drawing.Size(249, 23);
             this.cbbKey.TabIndex = 28;
             // 
             // cbbSoftware
@@ -82,16 +82,16 @@
             this.cbbSoftware.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbbSoftware.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbSoftware.FormattingEnabled = true;
-            this.cbbSoftware.Location = new System.Drawing.Point(144, 36);
+            this.cbbSoftware.Location = new System.Drawing.Point(171, 33);
             this.cbbSoftware.Name = "cbbSoftware";
-            this.cbbSoftware.Size = new System.Drawing.Size(135, 23);
+            this.cbbSoftware.Size = new System.Drawing.Size(195, 23);
             this.cbbSoftware.TabIndex = 8;
             this.cbbSoftware.SelectedIndexChanged += new System.EventHandler(this.cbbSoftware_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(282, 20);
+            this.label3.Location = new System.Drawing.Point(369, 17);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 15);
             this.label3.TabIndex = 7;
@@ -103,7 +103,7 @@
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisar.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisar.ForeColor = System.Drawing.Color.Gold;
-            this.btnPesquisar.Location = new System.Drawing.Point(552, 17);
+            this.btnPesquisar.Location = new System.Drawing.Point(627, 17);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(107, 41);
             this.btnPesquisar.TabIndex = 5;
@@ -113,7 +113,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(141, 20);
+            this.label2.Location = new System.Drawing.Point(168, 17);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 15);
             this.label2.TabIndex = 3;
@@ -122,7 +122,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 20);
+            this.label1.Location = new System.Drawing.Point(7, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 15);
             this.label1.TabIndex = 1;
@@ -131,9 +131,9 @@
             // txtMaquina
             // 
             this.txtMaquina.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtMaquina.Location = new System.Drawing.Point(6, 36);
+            this.txtMaquina.Location = new System.Drawing.Point(6, 33);
             this.txtMaquina.Name = "txtMaquina";
-            this.txtMaquina.Size = new System.Drawing.Size(132, 21);
+            this.txtMaquina.Size = new System.Drawing.Size(159, 21);
             this.txtMaquina.TabIndex = 0;
             // 
             // dgvMaquinas
@@ -141,7 +141,7 @@
             this.dgvMaquinas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMaquinas.Location = new System.Drawing.Point(13, 85);
             this.dgvMaquinas.Name = "dgvMaquinas";
-            this.dgvMaquinas.Size = new System.Drawing.Size(914, 439);
+            this.dgvMaquinas.Size = new System.Drawing.Size(1109, 496);
             this.dgvMaquinas.TabIndex = 1;
             this.dgvMaquinas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaquinas_CellDoubleClick);
             // 
@@ -150,10 +150,10 @@
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(0, 588);
+            this.textBox2.Location = new System.Drawing.Point(0, 587);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(941, 20);
+            this.textBox2.Size = new System.Drawing.Size(1135, 20);
             this.textBox2.TabIndex = 1;
             this.textBox2.Text = "|| F2 - Atualizar || F4 - banco de dados ||";
             // 
@@ -190,7 +190,7 @@
             this.groupBox2.Controls.Add(this.btnNovoSoftware);
             this.groupBox2.Controls.Add(this.btnNovaMaquina);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(688, 12);
+            this.groupBox2.Location = new System.Drawing.Point(759, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(239, 67);
             this.groupBox2.TabIndex = 5;
@@ -203,9 +203,9 @@
             this.btnSoftwareLicenca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSoftwareLicenca.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSoftwareLicenca.ForeColor = System.Drawing.Color.Gold;
-            this.btnSoftwareLicenca.Location = new System.Drawing.Point(820, 530);
+            this.btnSoftwareLicenca.Location = new System.Drawing.Point(1004, 12);
             this.btnSoftwareLicenca.Name = "btnSoftwareLicenca";
-            this.btnSoftwareLicenca.Size = new System.Drawing.Size(107, 52);
+            this.btnSoftwareLicenca.Size = new System.Drawing.Size(118, 67);
             this.btnSoftwareLicenca.TabIndex = 29;
             this.btnSoftwareLicenca.Text = "Softwares Licenças";
             this.btnSoftwareLicenca.UseVisualStyleBackColor = false;
@@ -216,7 +216,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(939, 607);
+            this.ClientSize = new System.Drawing.Size(1134, 607);
             this.Controls.Add(this.btnSoftwareLicenca);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.textBox2);

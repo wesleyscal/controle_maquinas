@@ -40,3 +40,4 @@ C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\
 C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.NovoSoftware.resources
 C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\ordem_de_servico.ConfigurarBanco.resources
 C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.SoftwareLicenca.resources
+C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.AlterarSoftware.resources

@@ -53,6 +53,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alterar\AlterarLicenca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alterar\AlterarLicenca.Designer.cs">
+      <DependentUpon>AlterarLicenca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alterar\AlterarSoftware.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alterar\AlterarSoftware.Designer.cs">
+      <DependentUpon>AlterarSoftware.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConfigurarBanco.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +109,9 @@
     <Compile Include="SoftwareLicenca.Designer.cs">
       <DependentUpon>SoftwareLicenca.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Alterar\AlterarSoftware.resx">
+      <DependentUpon>AlterarSoftware.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConfigurarBanco.resx">
       <DependentUpon>ConfigurarBanco.cs</DependentUpon>
     </EmbeddedResource>
