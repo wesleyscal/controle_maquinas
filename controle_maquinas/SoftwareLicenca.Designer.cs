@@ -44,9 +44,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRemoverLicenca = new System.Windows.Forms.Button();
             this.dgvLicenca = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnAlterarLicenca = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSoftware)).BeginInit();
             this.gpbLicenca.SuspendLayout();
@@ -125,9 +125,9 @@
             this.gpbLicenca.Controls.Add(this.button3);
             this.gpbLicenca.Controls.Add(this.label1);
             this.gpbLicenca.Controls.Add(this.textBox1);
-            this.gpbLicenca.Controls.Add(this.button1);
+            this.gpbLicenca.Controls.Add(this.btnRemoverLicenca);
             this.gpbLicenca.Controls.Add(this.dgvLicenca);
-            this.gpbLicenca.Controls.Add(this.button2);
+            this.gpbLicenca.Controls.Add(this.btnAlterarLicenca);
             this.gpbLicenca.ForeColor = System.Drawing.Color.White;
             this.gpbLicenca.Location = new System.Drawing.Point(319, 12);
             this.gpbLicenca.Name = "gpbLicenca";
@@ -181,18 +181,19 @@
             this.textBox1.Size = new System.Drawing.Size(220, 20);
             this.textBox1.TabIndex = 2;
             // 
-            // button1
+            // btnRemoverLicenca
             // 
-            this.button1.BackColor = System.Drawing.Color.Maroon;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Gold;
-            this.button1.Location = new System.Drawing.Point(676, 360);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 45);
-            this.button1.TabIndex = 33;
-            this.button1.Text = "Remover licença";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnRemoverLicenca.BackColor = System.Drawing.Color.Maroon;
+            this.btnRemoverLicenca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoverLicenca.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoverLicenca.ForeColor = System.Drawing.Color.Gold;
+            this.btnRemoverLicenca.Location = new System.Drawing.Point(676, 360);
+            this.btnRemoverLicenca.Name = "btnRemoverLicenca";
+            this.btnRemoverLicenca.Size = new System.Drawing.Size(107, 45);
+            this.btnRemoverLicenca.TabIndex = 33;
+            this.btnRemoverLicenca.Text = "Remover licença";
+            this.btnRemoverLicenca.UseVisualStyleBackColor = false;
+            this.btnRemoverLicenca.Click += new System.EventHandler(this.btnRemoverLicenca_Click);
             // 
             // dgvLicenca
             // 
@@ -216,19 +217,21 @@
             this.dgvLicenca.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvLicenca.Size = new System.Drawing.Size(777, 335);
             this.dgvLicenca.TabIndex = 1;
+            this.dgvLicenca.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLicenca_CellDoubleClick);
             // 
-            // button2
+            // btnAlterarLicenca
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Gold;
-            this.button2.Location = new System.Drawing.Point(563, 360);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(107, 45);
-            this.button2.TabIndex = 32;
-            this.button2.Text = "Alterar Licença";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnAlterarLicenca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnAlterarLicenca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlterarLicenca.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlterarLicenca.ForeColor = System.Drawing.Color.Gold;
+            this.btnAlterarLicenca.Location = new System.Drawing.Point(563, 360);
+            this.btnAlterarLicenca.Name = "btnAlterarLicenca";
+            this.btnAlterarLicenca.Size = new System.Drawing.Size(107, 45);
+            this.btnAlterarLicenca.TabIndex = 32;
+            this.btnAlterarLicenca.Text = "Alterar Licença";
+            this.btnAlterarLicenca.UseVisualStyleBackColor = false;
+            this.btnAlterarLicenca.Click += new System.EventHandler(this.btnAlterarLicenca_Click);
             // 
             // SoftwareLicenca
             // 
@@ -261,8 +264,8 @@
         private System.Windows.Forms.DataGridView dgvLicenca;
         private System.Windows.Forms.Button btnAlterarSoftware;
         private System.Windows.Forms.Button btnRemoverSoftware;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnRemoverLicenca;
+        private System.Windows.Forms.Button btnAlterarLicenca;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button3;

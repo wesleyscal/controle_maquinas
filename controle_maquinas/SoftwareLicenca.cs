@@ -14,13 +14,14 @@ namespace controle_maquinas
     public partial class SoftwareLicenca : Form
     {
         DBC CG = new DBC();
-         
+
         public SoftwareLicenca()
         {
             InitializeComponent();
         }
 
         public static string AltearaSoftware = "";
+        public static string AlterarLicenca = "";
 
         //Metodos
         private void CarregarDGV()
@@ -29,7 +30,29 @@ namespace controle_maquinas
             CG.ExecutarComandoSql(cmd);
             CG.ExibirDGV(dgvSoftware);
             dgvSoftware.Columns[0].Visible = false;
+            if (dgvLicenca.RowCount != 0)
+            {
+                dgvLicenca.DataSource = null;
+            }
 
+            gpbLicenca.Text = "Licença";
+
+        }
+        private void AlterarLicencas()
+        {
+            if (dgvLicenca.CurrentRow != null)
+            {
+                AlterarLicenca = dgvLicenca.CurrentRow.Cells[0].Value.ToString();
+
+                AlterarLicenca frm = new AlterarLicenca();
+                frm.ShowDialog();
+
+                CarregarDGV();
+            }
+            else
+            {
+                MessageBox.Show("Selecione uma licença");
+            }
         }
 
         //Form
@@ -54,22 +77,58 @@ namespace controle_maquinas
         private void btnRemoverSoftware_Click(object sender, EventArgs e)
         {
             string Id_Software = dgvSoftware.CurrentRow.Cells[0].Value.ToString();
-            string Id_Licenca = "";
+            string Software = dgvSoftware.CurrentRow.Cells[1].Value.ToString(); ;
+            string licenca = "";
             string cmd = "";
 
-            DialogResult confirm = MessageBox.Show("Deseja Continuar?", "Apagar Software", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            DataTable id = new DataTable();
+
+            DialogResult confirm = MessageBox.Show("Deseja Continuar?", "Apagar " + Software + " !", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
             if (confirm.ToString().ToUpper() != "YES")
             {
                 return;
             }
 
-            DialogResult confirm2 = MessageBox.Show("Deseja Continuar ?\nIsso Apagara Todas as licenças referente a esse Software", "Apagar Todos as Licença", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            DialogResult confirm2 = MessageBox.Show("Deseja Continuar ?\n\nIsso Apagara Todas as licenças referente a " + Software + " !", "Apagar Todos as Licença", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
             if (confirm2.ToString().ToUpper() != "YES")
             {
                 return;
             }
 
-            cmd = "DELETE FROM `software` WHERE (`id` = '1');";
+            cmd = "SELECT id FROM software_licencas WHERE software = '" + Software + "';";
+            CG.ExecutarComandoSql(cmd);
+            CG.RetornarDadosDataTable(id);
+
+            foreach (DataRow r in id.Rows)
+            {
+                licenca = r[0].ToString();
+
+                cmd = "DELETE FROM `maquina_software` WHERE (`id_licenca` = '" + licenca + "');";
+                CG.ExecutarComandoSql(cmd);
+            }
+
+            cmd = "DELETE FROM `software` WHERE (`id` = '" + Id_Software + "');";
+            CG.ExecutarComandoSql(cmd);
+
+            cmd = "DELETE FROM `software_licencas` WHERE (`software` = '" + Software + "');";
+            CG.ExecutarComandoSql(cmd);            
+            
+            CarregarDGV();
+
+        }
+        private void btnAlterarLicenca_Click(object sender, EventArgs e)
+        {
+            AlterarLicencas();
+        }
+        private void btnRemoverLicenca_Click(object sender, EventArgs e)
+        {
+            string licenca = dgvLicenca.CurrentRow.Cells[0].Value.ToString();
+            string cmd = "";
+
+            cmd = "DELETE FROM `software_licencas` WHERE (`id` = '" + licenca + "');";
+            CG.ExecutarComandoSql(cmd);
+
+            CarregarDGV();
 
         }
 
@@ -84,6 +143,10 @@ namespace controle_maquinas
             CG.ExibirDGV(dgvLicenca);
             dgvLicenca.Columns[0].Visible = false;
             gpbLicenca.Text = "Licenças " + software;
+        }     
+        private void dgvLicenca_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AlterarLicencas();
         }
     }
 }

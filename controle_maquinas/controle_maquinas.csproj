@@ -109,6 +109,9 @@
     <Compile Include="SoftwareLicenca.Designer.cs">
       <DependentUpon>SoftwareLicenca.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Alterar\AlterarLicenca.resx">
+      <DependentUpon>AlterarLicenca.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Alterar\AlterarSoftware.resx">
       <DependentUpon>AlterarSoftware.cs</DependentUpon>
     </EmbeddedResource>

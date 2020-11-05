@@ -1,4 +1,4 @@
-﻿namespace ordem_de_servico
+﻿namespace controle_maquinas
 {
     partial class ConfigurarBanco
     {

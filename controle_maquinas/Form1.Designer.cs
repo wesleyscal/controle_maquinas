@@ -62,7 +62,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(13, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(740, 67);
+            this.groupBox1.Size = new System.Drawing.Size(740, 80);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pesquisa";
@@ -72,7 +72,7 @@
             this.cbbKey.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbbKey.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbKey.FormattingEnabled = true;
-            this.cbbKey.Location = new System.Drawing.Point(372, 33);
+            this.cbbKey.Location = new System.Drawing.Point(372, 46);
             this.cbbKey.Name = "cbbKey";
             this.cbbKey.Size = new System.Drawing.Size(249, 23);
             this.cbbKey.TabIndex = 28;
@@ -82,7 +82,7 @@
             this.cbbSoftware.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbbSoftware.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbSoftware.FormattingEnabled = true;
-            this.cbbSoftware.Location = new System.Drawing.Point(171, 33);
+            this.cbbSoftware.Location = new System.Drawing.Point(171, 46);
             this.cbbSoftware.Name = "cbbSoftware";
             this.cbbSoftware.Size = new System.Drawing.Size(195, 23);
             this.cbbSoftware.TabIndex = 8;
@@ -91,7 +91,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(369, 17);
+            this.label3.Location = new System.Drawing.Point(369, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 15);
             this.label3.TabIndex = 7;
@@ -105,7 +105,7 @@
             this.btnPesquisar.ForeColor = System.Drawing.Color.Gold;
             this.btnPesquisar.Location = new System.Drawing.Point(627, 17);
             this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(107, 41);
+            this.btnPesquisar.Size = new System.Drawing.Size(107, 57);
             this.btnPesquisar.TabIndex = 5;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = false;
@@ -113,7 +113,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(168, 17);
+            this.label2.Location = new System.Drawing.Point(168, 30);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 15);
             this.label2.TabIndex = 3;
@@ -122,7 +122,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 15);
+            this.label1.Location = new System.Drawing.Point(7, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 15);
             this.label1.TabIndex = 1;
@@ -131,7 +131,7 @@
             // txtMaquina
             // 
             this.txtMaquina.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtMaquina.Location = new System.Drawing.Point(6, 33);
+            this.txtMaquina.Location = new System.Drawing.Point(6, 46);
             this.txtMaquina.Name = "txtMaquina";
             this.txtMaquina.Size = new System.Drawing.Size(159, 21);
             this.txtMaquina.TabIndex = 0;
@@ -139,9 +139,9 @@
             // dgvMaquinas
             // 
             this.dgvMaquinas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMaquinas.Location = new System.Drawing.Point(13, 85);
+            this.dgvMaquinas.Location = new System.Drawing.Point(13, 98);
             this.dgvMaquinas.Name = "dgvMaquinas";
-            this.dgvMaquinas.Size = new System.Drawing.Size(1109, 496);
+            this.dgvMaquinas.Size = new System.Drawing.Size(1109, 483);
             this.dgvMaquinas.TabIndex = 1;
             this.dgvMaquinas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaquinas_CellDoubleClick);
             // 
@@ -165,9 +165,9 @@
             this.btnNovoSoftware.ForeColor = System.Drawing.Color.Gold;
             this.btnNovoSoftware.Location = new System.Drawing.Point(121, 17);
             this.btnNovoSoftware.Name = "btnNovoSoftware";
-            this.btnNovoSoftware.Size = new System.Drawing.Size(107, 41);
+            this.btnNovoSoftware.Size = new System.Drawing.Size(107, 57);
             this.btnNovoSoftware.TabIndex = 3;
-            this.btnNovoSoftware.Text = " Nova  Licença";
+            this.btnNovoSoftware.Text = " Novo  Software  Licença";
             this.btnNovoSoftware.UseVisualStyleBackColor = false;
             this.btnNovoSoftware.Click += new System.EventHandler(this.btnNovoSoftware_Click);
             // 
@@ -179,7 +179,7 @@
             this.btnNovaMaquina.ForeColor = System.Drawing.Color.Gold;
             this.btnNovaMaquina.Location = new System.Drawing.Point(8, 17);
             this.btnNovaMaquina.Name = "btnNovaMaquina";
-            this.btnNovaMaquina.Size = new System.Drawing.Size(107, 41);
+            this.btnNovaMaquina.Size = new System.Drawing.Size(107, 57);
             this.btnNovaMaquina.TabIndex = 4;
             this.btnNovaMaquina.Text = " Nova  Maquina";
             this.btnNovaMaquina.UseVisualStyleBackColor = false;
@@ -192,7 +192,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(759, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(239, 67);
+            this.groupBox2.Size = new System.Drawing.Size(239, 80);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Novo";
@@ -205,7 +205,7 @@
             this.btnSoftwareLicenca.ForeColor = System.Drawing.Color.Gold;
             this.btnSoftwareLicenca.Location = new System.Drawing.Point(1004, 12);
             this.btnSoftwareLicenca.Name = "btnSoftwareLicenca";
-            this.btnSoftwareLicenca.Size = new System.Drawing.Size(118, 67);
+            this.btnSoftwareLicenca.Size = new System.Drawing.Size(118, 80);
             this.btnSoftwareLicenca.TabIndex = 29;
             this.btnSoftwareLicenca.Text = "Softwares Licenças";
             this.btnSoftwareLicenca.UseVisualStyleBackColor = false;

@@ -1,5 +1,4 @@
 ﻿using Fd_DBC;
-using ordem_de_servico;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -108,6 +107,11 @@ namespace controle_maquinas
             ConfigCBB();
             CarregarDGV();
         }
+        private void btnSoftwareLicenca_Click(object sender, EventArgs e)
+        {
+            SoftwareLicenca form = new SoftwareLicenca();
+            form.ShowDialog();
+        }
 
         //ComboBox
         private void cbbSoftware_SelectedIndexChanged(object sender, EventArgs e)
@@ -169,10 +173,6 @@ namespace controle_maquinas
             }
         }
 
-        private void btnSoftwareLicenca_Click(object sender, EventArgs e)
-        {
-            SoftwareLicenca form = new SoftwareLicenca();
-            form.ShowDialog();
-        }
+        
     }
 }

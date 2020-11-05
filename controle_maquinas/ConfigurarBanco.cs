@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ordem_de_servico
+namespace controle_maquinas
 {
     public partial class ConfigurarBanco : Form
     {

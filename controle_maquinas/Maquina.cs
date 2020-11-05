@@ -150,10 +150,14 @@ namespace controle_maquinas
                 txtObservacao.Text = r[6].ToString();
                 cbbOS.SelectedItem = r[7].ToString();
                 OSAntiga = r[7].ToString();
-                KeyOSAntiga = r[8].ToString();
-                cbbKeyOS.Items.Add(KeyOSAntiga);
-                cbbKeyOS.SelectedItem = KeyOSAntiga;
+                KeyOSAntiga = r[8].ToString();   
             }
+
+            cbbKeyOS.Items.Add(KeyOSAntiga);
+            cbbKeyOS.SelectedItem = KeyOSAntiga;
+
+
+
             if (PcNote == "pc")
             {
                 rdbComputador.Checked = true;
