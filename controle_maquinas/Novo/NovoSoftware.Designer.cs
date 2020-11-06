@@ -33,6 +33,7 @@
             this.txtSoftware = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ckbOs = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +53,7 @@
             // 
             // txtSoftware
             // 
-            this.txtSoftware.Location = new System.Drawing.Point(9, 44);
+            this.txtSoftware.Location = new System.Drawing.Point(6, 34);
             this.txtSoftware.Name = "txtSoftware";
             this.txtSoftware.Size = new System.Drawing.Size(179, 20);
             this.txtSoftware.TabIndex = 7;
@@ -61,7 +62,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 26);
+            this.label1.Location = new System.Drawing.Point(3, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 15);
             this.label1.TabIndex = 8;
@@ -69,23 +70,34 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.ckbOs);
             this.groupBox1.Controls.Add(this.btnSalvar);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtSoftware);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(313, 93);
+            this.groupBox1.Size = new System.Drawing.Size(313, 88);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "NovoSoftware";
+            // 
+            // ckbOs
+            // 
+            this.ckbOs.AutoSize = true;
+            this.ckbOs.Location = new System.Drawing.Point(6, 66);
+            this.ckbOs.Name = "ckbOs";
+            this.ckbOs.Size = new System.Drawing.Size(123, 17);
+            this.ckbOs.TabIndex = 9;
+            this.ckbOs.Text = "Sistema Operacional";
+            this.ckbOs.UseVisualStyleBackColor = true;
             // 
             // NovoSoftware
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(320, 98);
+            this.ClientSize = new System.Drawing.Size(320, 94);
             this.Controls.Add(this.groupBox1);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -106,5 +118,6 @@
         private System.Windows.Forms.TextBox txtSoftware;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox ckbOs;
     }
 }

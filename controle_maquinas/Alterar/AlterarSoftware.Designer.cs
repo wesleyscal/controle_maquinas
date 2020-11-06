@@ -32,11 +32,13 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.btnFechar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.ckbOs = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(13, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
@@ -56,9 +58,9 @@
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFechar.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFechar.ForeColor = System.Drawing.Color.Gold;
-            this.btnFechar.Location = new System.Drawing.Point(112, 56);
+            this.btnFechar.Location = new System.Drawing.Point(208, 56);
             this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(90, 36);
+            this.btnFechar.Size = new System.Drawing.Size(90, 37);
             this.btnFechar.TabIndex = 1;
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = false;
@@ -70,21 +72,33 @@
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvar.ForeColor = System.Drawing.Color.Gold;
-            this.btnSalvar.Location = new System.Drawing.Point(16, 56);
+            this.btnSalvar.Location = new System.Drawing.Point(208, 13);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(90, 36);
+            this.btnSalvar.Size = new System.Drawing.Size(90, 37);
             this.btnSalvar.TabIndex = 3;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
+            // ckbOs
+            // 
+            this.ckbOs.AutoSize = true;
+            this.ckbOs.ForeColor = System.Drawing.Color.White;
+            this.ckbOs.Location = new System.Drawing.Point(16, 66);
+            this.ckbOs.Name = "ckbOs";
+            this.ckbOs.Size = new System.Drawing.Size(123, 17);
+            this.ckbOs.TabIndex = 10;
+            this.ckbOs.Text = "Sistema Operacional";
+            this.ckbOs.UseVisualStyleBackColor = true;
             // 
             // AlterarSoftware
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(220, 106);
+            this.ClientSize = new System.Drawing.Size(308, 100);
             this.ControlBox = false;
+            this.Controls.Add(this.ckbOs);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.txtNome);
@@ -109,5 +123,6 @@
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.CheckBox ckbOs;
     }
 }

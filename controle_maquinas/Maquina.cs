@@ -37,7 +37,7 @@ namespace controle_maquinas
             cbbSoftware.SelectedIndex = 0;
 
             //Pesquisam os nome dos Software no banco de dados
-            string cmd = "SELECT * FROM software WHERE nome not like 'Windows%';";
+            string cmd = "SELECT * FROM software WHERE os = 'n';";
             CG.ExecutarComandoSql(cmd);
 
             //Declara um DataTable
@@ -51,10 +51,10 @@ namespace controle_maquinas
             //Para Cada Software inserido no DataTable
             foreach (DataRow r in dt.Rows)
             {
-                //Retorna o nome do cliente na variável
+                //Retorna o nome do Software na variável
                 Software = r[1].ToString();
 
-                //Insere o nome do cliente na ComboBox
+                //Insere o nome do Software na ComboBox
                 cbbSoftware.Items.Add(Software);
             }
         }
@@ -67,7 +67,7 @@ namespace controle_maquinas
             cbbOS.SelectedIndex = 0;
 
             //Pesquisam os nome dos Software no banco de dados
-            string cmd = "SELECT * FROM software WHERE nome like 'Windows%';";
+            string cmd = "SELECT * FROM software WHERE os = 's';";
             CG.ExecutarComandoSql(cmd);
 
             //Declara um DataTable
@@ -131,6 +131,7 @@ namespace controle_maquinas
             string Id_Software = "";
             string Software = "";
             string KeySoftware = "";
+            string CBBOS = "";
 
             //Se o retorno for null Fecha o forme
             if (Form1.dt.Rows.Count == 0)
@@ -148,9 +149,18 @@ namespace controle_maquinas
                 Id_hardware = r[4].ToString();
                 PcNote = r[5].ToString();
                 txtObservacao.Text = r[6].ToString();
-                cbbOS.SelectedItem = r[7].ToString();
+                CBBOS = r[7].ToString();
+
+                if (CBBOS != "")
+                {
+                    cbbOS.SelectedItem = CBBOS;
+                }
+                else
+                {
+                    cbbOS.SelectedIndex = 0;
+                }
                 OSAntiga = r[7].ToString();
-                KeyOSAntiga = r[8].ToString();   
+                KeyOSAntiga = r[8].ToString();
             }
 
             cbbKeyOS.Items.Add(KeyOSAntiga);
@@ -215,7 +225,7 @@ namespace controle_maquinas
         private void NovaMaquina_Load(object sender, EventArgs e)
         {
             //Formata DGV
-            CG.FormatarDGV(dgvSoftware);            
+            CG.FormatarDGV(dgvSoftware);
 
             //Remover linha em branco DataGridView
             dgvSoftware.AllowUserToAddRows = false;

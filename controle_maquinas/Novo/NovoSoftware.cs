@@ -25,7 +25,18 @@ namespace controle_maquinas
             if (txtSoftware.Text.Trim() != "")
             {
                 string SavSoftware = txtSoftware.Text;
-                string cmd = "INSERT INTO `software` (`nome`) VALUES ('" + SavSoftware + "');";
+                string os = "";
+
+                if(ckbOs.Checked == true)
+                {
+                    os = "s";
+                }
+                if(ckbOs.Checked == false)
+                {
+                    os = "n";
+                }
+
+                string cmd = "INSERT INTO `software` (`nome`,`os`) VALUES ('" + SavSoftware + "','" + os + "');";
                 CG.ExecutarComandoSql(cmd);
 
                 Close();

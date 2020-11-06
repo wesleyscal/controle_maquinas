@@ -31,7 +31,7 @@ namespace controle_maquinas
             cbbSoftware.SelectedIndex = 0;
 
             //Pesquisam os nome dos Software no banco de dados
-            string cmd = "SELECT * FROM software WHERE nome not like 'Windows%';";
+            string cmd = "SELECT * FROM software WHERE os = 'n';";
             CG.ExecutarComandoSql(cmd);
 
             //Declara um DataTable
@@ -61,7 +61,7 @@ namespace controle_maquinas
             cbbOS.SelectedIndex = 0;
 
             //Pesquisam os nome dos Software no banco de dados
-            string cmd = "SELECT * FROM software WHERE nome like 'Windows%';";
+            string cmd = "SELECT * FROM software WHERE os = 's';";
             CG.ExecutarComandoSql(cmd);
 
             //Declara um DataTable
@@ -386,7 +386,7 @@ namespace controle_maquinas
                     CG.ExecutarComandoSql(cmd);
                     disponibilidade = CG.RetornarValorSQL();
 
-                    if(disponibilidade == "s")
+                    if (disponibilidade == "s")
                     {
                         //Insere no banco de dados
                         cmd = "INSERT INTO `maquina_software` (`id_maquina`, `id_licenca`) VALUES ('" + Id_Maquina + "', '" + Id_Licenca + "');";
@@ -398,8 +398,8 @@ namespace controle_maquinas
                     }
                     else
                     {
-                        MessageBox.Show("Esta em Uso\n\n" + "Software: " + Software + "key: " + Licenca);                        
-                    }                   
+                        MessageBox.Show("Esta em Uso\n\n" + "Software: " + Software + "key: " + Licenca);
+                    }
                 }
             }
             #endregion
@@ -407,7 +407,6 @@ namespace controle_maquinas
             AtualizarForm();
 
         }
-
         private void btnFechar_Click(object sender, EventArgs e)
         {
             Close();

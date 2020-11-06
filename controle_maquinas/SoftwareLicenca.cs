@@ -20,7 +20,8 @@ namespace controle_maquinas
             InitializeComponent();
         }
 
-        public static string AltearaSoftware = "";
+        public static DataTable AltSoftware = new DataTable();
+
         public static string AlterarLicenca = "";
 
         //Metodos
@@ -67,7 +68,9 @@ namespace controle_maquinas
         //Botão
         private void btnAlterarSoftware_Click(object sender, EventArgs e)
         {
-            AltearaSoftware = dgvSoftware.CurrentRow.Cells[1].Value.ToString();
+            string cmd = "SELECT * FROM software;";
+            CG.ExecutarComandoSql(cmd);
+            CG.RetornarDadosDataTable(AltSoftware);
 
             AlterarSoftware frm = new AlterarSoftware();
             frm.ShowDialog();
@@ -76,29 +79,39 @@ namespace controle_maquinas
         }
         private void btnRemoverSoftware_Click(object sender, EventArgs e)
         {
+            //Variaveis
             string Id_Software = dgvSoftware.CurrentRow.Cells[0].Value.ToString();
             string Software = dgvSoftware.CurrentRow.Cells[1].Value.ToString(); ;
             string licenca = "";
+            string os = "";
             string cmd = "";
 
+            //Datatable licenca
             DataTable id = new DataTable();
 
+            //Confirma se Deseja Fazer a excluxão
             DialogResult confirm = MessageBox.Show("Deseja Continuar?", "Apagar " + Software + " !", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
             if (confirm.ToString().ToUpper() != "YES")
             {
                 return;
             }
-
             DialogResult confirm2 = MessageBox.Show("Deseja Continuar ?\n\nIsso Apagara Todas as licenças referente a " + Software + " !", "Apagar Todos as Licença", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
             if (confirm2.ToString().ToUpper() != "YES")
             {
                 return;
             }
 
+            //Pega os Id da licençã e coloca no DataTable
             cmd = "SELECT id FROM software_licencas WHERE software = '" + Software + "';";
             CG.ExecutarComandoSql(cmd);
             CG.RetornarDadosDataTable(id);
 
+            //Pega se é Os ou não
+            cmd = "SELECT os FROM software where id = '" + Id_Software + "';";
+            CG.ExecutarComandoSql(cmd);
+            os = CG.RetornarValorSQL();
+
+            //Exclui os Software da Maquina_Software
             foreach (DataRow r in id.Rows)
             {
                 licenca = r[0].ToString();
@@ -107,12 +120,21 @@ namespace controle_maquinas
                 CG.ExecutarComandoSql(cmd);
             }
 
+            //Exclui o Software
             cmd = "DELETE FROM `software` WHERE (`id` = '" + Id_Software + "');";
             CG.ExecutarComandoSql(cmd);
 
+            //Exclui A licenca
             cmd = "DELETE FROM `software_licencas` WHERE (`software` = '" + Software + "');";
-            CG.ExecutarComandoSql(cmd);            
-            
+            CG.ExecutarComandoSql(cmd);
+
+            //Se for OS remove de maquina
+            if (os == "s")
+            {
+                cmd = "UPDATE `maquina` SET `sistema_operacional` = '', `keyos` = '' WHERE (`sistema_operacional` = '" + Software + "');";
+                CG.ExecutarComandoSql(cmd);
+            }
+
             CarregarDGV();
 
         }
@@ -122,14 +144,23 @@ namespace controle_maquinas
         }
         private void btnRemoverLicenca_Click(object sender, EventArgs e)
         {
-            string licenca = dgvLicenca.CurrentRow.Cells[0].Value.ToString();
-            string cmd = "";
+            if (dgvLicenca.CurrentRow != null)
+            {
+                string licenca = dgvLicenca.CurrentRow.Cells[0].Value.ToString();
+                string cmd = "";
 
-            cmd = "DELETE FROM `software_licencas` WHERE (`id` = '" + licenca + "');";
-            CG.ExecutarComandoSql(cmd);
+                cmd = "DELETE FROM `software_licencas` WHERE (`id` = '" + licenca + "');";
+                CG.ExecutarComandoSql(cmd);
 
-            CarregarDGV();
+                cmd = "DELETE FROM `maquina_software` WHERE (`id_licenca` = '" + licenca + "');";
+                CG.ExecutarComandoSql(cmd);
 
+                CarregarDGV();
+            }
+            else
+            {
+                MessageBox.Show("Selecione uma licença");
+            }
         }
 
 
@@ -143,7 +174,7 @@ namespace controle_maquinas
             CG.ExibirDGV(dgvLicenca);
             dgvLicenca.Columns[0].Visible = false;
             gpbLicenca.Text = "Licenças " + software;
-        }     
+        }
         private void dgvLicenca_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             AlterarLicencas();

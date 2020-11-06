@@ -111,6 +111,9 @@ namespace controle_maquinas
         {
             SoftwareLicenca form = new SoftwareLicenca();
             form.ShowDialog();
+
+            ConfigCBB();
+            CarregarDGV();
         }
 
         //ComboBox
@@ -173,6 +176,6 @@ namespace controle_maquinas
             }
         }
 
-        
+
     }
 }
