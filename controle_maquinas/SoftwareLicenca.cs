@@ -27,7 +27,7 @@ namespace controle_maquinas
         //Metodos
         private void CarregarDGV()
         {
-            string cmd = "SELECT id, nome 'Nome' FROM software;";
+            string cmd = "SELECT id, nome 'Nome', os 'OS' FROM software;";
             CG.ExecutarComandoSql(cmd);
             CG.ExibirDGV(dgvSoftware);
             dgvSoftware.Columns[0].Visible = false;

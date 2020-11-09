@@ -42,3 +42,4 @@ C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\
 C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.AlterarSoftware.resources
 C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.ConfigurarBanco.resources
 C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.AlterarLicenca.resources
+C:\Users\ti02\Desktop\Projeto Git\controle_maquinas\controle_maquinas\obj\Debug\controle_maquinas.InputBox.resources

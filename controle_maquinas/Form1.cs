@@ -176,6 +176,12 @@ namespace controle_maquinas
             }
         }
 
-
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            InputBox frm = new InputBox("Pesquisa","Pesquisar Nome de usuario real","Retorno valor inicial");
+            frm.ShowDialog();
+            string resultado = frm.InputResult();
+            MessageBox.Show(resultado);           
+        }
     }
 }
