@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace controle_maquinas
@@ -37,6 +30,20 @@ namespace controle_maquinas
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void txtValor_KeyDown(object sender, KeyEventArgs e)
+        {
+           if(e.KeyCode == Keys.Enter)
+            {
+                valor = txtValor.Text;
+                Close();
+            }
+        }
+
+        private void InputBox_Load(object sender, EventArgs e)
+        {
+            txtValor.Focus();
         }
     }
 }

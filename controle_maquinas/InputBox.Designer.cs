@@ -42,7 +42,7 @@
             this.lblTexto.Location = new System.Drawing.Point(12, 9);
             this.lblTexto.Name = "lblTexto";
             this.lblTexto.Size = new System.Drawing.Size(269, 100);
-            this.lblTexto.TabIndex = 4;
+            this.lblTexto.TabIndex = 5;
             this.lblTexto.Text = "Texto";
             // 
             // btnOk
@@ -54,7 +54,7 @@
             this.btnOk.Location = new System.Drawing.Point(287, 9);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(89, 43);
-            this.btnOk.TabIndex = 6;
+            this.btnOk.TabIndex = 1;
             this.btnOk.Text = "Confirmar";
             this.btnOk.UseVisualStyleBackColor = false;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
@@ -64,7 +64,8 @@
             this.txtValor.Location = new System.Drawing.Point(12, 112);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(364, 20);
-            this.txtValor.TabIndex = 7;
+            this.txtValor.TabIndex = 0;
+            this.txtValor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtValor_KeyDown);
             // 
             // btnCancelar
             // 
@@ -75,7 +76,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(287, 63);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(89, 43);
-            this.btnCancelar.TabIndex = 8;
+            this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -96,6 +97,7 @@
             this.Name = "InputBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InputBox";
+            this.Load += new System.EventHandler(this.InputBox_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

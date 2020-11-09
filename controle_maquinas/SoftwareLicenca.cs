@@ -146,6 +146,14 @@ namespace controle_maquinas
         {
             if (dgvLicenca.CurrentRow != null)
             {
+                string info = dgvLicenca.CurrentRow.Cells[1].Value.ToString();
+                //Confirma se Deseja Fazer a excluxão
+                DialogResult confirm = MessageBox.Show("Deseja Continuar?", "Apagar " + info + " !", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                if (confirm.ToString().ToUpper() != "YES")
+                {
+                    return;
+                }
+
                 string licenca = dgvLicenca.CurrentRow.Cells[0].Value.ToString();
                 string cmd = "";
 
@@ -162,24 +170,6 @@ namespace controle_maquinas
                 MessageBox.Show("Selecione uma licença");
             }
         }
-
-
-        //DataGridView
-        private void dgvSoftware_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            string software = dgvSoftware.CurrentRow.Cells[1].Value.ToString();
-
-            string cmd = "SELECT id 'id',`key` 'Key',nfe 'NFe',fpp 'licença FPP',disponivel 'Disponivel', observacao 'Observação' FROM software_licencas where software = '" + software + "';";
-            CG.ExecutarComandoSql(cmd);
-            CG.ExibirDGV(dgvLicenca);
-            dgvLicenca.Columns[0].Visible = false;
-            gpbLicenca.Text = "Licenças " + software;
-        }
-        private void dgvLicenca_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            AlterarLicencas();
-        }
-
         private void btnPesquisa_Click(object sender, EventArgs e)
         {
             string Key = txtKey.Text.Trim();
@@ -211,5 +201,24 @@ namespace controle_maquinas
 
 
         }
+
+
+        //DataGridView
+        private void dgvSoftware_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string software = dgvSoftware.CurrentRow.Cells[1].Value.ToString();
+
+            string cmd = "SELECT id 'id',`key` 'Key',nfe 'NFe',fpp 'licença FPP',disponivel 'Disponivel', observacao 'Observação' FROM software_licencas where software = '" + software + "';";
+            CG.ExecutarComandoSql(cmd);
+            CG.ExibirDGV(dgvLicenca);
+            dgvLicenca.Columns[0].Visible = false;
+            gpbLicenca.Text = "Licenças " + software;
+        }
+        private void dgvLicenca_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AlterarLicencas();
+        }
+
+        
     }
 }

@@ -85,6 +85,19 @@ namespace controle_maquinas
                 CarregarDGV();
             }
 
+            if (e.KeyCode == Keys.F3)
+            {
+                InputBox frm = new InputBox("Pesquisa", "Pesquisar Nome de usuario real", "");
+                frm.ShowDialog();
+                string resultado = frm.InputResult();
+
+                string cmd = "select id, nome_maquina 'Nome Maquina', nome_dominio 'Nome Dominio', nome_usuario 'Nome Usuario', sistema_operacional 'Sistema Operacional' " +
+                    "from maquina " +
+                    "WHERE nome_usuario like '" + resultado + "';";
+                CG.ExecutarComandoSql(cmd);
+                CG.ExibirDGV(dgvMaquinas);
+            }
+
             if (e.KeyCode == Keys.F4)
             {
                 ConfigurarBanco CB = new ConfigurarBanco();
@@ -178,10 +191,54 @@ namespace controle_maquinas
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            InputBox frm = new InputBox("Pesquisa","Pesquisar Nome de usuario real","Retorno valor inicial");
-            frm.ShowDialog();
-            string resultado = frm.InputResult();
-            MessageBox.Show(resultado);           
+            DataTable Id_Maquina = new DataTable();
+            DataTable Resultado = new DataTable();
+
+            string cmd = "";
+            string Id_Software = "";
+            string Software = cbbSoftware.Text;
+            string Key = cbbKey.Text;
+            string Maquinas = "";
+
+            if(cbbKey.Text == "Selecionar licença")
+            {
+                MessageBox.Show("Selecione Uma licença");
+                return;
+            }
+
+            //Pega os Id da licençã
+            cmd = "SELECT id FROM software_licencas WHERE software = '" + Software + "' and `key` = '" + Key + "';";
+            CG.ExecutarComandoSql(cmd);
+            Id_Software = CG.RetornarValorSQL();
+
+            //pega o id das maquinas
+            cmd = "SELECT id_maquina FROM maquina_software where id_licenca = '" + Id_Software + "';";
+            CG.ExecutarComandoSql(cmd);
+            CG.RetornarDadosDataTable(Id_Maquina);
+
+            if(Id_Maquina.Rows.Count == 0)
+            {
+                MessageBox.Show("Nenhuma maquina possui esse Software");
+                return;
+            }
+
+            dgvMaquinas.DataSource = null;
+
+            foreach (DataRow r in Id_Maquina.Rows)
+            {
+                Maquinas = r[0].ToString();
+
+                cmd = "select id, nome_maquina 'Nome Maquina', nome_dominio 'Nome Dominio', nome_usuario 'Nome Usuario', sistema_operacional 'Sistema Operacional' " +
+                      "from maquina " +
+                      "Where id = '" + Maquinas + "';";
+                CG.ExecutarComandoSql(cmd);
+                CG.RetornarDadosDataTable(Resultado);
+             
+                dgvMaquinas.DataSource = Resultado;
+               
+                Resultado = (DataTable)dgvMaquinas.DataSource; 
+            }
+
         }
     }
 }
