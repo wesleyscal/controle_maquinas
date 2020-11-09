@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvSoftware = new System.Windows.Forms.DataGridView();
             this.btnRemoverSoftware = new System.Windows.Forms.Button();
             this.btnAlterarSoftware = new System.Windows.Forms.Button();
             this.gpbLicenca = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.txtNfe = new System.Windows.Forms.TextBox();
+            this.btnPesquisa = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtKey = new System.Windows.Forms.TextBox();
             this.btnRemoverLicenca = new System.Windows.Forms.Button();
             this.dgvLicenca = new System.Windows.Forms.DataGridView();
             this.btnAlterarLicenca = new System.Windows.Forms.Button();
@@ -70,22 +70,22 @@
             // 
             this.dgvSoftware.AllowUserToAddRows = false;
             this.dgvSoftware.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dgvSoftware.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            this.dgvSoftware.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvSoftware.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSoftware.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSoftware.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvSoftware.Location = new System.Drawing.Point(6, 19);
             this.dgvSoftware.Name = "dgvSoftware";
             this.dgvSoftware.ReadOnly = true;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            this.dgvSoftware.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            this.dgvSoftware.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvSoftware.Size = new System.Drawing.Size(289, 335);
             this.dgvSoftware.TabIndex = 0;
             this.dgvSoftware.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSoftware_CellClick);
@@ -121,10 +121,10 @@
             // gpbLicenca
             // 
             this.gpbLicenca.Controls.Add(this.label2);
-            this.gpbLicenca.Controls.Add(this.textBox2);
-            this.gpbLicenca.Controls.Add(this.button3);
+            this.gpbLicenca.Controls.Add(this.txtNfe);
+            this.gpbLicenca.Controls.Add(this.btnPesquisa);
             this.gpbLicenca.Controls.Add(this.label1);
-            this.gpbLicenca.Controls.Add(this.textBox1);
+            this.gpbLicenca.Controls.Add(this.txtKey);
             this.gpbLicenca.Controls.Add(this.btnRemoverLicenca);
             this.gpbLicenca.Controls.Add(this.dgvLicenca);
             this.gpbLicenca.Controls.Add(this.btnAlterarLicenca);
@@ -145,25 +145,26 @@
             this.label2.TabIndex = 37;
             this.label2.Text = "NF-e";
             // 
-            // textBox2
+            // txtNfe
             // 
-            this.textBox2.Location = new System.Drawing.Point(235, 376);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(209, 20);
-            this.textBox2.TabIndex = 36;
+            this.txtNfe.Location = new System.Drawing.Point(235, 376);
+            this.txtNfe.Name = "txtNfe";
+            this.txtNfe.Size = new System.Drawing.Size(209, 20);
+            this.txtNfe.TabIndex = 36;
             // 
-            // button3
+            // btnPesquisa
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Gold;
-            this.button3.Location = new System.Drawing.Point(450, 360);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(107, 45);
-            this.button3.TabIndex = 35;
-            this.button3.Text = "Pesquisar";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnPesquisa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnPesquisa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesquisa.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisa.ForeColor = System.Drawing.Color.Gold;
+            this.btnPesquisa.Location = new System.Drawing.Point(450, 360);
+            this.btnPesquisa.Name = "btnPesquisa";
+            this.btnPesquisa.Size = new System.Drawing.Size(107, 45);
+            this.btnPesquisa.TabIndex = 35;
+            this.btnPesquisa.Text = "Pesquisar";
+            this.btnPesquisa.UseVisualStyleBackColor = false;
+            this.btnPesquisa.Click += new System.EventHandler(this.btnPesquisa_Click);
             // 
             // label1
             // 
@@ -174,12 +175,12 @@
             this.label1.TabIndex = 34;
             this.label1.Text = "Key";
             // 
-            // textBox1
+            // txtKey
             // 
-            this.textBox1.Location = new System.Drawing.Point(9, 376);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(220, 20);
-            this.textBox1.TabIndex = 2;
+            this.txtKey.Location = new System.Drawing.Point(9, 376);
+            this.txtKey.Name = "txtKey";
+            this.txtKey.Size = new System.Drawing.Size(220, 20);
+            this.txtKey.TabIndex = 2;
             // 
             // btnRemoverLicenca
             // 
@@ -199,22 +200,22 @@
             // 
             this.dgvLicenca.AllowUserToAddRows = false;
             this.dgvLicenca.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dgvLicenca.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            this.dgvLicenca.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvLicenca.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLicenca.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLicenca.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvLicenca.Location = new System.Drawing.Point(6, 19);
             this.dgvLicenca.Name = "dgvLicenca";
             this.dgvLicenca.ReadOnly = true;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            this.dgvLicenca.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            this.dgvLicenca.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvLicenca.Size = new System.Drawing.Size(777, 335);
             this.dgvLicenca.TabIndex = 1;
             this.dgvLicenca.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLicenca_CellDoubleClick);
@@ -267,9 +268,9 @@
         private System.Windows.Forms.Button btnRemoverLicenca;
         private System.Windows.Forms.Button btnAlterarLicenca;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox txtNfe;
+        private System.Windows.Forms.Button btnPesquisa;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtKey;
     }
 }

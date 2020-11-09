@@ -179,5 +179,37 @@ namespace controle_maquinas
         {
             AlterarLicencas();
         }
+
+        private void btnPesquisa_Click(object sender, EventArgs e)
+        {
+            string Key = txtKey.Text.Trim();
+            string Nfe = txtNfe.Text.Trim();
+
+            gpbLicenca.Text = "Resultado da Pesquisa !";
+
+            if (Key != "")
+            {
+                Key = "%" + Key + "%";
+            }
+            if (Nfe != "")
+            {
+                Nfe = "%" + Nfe + "%";
+            }
+
+            string cmd = "SELECT id 'id'," +
+                         "`key` 'Key'," +
+                         "nfe 'NFe'," +
+                         "fpp 'licença FPP'," +
+                         "disponivel 'Disponivel'," +
+                         " observacao 'Observação' " +
+                         "FROM " +
+                         "software_licencas " +
+                         "where `key` like '" + Key + "' or `nfe` like '" + Nfe + "';";
+
+            CG.ExecutarComandoSql(cmd);
+            CG.ExibirDGV(dgvLicenca);
+
+
+        }
     }
 }
