@@ -26,11 +26,11 @@ namespace controle_maquinas
         {
             cbbSoftware.Items.Clear();
 
-            cbbSoftware.Items.Add("Todos os Software");
+            cbbSoftware.Items.Add("Selecionar Software");
             cbbSoftware.SelectedIndex = 0;
 
             //Pesquisam os nome dos Software no banco de dados
-            string cmd = "SELECT * FROM controle_maquina.software;";
+            string cmd = "SELECT * FROM software;";
             CG.ExecutarComandoSql(cmd);
 
             //Declara um DataTable
@@ -135,7 +135,7 @@ namespace controle_maquinas
             string Software = "";
 
             cbbKey.Items.Clear();
-            cbbKey.Items.Add("Selecionar licença");
+            cbbKey.Items.Add("Todas as licença");
             cbbKey.SelectedIndex = 0;
 
             if (cbbSoftware.Text != "Selecionar Software")
@@ -192,37 +192,76 @@ namespace controle_maquinas
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             DataTable Id_Maquina = new DataTable();
+            DataTable Id_Licenca = new DataTable();
             DataTable Resultado = new DataTable();
 
             string cmd = "";
-            string Id_Software = "";
             string Software = cbbSoftware.Text;
             string Key = cbbKey.Text;
             string Maquinas = "";
+            string Licenca = "";
+            string Os = "";
 
-            if(cbbKey.Text == "Selecionar licença")
+            if(cbbSoftware.Text == "Selecionar Software")
             {
-                MessageBox.Show("Selecione Uma licença");
+                MessageBox.Show("Selecione um Software");
                 return;
             }
 
-            //Pega os Id da licençã
-            cmd = "SELECT id FROM software_licencas WHERE software = '" + Software + "' and `key` = '" + Key + "';";
-            CG.ExecutarComandoSql(cmd);
-            Id_Software = CG.RetornarValorSQL();
+            if(cbbKey.Text == "Todas as licença")
+            {
+                Key = "%%";
+            }
 
-            //pega o id das maquinas
-            cmd = "SELECT id_maquina FROM maquina_software where id_licenca = '" + Id_Software + "';";
+            //Pega o Id da licençã
+            cmd = "SELECT id FROM software_licencas WHERE software = '" + Software + "' and `key` like '" + Key + "';";
             CG.ExecutarComandoSql(cmd);
-            CG.RetornarDadosDataTable(Id_Maquina);
+            CG.RetornarDadosDataTable(Id_Licenca);
 
-            if(Id_Maquina.Rows.Count == 0)
+            //Se for Sistema operacional
+            cmd = "SELECT os FROM software WHERE nome = '" + Software + "';";
+            CG.ExecutarComandoSql(cmd);
+            Os = CG.RetornarValorSQL();
+
+            //Pesquisar OS
+            if(Os == "s")
+            {
+                cmd = "select id, nome_maquina 'Nome Maquina', nome_dominio 'Nome Dominio', nome_usuario 'Nome Usuario', sistema_operacional 'Sistema Operacional' " +
+                      "from maquina " +
+                      "Where sistema_operacional = '" + Software + "' and `keyos` like '" + Key + "';";
+                CG.ExecutarComandoSql(cmd);
+                CG.ExibirDGV(dgvMaquinas);
+
+                dgvMaquinas.Columns[0].Visible = false;
+                return;
+            }
+
+            foreach (DataRow l in Id_Licenca.Rows)
+            {
+                Licenca = l[0].ToString();
+                Resultado.Rows.Clear();
+
+                cmd = "SELECT id_maquina FROM maquina_software where id_licenca = '" + Licenca + "';";
+                CG.ExecutarComandoSql(cmd);
+                CG.RetornarDadosDataTable(Resultado);
+
+                Id_Maquina.Merge(Resultado);
+            }
+
+            ////pega o id das maquinas
+            //cmd = "SELECT id_maquina FROM maquina_software where id_licenca = '" + Id_Licenca + "';";
+            //CG.ExecutarComandoSql(cmd);
+            //CG.RetornarDadosDataTable(Id_Maquina);
+
+            if (Id_Maquina.Rows.Count == 0)
             {
                 MessageBox.Show("Nenhuma maquina possui esse Software");
                 return;
             }
 
             dgvMaquinas.DataSource = null;
+            Resultado.Rows.Clear();
+            Resultado.Columns.Clear();
 
             foreach (DataRow r in Id_Maquina.Rows)
             {
@@ -239,6 +278,7 @@ namespace controle_maquinas
                 Resultado = (DataTable)dgvMaquinas.DataSource; 
             }
 
+            dgvMaquinas.Columns[0].Visible = false;
         }
     }
 }

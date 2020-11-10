@@ -29,7 +29,7 @@ namespace controle_maquinas
             cbbSoftware.SelectedIndex = 0;
 
             //Pesquisam os nome dos Software no banco de dados
-            string cmd = "SELECT * FROM controle_maquina.software;";
+            string cmd = "SELECT * FROM software;";
             CG.ExecutarComandoSql(cmd);
 
             //Declara um DataTable

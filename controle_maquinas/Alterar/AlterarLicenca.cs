@@ -14,7 +14,7 @@ namespace controle_maquinas
     public partial class AlterarLicenca : Form
     {
         DBC CG = new DBC();
-        String Id_Licenca = SoftwareLicenca.AlterarLicenca;
+        string Id_Licenca = SoftwareLicenca.AlterarLicenca;
 
 
         public AlterarLicenca()

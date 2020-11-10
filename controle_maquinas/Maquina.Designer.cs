@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Maquina));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rdbNotebook = new System.Windows.Forms.RadioButton();
@@ -36,6 +36,7 @@
             this.rdbComputador = new System.Windows.Forms.RadioButton();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtDominio = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMaquina = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -66,9 +67,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.cbbSoftware = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.btnFechar = new System.Windows.Forms.Button();
             this.btnResetar = new System.Windows.Forms.Button();
-            this.txtDominio = new System.Windows.Forms.TextBox();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -142,6 +142,15 @@
             this.label2.Size = new System.Drawing.Size(86, 13);
             this.label2.TabIndex = 10;
             this.label2.Text = "Usuário Domínio";
+            // 
+            // txtDominio
+            // 
+            this.txtDominio.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtDominio.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtDominio.Location = new System.Drawing.Point(178, 32);
+            this.txtDominio.Name = "txtDominio";
+            this.txtDominio.Size = new System.Drawing.Size(163, 20);
+            this.txtDominio.TabIndex = 1;
             // 
             // label1
             // 
@@ -399,8 +408,8 @@
             this.dgvSoftware.Location = new System.Drawing.Point(9, 56);
             this.dgvSoftware.Name = "dgvSoftware";
             this.dgvSoftware.ReadOnly = true;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.dgvSoftware.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgvSoftware.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSoftware.Size = new System.Drawing.Size(424, 400);
             this.dgvSoftware.TabIndex = 3;
             // 
@@ -473,20 +482,6 @@
             this.label12.TabIndex = 25;
             this.label12.Text = "Software";
             // 
-            // btnFechar
-            // 
-            this.btnFechar.BackColor = System.Drawing.Color.Maroon;
-            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFechar.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFechar.ForeColor = System.Drawing.Color.Gold;
-            this.btnFechar.Location = new System.Drawing.Point(12, 428);
-            this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(107, 46);
-            this.btnFechar.TabIndex = 6;
-            this.btnFechar.Text = "Fechar";
-            this.btnFechar.UseVisualStyleBackColor = false;
-            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
-            // 
             // btnResetar
             // 
             this.btnResetar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -501,23 +496,28 @@
             this.btnResetar.UseVisualStyleBackColor = false;
             this.btnResetar.Click += new System.EventHandler(this.btnResetar_Click);
             // 
-            // txtDominio
+            // btnExcluir
             // 
-            this.txtDominio.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtDominio.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtDominio.Location = new System.Drawing.Point(178, 32);
-            this.txtDominio.Name = "txtDominio";
-            this.txtDominio.Size = new System.Drawing.Size(163, 20);
-            this.txtDominio.TabIndex = 1;
+            this.btnExcluir.BackColor = System.Drawing.Color.Maroon;
+            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcluir.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluir.ForeColor = System.Drawing.Color.Gold;
+            this.btnExcluir.Location = new System.Drawing.Point(12, 428);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(107, 46);
+            this.btnExcluir.TabIndex = 27;
+            this.btnExcluir.Text = "Excluir Maquina";
+            this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // Maquina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(923, 485);
+            this.ClientSize = new System.Drawing.Size(923, 483);
+            this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnResetar);
-            this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtObservacao);
@@ -584,9 +584,9 @@
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sofware;
         private System.Windows.Forms.DataGridViewTextBoxColumn Key;
-        private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.Button btnRemover;
         private System.Windows.Forms.Button btnResetar;
         private System.Windows.Forms.TextBox txtDominio;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }

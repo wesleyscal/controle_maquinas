@@ -163,10 +163,13 @@ namespace controle_maquinas
                 KeyOSAntiga = r[8].ToString();
             }
 
-            cbbKeyOS.Items.Add(KeyOSAntiga);
             cbbKeyOS.SelectedItem = KeyOSAntiga;
 
-
+            if(cbbKeyOS.Text != KeyOSAntiga)
+            {
+                cbbKeyOS.Items.Add(KeyOSAntiga);
+                cbbKeyOS.SelectedItem = KeyOSAntiga;
+            }
 
             if (PcNote == "pc")
             {
@@ -592,6 +595,75 @@ namespace controle_maquinas
 
             AtualizarForm();
             CarregarInformacoesPesquisa();
+        }
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            DialogResult confirm = MessageBox.Show("Deseja Continuar?", "Excluir maquina", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            if (confirm.ToString().ToUpper() != "YES")
+            {
+                return;
+            }
+
+            //Variavel Software
+            string Id_Software = "";
+            string cmd = "";
+            DataTable Dt_Software = new DataTable();
+            //Variaveis OS
+            DataTable Dt_Os = new DataTable();
+            string KeyOs = "";
+            string Os = "";
+
+            #region Software
+            //Verifica se o datagridview esta vazio
+            if (dgvSoftware.RowCount != 0)
+            {
+                //Pega os Id do Software
+                cmd = "SELECT id_licenca FROM maquina_software where id_maquina = " + Id_Maquina + ";";
+                CG.ExecutarComandoSql(cmd);
+                CG.RetornarDadosDataTable(Dt_Software);
+
+                //Liberar os software
+                foreach (DataRow r in Dt_Software.Rows)
+                {
+                    Id_Software = r[0].ToString();
+
+                    cmd = "UPDATE `software_licencas` SET `disponivel` = 's' WHERE (`id` = '" + Id_Software + "');";
+                    CG.ExecutarComandoSql(cmd);
+                }
+
+                //Limpa a lista de software
+                cmd = "DELETE FROM `maquina_software` WHERE (`id_maquina` = '" + Id_Maquina + "');";
+                CG.ExecutarComandoSql(cmd);
+
+                Id_Software = "";
+            }
+            #endregion  
+
+            #region Sistema Operacional
+            cmd = "SELECT sistema_operacional, keyos FROM maquina where id = '" + Id_Maquina + "';";
+            CG.ExecutarComandoSql(cmd);
+            CG.RetornarDadosDataTable(Dt_Os);
+
+
+            foreach (DataRow r in Dt_Os.Rows)
+            {
+                Os = r[0].ToString();
+                KeyOs = r[1].ToString();
+            }
+
+            cmd = "UPDATE `software_licencas` SET `disponivel` = 's' WHERE `software` = '" + Os + "' and `key` = '" + KeyOs + "';";
+            CG.ExecutarComandoSql(cmd);
+            #endregion
+
+            #region Apagar Hardware e Maquina
+            cmd = "DELETE FROM `hardware` WHERE (`id` = '" + Id_hardware + "');";
+            CG.ExecutarComandoSql(cmd);
+
+            cmd = "DELETE FROM `maquina` WHERE (`id` = '" + Id_Maquina + "');";
+            CG.ExecutarComandoSql(cmd);
+            #endregion
+
+            Close();
         }
     }
 }

@@ -120,9 +120,12 @@
             // 
             // dgvMaquinas
             // 
+            this.dgvMaquinas.AllowUserToAddRows = false;
+            this.dgvMaquinas.AllowUserToDeleteRows = false;
             this.dgvMaquinas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMaquinas.Location = new System.Drawing.Point(13, 98);
             this.dgvMaquinas.Name = "dgvMaquinas";
+            this.dgvMaquinas.ReadOnly = true;
             this.dgvMaquinas.Size = new System.Drawing.Size(1088, 483);
             this.dgvMaquinas.TabIndex = 1;
             this.dgvMaquinas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaquinas_CellDoubleClick);
