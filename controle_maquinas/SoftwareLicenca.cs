@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace controle_maquinas
 {
@@ -184,6 +185,12 @@ namespace controle_maquinas
         {
             string Key = txtKey.Text.Trim();
             string Nfe = txtNfe.Text.Trim();
+
+            if (Key == "" && Nfe == "")
+            {
+                MessageBox.Show("Os campos de pesquisa estão vazio");
+                return;
+            }
 
             gpbLicenca.Text = "Resultado da Pesquisa !";
 
