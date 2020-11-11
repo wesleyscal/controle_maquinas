@@ -128,67 +128,6 @@ namespace controle_maquinas
             ConfigCBB();
             CarregarDGV();
         }
-
-        //ComboBox
-        private void cbbSoftware_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string Software = "";
-
-            cbbKey.Items.Clear();
-            cbbKey.Items.Add("Todas as licença");
-            cbbKey.SelectedIndex = 0;
-
-            if (cbbSoftware.Text != "Selecionar Software")
-            {
-                Software = cbbSoftware.Text;
-                string cmd = "SELECT * FROM software_licencas where software = '" + Software + "' ;";
-                CG.ExecutarComandoSql(cmd);
-
-                //Declara um DataTable
-                DataTable dt;
-                //Instancia o DataTable e insere o retorno do banco de dados no mesmo
-                dt = new DataTable();
-                CG.RetornarDadosDataTable(dt);
-
-                string Key = "";
-
-                //Para Cada Software inserido no DataTable
-                foreach (DataRow r in dt.Rows)
-                {
-                    //Retorna o nome do cliente na variável
-                    Key = r[2].ToString();
-
-                    //Insere o nome do cliente na ComboBox
-                    cbbKey.Items.Add(Key);
-                }
-            }
-            else
-            {
-                return;
-            }
-        }
-
-        //DataGridView
-        private void dgvMaquinas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex != -1)
-            {
-                string codigo = dgvMaquinas.CurrentRow.Cells[0].Value.ToString();
-
-                string cmd = "select * " +
-                             "from maquina " +
-                             "where id = '" + codigo + "'";
-                CG.ExecutarComandoSql(cmd);
-                CG.RetornarDadosDataTable(dt);
-
-                Maquina Form = new Maquina();
-                Form.ShowDialog();
-
-                ConfigCBB();
-                CarregarDGV();
-            }
-        }
-
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             DataTable Id_Maquina = new DataTable();
@@ -280,5 +219,67 @@ namespace controle_maquinas
 
             dgvMaquinas.Columns[0].Visible = false;
         }
+
+        //ComboBox
+        private void cbbSoftware_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string Software = "";
+
+            cbbKey.Items.Clear();
+            cbbKey.Items.Add("Todas as licença");
+            cbbKey.SelectedIndex = 0;
+
+            if (cbbSoftware.Text != "Selecionar Software")
+            {
+                Software = cbbSoftware.Text;
+                string cmd = "SELECT * FROM software_licencas where software = '" + Software + "' ;";
+                CG.ExecutarComandoSql(cmd);
+
+                //Declara um DataTable
+                DataTable dt;
+                //Instancia o DataTable e insere o retorno do banco de dados no mesmo
+                dt = new DataTable();
+                CG.RetornarDadosDataTable(dt);
+
+                string Key = "";
+
+                //Para Cada Software inserido no DataTable
+                foreach (DataRow r in dt.Rows)
+                {
+                    //Retorna o nome do cliente na variável
+                    Key = r[2].ToString();
+
+                    //Insere o nome do cliente na ComboBox
+                    cbbKey.Items.Add(Key);
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        //DataGridView
+        private void dgvMaquinas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                string codigo = dgvMaquinas.CurrentRow.Cells[0].Value.ToString();
+
+                string cmd = "select * " +
+                             "from maquina " +
+                             "where id = '" + codigo + "'";
+                CG.ExecutarComandoSql(cmd);
+                CG.RetornarDadosDataTable(dt);
+
+                Maquina Form = new Maquina();
+                Form.ShowDialog();
+
+                ConfigCBB();
+                CarregarDGV();
+            }
+        }
+
+
     }
 }

@@ -165,7 +165,7 @@ namespace controle_maquinas
 
             cbbKeyOS.SelectedItem = KeyOSAntiga;
 
-            if(cbbKeyOS.Text != KeyOSAntiga)
+            if (cbbKeyOS.Text != KeyOSAntiga)
             {
                 cbbKeyOS.Items.Add(KeyOSAntiga);
                 cbbKeyOS.SelectedItem = KeyOSAntiga;
@@ -316,10 +316,25 @@ namespace controle_maquinas
                 return;
             }
 
+            foreach (var cbb in cbbKeyOS.Items)
+            {
+                cbbKeyOS.SelectedItem = cbb;
+
+                if (cbbKeyOS.Text == KeyOSAntiga)
+                {
+                    cbbKeyOS.SelectedItem = KeyOSAntiga;
+                    return;
+                }
+            }
+
             if (cbbOS.Text == OSAntiga)
             {
                 cbbKeyOS.Items.Add(KeyOSAntiga);
                 cbbKeyOS.SelectedItem = KeyOSAntiga;
+            }
+            else
+            {
+                cbbKeyOS.SelectedIndex = 0;
             }
         }
 
@@ -580,6 +595,28 @@ namespace controle_maquinas
                         MessageBox.Show("Esta em Uso\n\n" + "Software: " + Software + "key: " + Licenca);
                     }
                 }
+            }
+            else
+            {
+                //Pega os Id do Software
+                cmd = "SELECT id_licenca FROM maquina_software where id_maquina = " + Id_Maquina + ";";
+                CG.ExecutarComandoSql(cmd);
+                CG.RetornarDadosDataTable(Dt_Software);
+
+                //Liberar os software
+                foreach (DataRow r in Dt_Software.Rows)
+                {
+                    Id_Software = r[0].ToString();
+
+                    cmd = "UPDATE `software_licencas` SET `disponivel` = 's' WHERE (`id` = '" + Id_Software + "');";
+                    CG.ExecutarComandoSql(cmd);
+                }
+
+                //Limpa a lista de software
+                cmd = "DELETE FROM `maquina_software` WHERE (`id_maquina` = '" + Id_Maquina + "');";
+                CG.ExecutarComandoSql(cmd);
+
+                Id_Software = "";
             }
             #endregion
 

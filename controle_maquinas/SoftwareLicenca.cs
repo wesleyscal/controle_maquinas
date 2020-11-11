@@ -68,14 +68,24 @@ namespace controle_maquinas
         //Botão
         private void btnAlterarSoftware_Click(object sender, EventArgs e)
         {
-            string cmd = "SELECT * FROM software;";
-            CG.ExecutarComandoSql(cmd);
-            CG.RetornarDadosDataTable(AltSoftware);
+            if (dgvSoftware.CurrentRow != null)
+            {
+                string id = dgvSoftware.CurrentRow.Cells[0].Value.ToString(); ;
 
-            AlterarSoftware frm = new AlterarSoftware();
-            frm.ShowDialog();
+                string cmd = "SELECT * FROM software where id = " + id + ";";
+                CG.ExecutarComandoSql(cmd);
+                CG.RetornarDadosDataTable(AltSoftware);
 
-            CarregarDGV();
+                AlterarSoftware frm = new AlterarSoftware();
+                frm.ShowDialog();
+
+                CarregarDGV();
+            }
+            else
+            {
+                MessageBox.Show("Selecione um Software");
+            }
+
         }
         private void btnRemoverSoftware_Click(object sender, EventArgs e)
         {
@@ -219,6 +229,6 @@ namespace controle_maquinas
             AlterarLicencas();
         }
 
-        
+
     }
 }
