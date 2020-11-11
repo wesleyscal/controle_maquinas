@@ -202,13 +202,13 @@ namespace controle_maquinas
             string Licenca = "";
             string Os = "";
 
-            if(cbbSoftware.Text == "Selecionar Software")
+            if (cbbSoftware.Text == "Selecionar Software")
             {
                 MessageBox.Show("Selecione um Software");
                 return;
             }
 
-            if(cbbKey.Text == "Todas as licença")
+            if (cbbKey.Text == "Todas as licença")
             {
                 Key = "%%";
             }
@@ -224,7 +224,7 @@ namespace controle_maquinas
             Os = CG.RetornarValorSQL();
 
             //Pesquisar OS
-            if(Os == "s")
+            if (Os == "s")
             {
                 cmd = "select id, nome_maquina 'Nome Maquina', nome_dominio 'Nome Dominio', nome_usuario 'Nome Usuario', sistema_operacional 'Sistema Operacional' " +
                       "from maquina " +
@@ -272,13 +272,14 @@ namespace controle_maquinas
                       "Where id = '" + Maquinas + "';";
                 CG.ExecutarComandoSql(cmd);
                 CG.RetornarDadosDataTable(Resultado);
-             
+
                 dgvMaquinas.DataSource = Resultado;
-               
-                Resultado = (DataTable)dgvMaquinas.DataSource; 
+
+                Resultado = (DataTable)dgvMaquinas.DataSource;
             }
 
             dgvMaquinas.Columns[0].Visible = false;
         }
     }
 }
+//Abacate
