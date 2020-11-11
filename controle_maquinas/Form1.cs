@@ -282,5 +282,3 @@ namespace controle_maquinas
         }
     }
 }
-//Abacate
-//Chupa meu ovo
