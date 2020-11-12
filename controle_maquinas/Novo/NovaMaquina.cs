@@ -137,7 +137,7 @@ namespace controle_maquinas
             if (cbbSoftware.Text != "Selecionar Software")
             {
                 Software = cbbSoftware.Text;
-                string cmd = "SELECT * FROM software_licencas where software = '" + Software + "' and disponivel = 's';";
+                string cmd = "SELECT * FROM software_licencas where software = '" + Software + "' and qtd > 0;";
                 CG.ExecutarComandoSql(cmd);
 
                 //Declara um DataTable
@@ -174,7 +174,7 @@ namespace controle_maquinas
             if (cbbOS.Text != "Selecionar S.O")
             {
                 Software = cbbOS.Text;
-                string cmd = "SELECT * FROM software_licencas where software = '" + Software + "' and disponivel = 's';";
+                string cmd = "SELECT * FROM software_licencas where software = '" + Software + "' and qtd > 0;";
                 CG.ExecutarComandoSql(cmd);
 
                 //Declara um DataTable
@@ -304,7 +304,7 @@ namespace controle_maquinas
             string cmd = "";
 
             //Verificar
-            string disponibilidade = "";
+            int qtd = 0;
 
             //Maquina
             string Nome_Maquina = txtMaquina.Text;
@@ -357,7 +357,7 @@ namespace controle_maquinas
             CG.ExecutarComandoSql(cmd);
 
             //Marca licença Sistemo Operacional em uso
-            cmd = "UPDATE `software_licencas` SET `disponivel` = 'n' WHERE (`key` = '" + KeyOS + "' and fpp = 's');";
+            cmd = "UPDATE `software_licencas` SET qtd = qtd - 1 WHERE `key` = '" + KeyOS + "';";
             CG.ExecutarComandoSql(cmd);
 
             //Pega id da maquina
@@ -382,23 +382,24 @@ namespace controle_maquinas
                     CG.ExecutarComandoSql(cmd);
                     Id_Licenca = CG.RetornarValorSQL();
 
-                    cmd = "SELECT disponivel FROM software_licencas where `id` = '" + Id_Licenca + "';";
+                    //Pega a qtd do licenca
+                    cmd = "SELECT qtd FROM software_licencas where `id` = '" + Id_Licenca + "';";
                     CG.ExecutarComandoSql(cmd);
-                    disponibilidade = CG.RetornarValorSQL();
+                    qtd = int.Parse(CG.RetornarValorSQL());
 
-                    if (disponibilidade == "s")
+                    if (qtd > 0)
                     {
                         //Insere no banco de dados
                         cmd = "INSERT INTO `maquina_software` (`id_maquina`, `id_licenca`) VALUES ('" + Id_Maquina + "', '" + Id_Licenca + "');";
                         CG.ExecutarComandoSql(cmd);
 
                         //Marca Software em uso
-                        cmd = "UPDATE `software_licencas` SET `disponivel` = 'n' WHERE (`id` = '" + Id_Licenca + "' and fpp = 's');";
+                        cmd = "UPDATE `software_licencas` SET qtd = qtd - 1 WHERE `id` = '" + Id_Licenca + "';";
                         CG.ExecutarComandoSql(cmd);
                     }
                     else
                     {
-                        MessageBox.Show("Esta em Uso\n\n" + "Software: " + Software + "key: " + Licenca);
+                        MessageBox.Show("Indisponivel\n\n" + "Software: " + Software + "key: " + Licenca);
                     }
                 }
             }

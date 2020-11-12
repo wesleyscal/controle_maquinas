@@ -65,7 +65,7 @@ namespace controle_maquinas
             CG.FormatarDGV(dgvLicenca);
         }
 
-
+        
         //Botão
         private void btnAlterarSoftware_Click(object sender, EventArgs e)
         {
@@ -214,9 +214,7 @@ namespace controle_maquinas
                          "where `key` like '" + Key + "' or `nfe` like '" + Nfe + "';";
 
             CG.ExecutarComandoSql(cmd);
-            CG.ExibirDGV(dgvLicenca);
-
-
+            CG.ExibirDGV(dgvLicenca);            
         }
 
 
