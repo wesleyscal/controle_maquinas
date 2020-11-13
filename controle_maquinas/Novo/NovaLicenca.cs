@@ -54,6 +54,10 @@ namespace controle_maquinas
         //Form
         private void NovoSoftware_Load(object sender, EventArgs e)
         {
+            rdbUnica.Checked = true;
+            txtQuantidade.ReadOnly = true;
+            txtQuantidade.Text = "1";
+            
             ConfigCBB();
         }
 
@@ -62,7 +66,7 @@ namespace controle_maquinas
         {
             NovoSoftware form = new NovoSoftware();
             form.ShowDialog();
-            ConfigCBB();            
+            ConfigCBB();
         }
         private void btnLimpar_Click(object sender, EventArgs e)
         {
@@ -82,17 +86,12 @@ namespace controle_maquinas
                         string nfe = txtNfe.Text;
                         string observacao = txtObservacao.Text;
                         string licenca = "";
+                        int qtd = int.Parse(txtQuantidade.Text);
+                        int qtdmax = 0;
 
-                        if (rdbUnica.Checked == true)
-                        {
-                            licenca = "s";
-                        }
-                        if (rdbMultiplas.Checked == true)
-                        {
-                            licenca = "n";
-                        }
-
-                        string cmd = "INSERT INTO `software_licencas` (`software`, `key`, `nfe`, `fpp`, `disponivel`, `observacao`) VALUES ('" + Software + "', '" + Key + "', '" + nfe + "', '" + licenca + "', '" + "s" + "', '" + observacao + "');";
+                        string cmd = "INSERT INTO `software_licencas` " +
+                            "(`software`, `key`, `qtd`, `qtdmax`, `nfe`, `observacao`) " +
+                            "VALUES ('" + Software + "', '" + Key + "', '" + qtd + "', '" + qtdmax + "', '" + nfe + "', '" + observacao + "');";
                         CG.ExecutarComandoSql(cmd);
 
                         txtKey.Clear();
@@ -115,7 +114,34 @@ namespace controle_maquinas
                 MessageBox.Show("Software Não Selecionado");
             }
         }
-        
 
+        private void rdbMultiplas_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rdbMultiplas.Checked == true)
+            {
+                txtQuantidade.ReadOnly = false;
+            }
+        }
+        private void rdbUnica_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rdbUnica.Checked == true)
+            {
+                txtQuantidade.ReadOnly = true;
+                txtQuantidade.Text = "1";
+            }
+        }
+
+        //textBox
+        private void txtQuantidade_TextChanged(object sender, EventArgs e)
+        {
+            bool ivia;
+
+            ivia = CG.ValidarNumero(txtQuantidade.Text);
+
+            if(ivia == false)
+            {
+                txtQuantidade.Clear();
+            }
+        }
     }
 }

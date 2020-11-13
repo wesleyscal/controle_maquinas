@@ -34,6 +34,8 @@
             this.cbbSoftware = new System.Windows.Forms.ComboBox();
             this.btnSoftware = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtQuantidade = new System.Windows.Forms.TextBox();
             this.rdbMultiplas = new System.Windows.Forms.RadioButton();
             this.rdbUnica = new System.Windows.Forms.RadioButton();
             this.txtObservacao = new System.Windows.Forms.TextBox();
@@ -97,6 +99,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.txtQuantidade);
             this.groupBox2.Controls.Add(this.rdbMultiplas);
             this.groupBox2.Controls.Add(this.rdbUnica);
             this.groupBox2.Controls.Add(this.txtObservacao);
@@ -110,47 +114,68 @@
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(13, 89);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(454, 190);
+            this.groupBox2.Size = new System.Drawing.Size(454, 209);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Nova Licença";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(325, 72);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(62, 13);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Quantidade";
+            // 
+            // txtQuantidade
+            // 
+            this.txtQuantidade.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtQuantidade.Location = new System.Drawing.Point(328, 88);
+            this.txtQuantidade.Name = "txtQuantidade";
+            this.txtQuantidade.Size = new System.Drawing.Size(113, 20);
+            this.txtQuantidade.TabIndex = 17;
+            this.txtQuantidade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtQuantidade.TextChanged += new System.EventHandler(this.txtQuantidade_TextChanged);
+            // 
             // rdbMultiplas
             // 
             this.rdbMultiplas.AutoSize = true;
-            this.rdbMultiplas.Location = new System.Drawing.Point(328, 74);
+            this.rdbMultiplas.Location = new System.Drawing.Point(209, 92);
             this.rdbMultiplas.Name = "rdbMultiplas";
             this.rdbMultiplas.Size = new System.Drawing.Size(106, 17);
             this.rdbMultiplas.TabIndex = 16;
             this.rdbMultiplas.Text = "Licença multiplas";
             this.rdbMultiplas.UseVisualStyleBackColor = true;
+            this.rdbMultiplas.CheckedChanged += new System.EventHandler(this.rdbMultiplas_CheckedChanged);
             // 
             // rdbUnica
             // 
             this.rdbUnica.AutoSize = true;
             this.rdbUnica.Checked = true;
-            this.rdbUnica.Location = new System.Drawing.Point(209, 74);
+            this.rdbUnica.Location = new System.Drawing.Point(209, 71);
             this.rdbUnica.Name = "rdbUnica";
             this.rdbUnica.Size = new System.Drawing.Size(94, 17);
             this.rdbUnica.TabIndex = 15;
             this.rdbUnica.TabStop = true;
             this.rdbUnica.Text = "Licença Unica";
             this.rdbUnica.UseVisualStyleBackColor = true;
+            this.rdbUnica.CheckedChanged += new System.EventHandler(this.rdbUnica_CheckedChanged);
             // 
             // txtObservacao
             // 
             this.txtObservacao.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtObservacao.Location = new System.Drawing.Point(9, 110);
+            this.txtObservacao.Location = new System.Drawing.Point(9, 114);
             this.txtObservacao.Multiline = true;
             this.txtObservacao.Name = "txtObservacao";
-            this.txtObservacao.Size = new System.Drawing.Size(432, 68);
+            this.txtObservacao.Size = new System.Drawing.Size(432, 89);
             this.txtObservacao.TabIndex = 3;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(6, 94);
+            this.label4.Location = new System.Drawing.Point(8, 97);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 13);
             this.label4.TabIndex = 14;
@@ -234,7 +259,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(479, 289);
+            this.ClientSize = new System.Drawing.Size(479, 310);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -272,5 +297,7 @@
         private System.Windows.Forms.RadioButton rdbMultiplas;
         private System.Windows.Forms.RadioButton rdbUnica;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtQuantidade;
     }
 }
