@@ -185,6 +185,7 @@ namespace controle_maquinas
         {
             string Key = txtKey.Text.Trim();
             string Nfe = txtNfe.Text.Trim();
+            string cmd = "";
 
             if (Key == "" && Nfe == "")
             {
@@ -203,20 +204,51 @@ namespace controle_maquinas
                 Nfe = "%" + Nfe + "%";
             }
 
-            string cmd = "SELECT id 'id'," +
-                         "`key` 'Key'," +
-                         "nfe 'NFe'," +
-                         "qtd 'Quantidade Livre'," +
-                         "qtdmax 'Quantidade Total'," +
-                         " observacao 'Observação' " +
-                         "FROM " +
-                         "software_licencas " +
-                         "where `key` like '" + Key + "' or `nfe` like '" + Nfe + "';";
+            if (Key == "" && Nfe != "")
+            {
+                cmd = "SELECT id 'id', " +
+                        "software 'Software', " +
+                        "`key` 'Key'," +
+                        "nfe 'NFe'," +
+                        "qtd 'Quantidade Livre'," +
+                        "qtdmax 'Quantidade Total'," +
+                        " observacao 'Observação' " +
+                        "FROM " +
+                        "software_licencas " +
+                        "where `nfe` like '" + Nfe + "';";
+            }
+            if (Nfe == "" && Key != "")
+            {
+                cmd = "SELECT id 'id'," +
+                       "software 'Software', " +
+                       "`key` 'Key'," +
+                       "nfe 'NFe'," +
+                       "qtd 'Quantidade Livre'," +
+                       "qtdmax 'Quantidade Total'," +
+                       " observacao 'Observação' " +
+                       "FROM " +
+                       "software_licencas " +
+                       "where `key` like '" + Key + "';";
+            }
+            if (Nfe != "" && Key != "")
+            {
+                cmd = "SELECT id 'id'," +
+                      "software 'Software', " +
+                       "`key` 'Key'," +
+                       "nfe 'NFe'," +
+                       "qtd 'Quantidade Livre'," +
+                       "qtdmax 'Quantidade Total'," +
+                       " observacao 'Observação' " +
+                       "FROM " +
+                       "software_licencas " +
+                       "where `key` like '" + Key + "' or `nfe` like '" + Nfe + "';";
+            }
+
 
             CG.ExecutarComandoSql(cmd);
             CG.ExibirDGV(dgvLicenca);
+            dgvLicenca.Columns[0].Visible = false;
         }
-
 
         //DataGridView
         private void dgvSoftware_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -242,7 +274,5 @@ namespace controle_maquinas
         {
             AlterarLicencas();
         }
-
-
     }
 }

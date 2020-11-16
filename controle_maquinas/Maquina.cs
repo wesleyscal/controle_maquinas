@@ -520,6 +520,9 @@ namespace controle_maquinas
                 //Marca OS como disponivel
                 cmd = "UPDATE `software_licencas` SET `qtd` = qtd + 1 WHERE (`key` = '" + KeyOSAntiga + "');";
                 CG.ExecutarComandoSql(cmd);
+                //Marca licença Sistemo Operacional em uso
+                cmd = "UPDATE `software_licencas` SET `qtd` = qtd - 1 WHERE (`key` = '" + KeyOS + "');";
+                CG.ExecutarComandoSql(cmd);
             }
 
             //Salva Maquina
@@ -532,11 +535,7 @@ namespace controle_maquinas
                   "`sistema_operacional` = '" + SO + "', " +
                   "`keyos` = '" + KeyOS + "' " +
                   "WHERE (`id` = '" + Id_Maquina + "');";
-            CG.ExecutarComandoSql(cmd);
-
-            //Marca licença Sistemo Operacional em uso
-            cmd = "UPDATE `software_licencas` SET `qtd` = qtd - 1 WHERE (`key` = '" + KeyOS + "');";
-            CG.ExecutarComandoSql(cmd);
+            CG.ExecutarComandoSql(cmd);            
             #endregion            
 
             #region SoftWare
@@ -608,7 +607,7 @@ namespace controle_maquinas
                 {
                     Id_Software = r[0].ToString();
 
-                    cmd = "UPDATE `software_licencas` SET `qtd` = qtd - 1 WHERE (`id` = '" + Id_Software + "');";
+                    cmd = "UPDATE `software_licencas` SET `qtd` = qtd + 1 WHERE (`id` = '" + Id_Software + "');";
                     CG.ExecutarComandoSql(cmd);
                 }
 

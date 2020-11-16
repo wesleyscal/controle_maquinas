@@ -14,7 +14,7 @@ namespace controle_maquinas
     public partial class Form1 : Form
     {
         DBC CG = new DBC();
-        public static DataTable dt = new DataTable();
+        public static DataTable dt = new DataTable();        
 
         public Form1()
         {
@@ -87,15 +87,20 @@ namespace controle_maquinas
 
             if (e.KeyCode == Keys.F3)
             {
-                InputBox frm = new InputBox("Pesquisa", "Pesquisar Nome de usuario real", "");
-                frm.ShowDialog();
-                string resultado = frm.InputResult();
+                string resultado = Program.InputBoxRetorno("Pesquisa", "Pesquisar Nome de usuario real", "");
 
-                string cmd = "select id, nome_maquina 'Nome Maquina', nome_dominio 'Nome Dominio', nome_usuario 'Nome Usuario', sistema_operacional 'Sistema Operacional' " +
+                if(resultado != "")
+                {
+                    string cmd = "select id, nome_maquina 'Nome Maquina', nome_dominio 'Nome Dominio', nome_usuario 'Nome Usuario', sistema_operacional 'Sistema Operacional' " +
                     "from maquina " +
                     "WHERE nome_usuario like '" + resultado + "';";
-                CG.ExecutarComandoSql(cmd);
-                CG.ExibirDGV(dgvMaquinas);
+                    CG.ExecutarComandoSql(cmd);
+                    CG.ExibirDGV(dgvMaquinas);
+                }
+                else
+                {
+                    return;
+                }                
             }
 
             if (e.KeyCode == Keys.F4)

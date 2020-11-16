@@ -16,7 +16,15 @@ namespace controle_maquinas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Form1());           
+        }
+
+        public static string InputBoxRetorno(string Cabecalho, string Texto, string Valor)
+        {
+            InputBox frm = new InputBox(Cabecalho, Texto, Valor);
+            frm.ShowDialog();
+            string resultado = frm.InputResult();
+            return resultado;
         }
     }
 }
