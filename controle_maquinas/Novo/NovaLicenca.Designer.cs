@@ -269,7 +269,7 @@
             this.Name = "NovaLicenca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Novo Software";
-            this.Load += new System.EventHandler(this.NovoSoftware_Load);
+            this.Load += new System.EventHandler(this.NovaLicenca_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

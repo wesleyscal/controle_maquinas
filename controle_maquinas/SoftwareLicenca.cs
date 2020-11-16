@@ -65,7 +65,7 @@ namespace controle_maquinas
             CG.FormatarDGV(dgvLicenca);
         }
 
-        
+
         //Botão
         private void btnAlterarSoftware_Click(object sender, EventArgs e)
         {
@@ -206,15 +206,15 @@ namespace controle_maquinas
             string cmd = "SELECT id 'id'," +
                          "`key` 'Key'," +
                          "nfe 'NFe'," +
-                         "fpp 'licença FPP'," +
-                         "disponivel 'Disponivel'," +
+                         "qtd 'Quantidade Livre'," +
+                         "qtdmax 'Quantidade Total'," +
                          " observacao 'Observação' " +
                          "FROM " +
                          "software_licencas " +
                          "where `key` like '" + Key + "' or `nfe` like '" + Nfe + "';";
 
             CG.ExecutarComandoSql(cmd);
-            CG.ExibirDGV(dgvLicenca);            
+            CG.ExibirDGV(dgvLicenca);
         }
 
 
@@ -223,7 +223,16 @@ namespace controle_maquinas
         {
             string software = dgvSoftware.CurrentRow.Cells[1].Value.ToString();
 
-            string cmd = "SELECT id 'id',`key` 'Key',nfe 'NFe',fpp 'licença FPP',disponivel 'Disponivel', observacao 'Observação' FROM software_licencas where software = '" + software + "';";
+            string cmd = "SELECT id 'id'," +
+                         "`key` 'Key'," +
+                         "nfe 'NFe'," +
+                         "qtd 'Quantidade Livre'," +
+                         "qtdmax 'Quantidade Total'," +
+                         " observacao 'Observação' " +
+                         "FROM " +
+                         "software_licencas " +
+                         "where software = '" + software + "';";
+
             CG.ExecutarComandoSql(cmd);
             CG.ExibirDGV(dgvLicenca);
             dgvLicenca.Columns[0].Visible = false;

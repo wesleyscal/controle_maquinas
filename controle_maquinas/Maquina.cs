@@ -253,7 +253,7 @@ namespace controle_maquinas
             if (cbbSoftware.Text != "Selecionar Software")
             {
                 Software = cbbSoftware.Text;
-                string cmd = "SELECT * FROM software_licencas where software = '" + Software + "' and disponivel = 's';";
+                string cmd = "SELECT * FROM software_licencas where software = '" + Software + "' and qtd > 0;";
                 CG.ExecutarComandoSql(cmd);
 
                 //Declara um DataTable
@@ -290,7 +290,7 @@ namespace controle_maquinas
             if (cbbOS.Text != "Selecionar S.O")
             {
                 Software = cbbOS.Text;
-                string cmd = "SELECT * FROM software_licencas where software = '" + Software + "' and disponivel = 's';";
+                string cmd = "SELECT * FROM software_licencas where software = '" + Software + "' and qtd > '0';";
                 CG.ExecutarComandoSql(cmd);
 
                 //Declara um DataTable
@@ -474,7 +474,7 @@ namespace controle_maquinas
             string cmd = "";
 
             //Verificar
-            string disponibilidade = "";
+            int disponibilidade = 0;
 
             //Maquina
             string Nome_Maquina = txtMaquina.Text;
@@ -518,7 +518,7 @@ namespace controle_maquinas
             if (KeyOSAntiga != KeyOS)
             {
                 //Marca OS como disponivel
-                cmd = "UPDATE `software_licencas` SET `disponivel` = 's' WHERE (`key` = '" + KeyOSAntiga + "');";
+                cmd = "UPDATE `software_licencas` SET `qtd` = qtd + 1 WHERE (`key` = '" + KeyOSAntiga + "');";
                 CG.ExecutarComandoSql(cmd);
             }
 
@@ -535,7 +535,7 @@ namespace controle_maquinas
             CG.ExecutarComandoSql(cmd);
 
             //Marca licença Sistemo Operacional em uso
-            cmd = "UPDATE `software_licencas` SET `disponivel` = 'n' WHERE (`key` = '" + KeyOS + "' and fpp = 's');";
+            cmd = "UPDATE `software_licencas` SET `qtd` = qtd - 1 WHERE (`key` = '" + KeyOS + "');";
             CG.ExecutarComandoSql(cmd);
             #endregion            
 
@@ -553,7 +553,7 @@ namespace controle_maquinas
                 {
                     Id_Software = r[0].ToString();
 
-                    cmd = "UPDATE `software_licencas` SET `disponivel` = 's' WHERE (`id` = '" + Id_Software + "');";
+                    cmd = "UPDATE `software_licencas` SET `qtd` = qtd + 1 WHERE (`id` = '" + Id_Software + "');";
                     CG.ExecutarComandoSql(cmd);
                 }
 
@@ -576,18 +576,18 @@ namespace controle_maquinas
                     Id_Software = CG.RetornarValorSQL();
 
                     //Verifica se esta disponivel
-                    cmd = "SELECT disponivel FROM software_licencas where `id` = '" + Id_Software + "';";
+                    cmd = "SELECT qtd FROM software_licencas where `id` = '" + Id_Software + "';";
                     CG.ExecutarComandoSql(cmd);
-                    disponibilidade = CG.RetornarValorSQL();
+                    disponibilidade = int.Parse(CG.RetornarValorSQL());
 
-                    if (disponibilidade == "s")
+                    if (disponibilidade != 0)
                     {
                         //Insere no banco de dados
                         cmd = "INSERT INTO `maquina_software` (`id_maquina`, `id_licenca`) VALUES ('" + Id_Maquina + "', '" + Id_Software + "');";
                         CG.ExecutarComandoSql(cmd);
 
                         //Marca Software em uso
-                        cmd = "UPDATE `software_licencas` SET `disponivel` = 'n' WHERE (`id` = '" + Id_Software + "' and fpp = 's');";
+                        cmd = "UPDATE `software_licencas` SET `qtd` = qtd - 1 WHERE (`id` = '" + Id_Software + "');";
                         CG.ExecutarComandoSql(cmd);
                     }
                     else
@@ -608,7 +608,7 @@ namespace controle_maquinas
                 {
                     Id_Software = r[0].ToString();
 
-                    cmd = "UPDATE `software_licencas` SET `disponivel` = 's' WHERE (`id` = '" + Id_Software + "');";
+                    cmd = "UPDATE `software_licencas` SET `qtd` = qtd - 1 WHERE (`id` = '" + Id_Software + "');";
                     CG.ExecutarComandoSql(cmd);
                 }
 
@@ -664,7 +664,7 @@ namespace controle_maquinas
                 {
                     Id_Software = r[0].ToString();
 
-                    cmd = "UPDATE `software_licencas` SET `disponivel` = 's' WHERE (`id` = '" + Id_Software + "');";
+                    cmd = "UPDATE `software_licencas` SET `qtd` = qtd + 1 WHERE (`id` = '" + Id_Software + "');";
                     CG.ExecutarComandoSql(cmd);
                 }
 
@@ -688,7 +688,7 @@ namespace controle_maquinas
                 KeyOs = r[1].ToString();
             }
 
-            cmd = "UPDATE `software_licencas` SET `disponivel` = 's' WHERE `software` = '" + Os + "' and `key` = '" + KeyOs + "';";
+            cmd = "UPDATE `software_licencas` SET `qtd` = qtd + 1 WHERE `software` = '" + Os + "' and `key` = '" + KeyOs + "';";
             CG.ExecutarComandoSql(cmd);
             #endregion
 

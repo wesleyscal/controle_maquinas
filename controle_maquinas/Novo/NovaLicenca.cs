@@ -52,7 +52,7 @@ namespace controle_maquinas
         }
 
         //Form
-        private void NovoSoftware_Load(object sender, EventArgs e)
+        private void NovaLicenca_Load(object sender, EventArgs e)
         {
             rdbUnica.Checked = true;
             txtQuantidade.ReadOnly = true;
@@ -87,7 +87,7 @@ namespace controle_maquinas
                         string observacao = txtObservacao.Text;
                         string licenca = "";
                         int qtd = int.Parse(txtQuantidade.Text);
-                        int qtdmax = 0;
+                        int qtdmax = int.Parse(txtQuantidade.Text);
 
                         string cmd = "INSERT INTO `software_licencas` " +
                             "(`software`, `key`, `qtd`, `qtdmax`, `nfe`, `observacao`) " +
@@ -97,6 +97,8 @@ namespace controle_maquinas
                         txtKey.Clear();
                         txtNfe.Clear();
                         txtObservacao.Clear();
+                        txtQuantidade.Text = "1";
+                        rdbUnica.Checked = true;
                         cbbSoftware.SelectedIndex = 0;
                     }
                     else

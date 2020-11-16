@@ -26,8 +26,9 @@ namespace controle_maquinas
         private void CarregarDados()
         {
             DataTable dt = new DataTable();
-            string Fpp = "";
-            string Disponivel = "";
+            int Qtd = 0;
+            int QtdMax = 0;
+            int QtdUso = 0;
 
             string cmd = "SELECT * FROM software_licencas where id = '" + Id_Licenca + "';";
             CG.ExecutarComandoSql(cmd);
@@ -37,31 +38,16 @@ namespace controle_maquinas
             {
                 txtSoftware.Text = r[1].ToString();
                 txtKey.Text = r[2].ToString();
-                txtNfe.Text = r[3].ToString();
-                Fpp = r[4].ToString();
-                Disponivel = r[5].ToString();
+                Qtd = int.Parse(r[3].ToString());
+                QtdMax =  int.Parse(r[4].ToString());
+                txtNfe.Text = r[5].ToString();                
                 txtObservacao.Text = r[6].ToString();
             }
+            QtdUso = QtdMax - Qtd;
 
-            if (Fpp == "s")
-            {
-                rdbUnica.Checked = true;
-                rdbMultiplas.Checked = false;
-            }
-            if (Fpp == "n")
-            {
-                rdbUnica.Checked = false;
-                rdbMultiplas.Checked = true;
-            }
-
-            if (Disponivel == "s")
-            {
-                ckbDisponivel.Checked = true;
-            }
-            if (Disponivel == "n")
-            {
-                ckbDisponivel.Checked = false;
-            }
+            txtQtdTotal.Text = QtdMax.ToString();
+            txtQtdLivre.Text = Qtd.ToString();
+            txtQtdUso.Text = QtdUso.ToString();         
 
         }
 
@@ -77,33 +63,13 @@ namespace controle_maquinas
             string cmd = "";
             string Key = txtKey.Text;
             string Nfe = txtNfe.Text;
-            string Fpp = "";
-            string Disponivel = "";
             string Observacao = txtObservacao.Text;
 
-            if(rdbUnica.Checked == true)
-            {
-                Fpp = "s";
-            }
-            if(rdbMultiplas.Checked == true)
-            {
-                Fpp = "n";
-            }
-
-            if(ckbDisponivel.Checked == true)
-            {
-                Disponivel = "s";
-            }
-            else
-            {
-                Disponivel = "n";
-            }
+            
 
             cmd = "UPDATE `software_licencas` " +
                   "SET `key` = '" + Key + "', " +
                       "`nfe` = '" + Nfe + "', " +
-                      "`fpp` = '" + Fpp + "', " +
-                      "`disponivel` = '" + Disponivel + "', " +
                       "`observacao` = '" + Observacao + "' " +
                   "WHERE (`id` = '" + Id_Licenca + "');";
             CG.ExecutarComandoSql(cmd);

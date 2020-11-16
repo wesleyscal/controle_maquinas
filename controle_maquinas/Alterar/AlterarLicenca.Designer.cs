@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlterarLicenca));
-            this.rdbMultiplas = new System.Windows.Forms.RadioButton();
-            this.rdbUnica = new System.Windows.Forms.RadioButton();
             this.txtObservacao = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNfe = new System.Windows.Forms.TextBox();
@@ -38,42 +36,21 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.txtKey = new System.Windows.Forms.TextBox();
-            this.ckbDisponivel = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSoftware = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtQtdTotal = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtQtdUso = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtQtdLivre = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // rdbMultiplas
-            // 
-            this.rdbMultiplas.AutoSize = true;
-            this.rdbMultiplas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbMultiplas.ForeColor = System.Drawing.SystemColors.Window;
-            this.rdbMultiplas.Location = new System.Drawing.Point(6, 72);
-            this.rdbMultiplas.Name = "rdbMultiplas";
-            this.rdbMultiplas.Size = new System.Drawing.Size(139, 22);
-            this.rdbMultiplas.TabIndex = 16;
-            this.rdbMultiplas.Text = "Licença Multiplas";
-            this.rdbMultiplas.UseVisualStyleBackColor = true;
-            // 
-            // rdbUnica
-            // 
-            this.rdbUnica.AutoSize = true;
-            this.rdbUnica.Checked = true;
-            this.rdbUnica.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbUnica.ForeColor = System.Drawing.SystemColors.Window;
-            this.rdbUnica.Location = new System.Drawing.Point(6, 29);
-            this.rdbUnica.Name = "rdbUnica";
-            this.rdbUnica.Size = new System.Drawing.Size(119, 22);
-            this.rdbUnica.TabIndex = 15;
-            this.rdbUnica.TabStop = true;
-            this.rdbUnica.Text = "Licença Unica";
-            this.rdbUnica.UseVisualStyleBackColor = true;
             // 
             // txtObservacao
             // 
@@ -149,18 +126,6 @@
             this.txtKey.Size = new System.Drawing.Size(501, 20);
             this.txtKey.TabIndex = 1;
             // 
-            // ckbDisponivel
-            // 
-            this.ckbDisponivel.AutoSize = true;
-            this.ckbDisponivel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckbDisponivel.ForeColor = System.Drawing.Color.White;
-            this.ckbDisponivel.Location = new System.Drawing.Point(6, 116);
-            this.ckbDisponivel.Name = "ckbDisponivel";
-            this.ckbDisponivel.Size = new System.Drawing.Size(95, 22);
-            this.ckbDisponivel.TabIndex = 17;
-            this.ckbDisponivel.Text = "Disponivel";
-            this.ckbDisponivel.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -198,16 +163,19 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.rdbUnica);
-            this.groupBox2.Controls.Add(this.ckbDisponivel);
-            this.groupBox2.Controls.Add(this.rdbMultiplas);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.txtQtdLivre);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.txtQtdUso);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.txtQtdTotal);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(534, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(180, 150);
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Opções da Licença:";
+            this.groupBox2.Text = "Quantidade de Licenças:";
             // 
             // groupBox3
             // 
@@ -219,6 +187,63 @@
             this.groupBox3.TabIndex = 23;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Observações:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.Window;
+            this.label4.Location = new System.Drawing.Point(6, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 13);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Quantidade Total";
+            // 
+            // txtQtdTotal
+            // 
+            this.txtQtdTotal.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtQtdTotal.Location = new System.Drawing.Point(6, 32);
+            this.txtQtdTotal.Name = "txtQtdTotal";
+            this.txtQtdTotal.ReadOnly = true;
+            this.txtQtdTotal.Size = new System.Drawing.Size(168, 20);
+            this.txtQtdTotal.TabIndex = 20;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.Window;
+            this.label5.Location = new System.Drawing.Point(6, 59);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 13);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "Quantidade Em uso";
+            // 
+            // txtQtdUso
+            // 
+            this.txtQtdUso.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtQtdUso.Location = new System.Drawing.Point(6, 75);
+            this.txtQtdUso.Name = "txtQtdUso";
+            this.txtQtdUso.ReadOnly = true;
+            this.txtQtdUso.Size = new System.Drawing.Size(168, 20);
+            this.txtQtdUso.TabIndex = 22;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.Window;
+            this.label6.Location = new System.Drawing.Point(6, 102);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(88, 13);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Quantidade Livre";
+            // 
+            // txtQtdLivre
+            // 
+            this.txtQtdLivre.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtQtdLivre.Location = new System.Drawing.Point(6, 118);
+            this.txtQtdLivre.Name = "txtQtdLivre";
+            this.txtQtdLivre.ReadOnly = true;
+            this.txtQtdLivre.Size = new System.Drawing.Size(168, 20);
+            this.txtQtdLivre.TabIndex = 24;
             // 
             // AlterarLicenca
             // 
@@ -249,9 +274,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.RadioButton rdbMultiplas;
-        private System.Windows.Forms.RadioButton rdbUnica;
         private System.Windows.Forms.TextBox txtObservacao;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNfe;
@@ -259,11 +281,16 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.TextBox txtKey;
-        private System.Windows.Forms.CheckBox ckbDisponivel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSoftware;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtQtdLivre;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtQtdUso;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtQtdTotal;
     }
 }
