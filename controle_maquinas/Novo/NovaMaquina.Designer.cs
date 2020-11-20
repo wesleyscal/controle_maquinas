@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NovaMaquina));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rdbNotebook = new System.Windows.Forms.RadioButton();
@@ -393,8 +393,8 @@
             this.dgvSoftware.Location = new System.Drawing.Point(9, 56);
             this.dgvSoftware.Name = "dgvSoftware";
             this.dgvSoftware.ReadOnly = true;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.dgvSoftware.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgvSoftware.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSoftware.Size = new System.Drawing.Size(453, 249);
             this.dgvSoftware.TabIndex = 3;
             // 
@@ -494,11 +494,13 @@
             this.Controls.Add(this.groupBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "NovaMaquina";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nova Maquina";
             this.Load += new System.EventHandler(this.NovaMaquina_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NovaMaquina_KeyDown);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);

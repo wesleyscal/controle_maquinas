@@ -39,6 +39,20 @@ namespace controle_maquinas
                     ckbOs.Checked = false;
                 }
             }
+
+            txtNome.Select();
+        }
+        private void AlterarSoftware_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+            }
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                Close();
+            }
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -125,5 +139,6 @@ namespace controle_maquinas
             Close();
         }
 
+        
     }
 }

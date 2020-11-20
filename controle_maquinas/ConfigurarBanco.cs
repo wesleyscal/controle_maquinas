@@ -15,11 +15,13 @@ namespace controle_maquinas
     {
         DBC CG = new DBC();
 
+
         public ConfigurarBanco()
         {
             InitializeComponent();
         }
 
+        //Botão
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             string Servidor = txtServidor.Text;
@@ -39,7 +41,6 @@ namespace controle_maquinas
             }
 
         }
-
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             txtBanco.Clear();
@@ -47,6 +48,33 @@ namespace controle_maquinas
             txtSenha.Clear();
             txtServidor.Clear();
             txtUser.Clear();
+        }
+
+        //Form
+        private void ConfigurarBanco_Load(object sender, EventArgs e)
+        {
+            btnSalvar.Select();
+
+            DataTable dt = new DataTable();
+            CG.RetornarConfigBanco(dt);
+
+            txtServidor.Text = dt.Rows[0][0].ToString();
+            txtPorta.Text = dt.Rows[1][0].ToString();
+            txtUser.Text = dt.Rows[2][0].ToString();
+            txtBanco.Text = dt.Rows[3][0].ToString();
+            txtSenha.Text = dt.Rows[4][0].ToString();
+        }
+        private void ConfigurarBanco_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+            }
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                Close();
+            }
         }
     }
 }

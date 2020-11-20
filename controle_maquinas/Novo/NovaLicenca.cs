@@ -57,8 +57,20 @@ namespace controle_maquinas
             rdbUnica.Checked = true;
             txtQuantidade.ReadOnly = true;
             txtQuantidade.Text = "1";
-            
+
             ConfigCBB();
+        }
+        private void NovaLicenca_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+            }
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                Close();
+            }
         }
 
         //Botao
@@ -119,14 +131,14 @@ namespace controle_maquinas
 
         private void rdbMultiplas_CheckedChanged(object sender, EventArgs e)
         {
-            if(rdbMultiplas.Checked == true)
+            if (rdbMultiplas.Checked == true)
             {
                 txtQuantidade.ReadOnly = false;
             }
         }
         private void rdbUnica_CheckedChanged(object sender, EventArgs e)
         {
-            if(rdbUnica.Checked == true)
+            if (rdbUnica.Checked == true)
             {
                 txtQuantidade.ReadOnly = true;
                 txtQuantidade.Text = "1";
@@ -140,10 +152,12 @@ namespace controle_maquinas
 
             ivia = CG.ValidarNumero(txtQuantidade.Text);
 
-            if(ivia == false)
+            if (ivia == false)
             {
                 txtQuantidade.Clear();
             }
         }
+
+        
     }
 }

@@ -27,11 +27,11 @@ namespace controle_maquinas
                 string SavSoftware = txtSoftware.Text;
                 string os = "";
 
-                if(ckbOs.Checked == true)
+                if (ckbOs.Checked == true)
                 {
                     os = "s";
                 }
-                if(ckbOs.Checked == false)
+                if (ckbOs.Checked == false)
                 {
                     os = "n";
                 }
@@ -45,6 +45,24 @@ namespace controle_maquinas
             {
                 MessageBox.Show("Campo Software vazio");
             }
+        }
+
+        private void NovoSoftware_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+            }
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                Close();
+            }
+        }
+
+        private void NovoSoftware_Load(object sender, EventArgs e)
+        {
+            txtSoftware.Select();
         }
     }
 }

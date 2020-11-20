@@ -84,9 +84,9 @@ namespace controle_maquinas
                 ConfigCBB();
                 CarregarDGV();
             }
-
+            
             if (e.KeyCode == Keys.F3)
-            {
+            {                
                 string resultado = Program.InputBoxRetorno("Pesquisa", "Pesquisar Nome de usuario real", "");
 
                 if(resultado != "")
@@ -284,7 +284,5 @@ namespace controle_maquinas
                 CarregarDGV();
             }
         }
-
-
     }
 }

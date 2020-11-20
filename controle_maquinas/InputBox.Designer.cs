@@ -93,11 +93,13 @@
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.lblTexto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "InputBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InputBox";
             this.Load += new System.EventHandler(this.InputBox_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.InputBox_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

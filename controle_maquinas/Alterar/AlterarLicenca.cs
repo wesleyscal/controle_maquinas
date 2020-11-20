@@ -39,15 +39,15 @@ namespace controle_maquinas
                 txtSoftware.Text = r[1].ToString();
                 txtKey.Text = r[2].ToString();
                 Qtd = int.Parse(r[3].ToString());
-                QtdMax =  int.Parse(r[4].ToString());
-                txtNfe.Text = r[5].ToString();                
+                QtdMax = int.Parse(r[4].ToString());
+                txtNfe.Text = r[5].ToString();
                 txtObservacao.Text = r[6].ToString();
             }
             QtdUso = QtdMax - Qtd;
 
             txtQtdTotal.Text = QtdMax.ToString();
             txtQtdLivre.Text = Qtd.ToString();
-            txtQtdUso.Text = QtdUso.ToString();         
+            txtQtdUso.Text = QtdUso.ToString();
 
         }
 
@@ -55,7 +55,21 @@ namespace controle_maquinas
         private void AlterarLicenca_Load(object sender, EventArgs e)
         {
             CarregarDados();
+            txtSoftware.Focus();
         }
+        private void AlterarLicenca_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+            }
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                Close();
+            }
+        }
+
 
         //Botão
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -65,7 +79,7 @@ namespace controle_maquinas
             string Nfe = txtNfe.Text;
             string Observacao = txtObservacao.Text;
 
-            
+
 
             cmd = "UPDATE `software_licencas` " +
                   "SET `key` = '" + Key + "', " +
@@ -80,5 +94,7 @@ namespace controle_maquinas
         {
             CarregarDados();
         }
+
+
     }
 }

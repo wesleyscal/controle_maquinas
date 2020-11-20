@@ -64,6 +64,18 @@ namespace controle_maquinas
             CG.FormatarDGV(dgvSoftware);
             CG.FormatarDGV(dgvLicenca);
         }
+        private void SoftwareLicenca_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+            }
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                Close();
+            }
+        }
 
 
         //Botão
@@ -274,5 +286,6 @@ namespace controle_maquinas
         {
             AlterarLicencas();
         }
+        
     }
 }

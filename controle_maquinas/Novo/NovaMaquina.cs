@@ -123,6 +123,20 @@ namespace controle_maquinas
 
             rdbComputador.Checked = true;
             AtualizarForm();
+
+            txtDominio.Select();
+        }
+        private void NovaMaquina_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+            }
+
+            if(e.KeyCode == Keys.Escape)
+            {
+                Close();
+            }
         }
 
         //ComboBox
@@ -429,6 +443,8 @@ namespace controle_maquinas
             AtualizarForm();
 
         }
+
+
     }
 }
 

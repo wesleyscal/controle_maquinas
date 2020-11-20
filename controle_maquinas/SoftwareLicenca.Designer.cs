@@ -151,7 +151,7 @@
             this.txtNfe.Location = new System.Drawing.Point(235, 376);
             this.txtNfe.Name = "txtNfe";
             this.txtNfe.Size = new System.Drawing.Size(209, 20);
-            this.txtNfe.TabIndex = 36;
+            this.txtNfe.TabIndex = 2;
             // 
             // btnPesquisa
             // 
@@ -162,7 +162,7 @@
             this.btnPesquisa.Location = new System.Drawing.Point(450, 360);
             this.btnPesquisa.Name = "btnPesquisa";
             this.btnPesquisa.Size = new System.Drawing.Size(107, 45);
-            this.btnPesquisa.TabIndex = 35;
+            this.btnPesquisa.TabIndex = 3;
             this.btnPesquisa.Text = "Pesquisar";
             this.btnPesquisa.UseVisualStyleBackColor = false;
             this.btnPesquisa.Click += new System.EventHandler(this.btnPesquisa_Click);
@@ -181,7 +181,7 @@
             this.txtKey.Location = new System.Drawing.Point(9, 376);
             this.txtKey.Name = "txtKey";
             this.txtKey.Size = new System.Drawing.Size(220, 20);
-            this.txtKey.TabIndex = 2;
+            this.txtKey.TabIndex = 1;
             // 
             // btnRemoverLicenca
             // 
@@ -192,7 +192,7 @@
             this.btnRemoverLicenca.Location = new System.Drawing.Point(676, 360);
             this.btnRemoverLicenca.Name = "btnRemoverLicenca";
             this.btnRemoverLicenca.Size = new System.Drawing.Size(107, 45);
-            this.btnRemoverLicenca.TabIndex = 33;
+            this.btnRemoverLicenca.TabIndex = 5;
             this.btnRemoverLicenca.Text = "Remover licença";
             this.btnRemoverLicenca.UseVisualStyleBackColor = false;
             this.btnRemoverLicenca.Click += new System.EventHandler(this.btnRemoverLicenca_Click);
@@ -218,7 +218,7 @@
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
             this.dgvLicenca.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvLicenca.Size = new System.Drawing.Size(777, 335);
-            this.dgvLicenca.TabIndex = 1;
+            this.dgvLicenca.TabIndex = 0;
             this.dgvLicenca.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLicenca_CellDoubleClick);
             // 
             // btnAlterarLicenca
@@ -230,7 +230,7 @@
             this.btnAlterarLicenca.Location = new System.Drawing.Point(563, 360);
             this.btnAlterarLicenca.Name = "btnAlterarLicenca";
             this.btnAlterarLicenca.Size = new System.Drawing.Size(107, 45);
-            this.btnAlterarLicenca.TabIndex = 32;
+            this.btnAlterarLicenca.TabIndex = 4;
             this.btnAlterarLicenca.Text = "Alterar Licença";
             this.btnAlterarLicenca.UseVisualStyleBackColor = false;
             this.btnAlterarLicenca.Click += new System.EventHandler(this.btnAlterarLicenca_Click);
@@ -245,11 +245,13 @@
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "SoftwareLicenca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Software e Licenca";
             this.Load += new System.EventHandler(this.SoftwareLicenca_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SoftwareLicenca_KeyDown);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSoftware)).EndInit();
             this.gpbLicenca.ResumeLayout(false);

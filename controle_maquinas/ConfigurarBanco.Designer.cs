@@ -187,6 +187,7 @@
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.txtServidor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ConfigurarBanco";
@@ -194,6 +195,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConfigurarBanco";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.ConfigurarBanco_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ConfigurarBanco_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

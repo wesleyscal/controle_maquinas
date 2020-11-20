@@ -40,13 +40,13 @@
             this.txtSoftware = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtQtdTotal = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtQtdUso = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtQtdLivre = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtQtdUso = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtQtdTotal = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -177,35 +177,24 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Quantidade de Licenças:";
             // 
-            // groupBox3
+            // label6
             // 
-            this.groupBox3.Controls.Add(this.txtObservacao);
-            this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(12, 168);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(702, 100);
-            this.groupBox3.TabIndex = 23;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Observações:";
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.Window;
+            this.label6.Location = new System.Drawing.Point(6, 102);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(88, 13);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Quantidade Livre";
             // 
-            // label4
+            // txtQtdLivre
             // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.SystemColors.Window;
-            this.label4.Location = new System.Drawing.Point(6, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 13);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "Quantidade Total";
-            // 
-            // txtQtdTotal
-            // 
-            this.txtQtdTotal.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtQtdTotal.Location = new System.Drawing.Point(6, 32);
-            this.txtQtdTotal.Name = "txtQtdTotal";
-            this.txtQtdTotal.ReadOnly = true;
-            this.txtQtdTotal.Size = new System.Drawing.Size(168, 20);
-            this.txtQtdTotal.TabIndex = 20;
+            this.txtQtdLivre.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtQtdLivre.Location = new System.Drawing.Point(6, 118);
+            this.txtQtdLivre.Name = "txtQtdLivre";
+            this.txtQtdLivre.ReadOnly = true;
+            this.txtQtdLivre.Size = new System.Drawing.Size(168, 20);
+            this.txtQtdLivre.TabIndex = 24;
             // 
             // label5
             // 
@@ -226,24 +215,35 @@
             this.txtQtdUso.Size = new System.Drawing.Size(168, 20);
             this.txtQtdUso.TabIndex = 22;
             // 
-            // label6
+            // label4
             // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.SystemColors.Window;
-            this.label6.Location = new System.Drawing.Point(6, 102);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 13);
-            this.label6.TabIndex = 25;
-            this.label6.Text = "Quantidade Livre";
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.Window;
+            this.label4.Location = new System.Drawing.Point(6, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 13);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Quantidade Total";
             // 
-            // txtQtdLivre
+            // txtQtdTotal
             // 
-            this.txtQtdLivre.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtQtdLivre.Location = new System.Drawing.Point(6, 118);
-            this.txtQtdLivre.Name = "txtQtdLivre";
-            this.txtQtdLivre.ReadOnly = true;
-            this.txtQtdLivre.Size = new System.Drawing.Size(168, 20);
-            this.txtQtdLivre.TabIndex = 24;
+            this.txtQtdTotal.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtQtdTotal.Location = new System.Drawing.Point(6, 32);
+            this.txtQtdTotal.Name = "txtQtdTotal";
+            this.txtQtdTotal.ReadOnly = true;
+            this.txtQtdTotal.Size = new System.Drawing.Size(168, 20);
+            this.txtQtdTotal.TabIndex = 20;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtObservacao);
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(12, 168);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(702, 100);
+            this.groupBox3.TabIndex = 23;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Observações:";
             // 
             // AlterarLicenca
             // 
@@ -258,11 +258,13 @@
             this.Controls.Add(this.btnResetar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "AlterarLicenca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alterar Licenca";
             this.Load += new System.EventHandler(this.AlterarLicenca_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AlterarLicenca_KeyDown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

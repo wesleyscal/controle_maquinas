@@ -104,6 +104,7 @@
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AlterarSoftware";
@@ -112,6 +113,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alterar nome do Software";
             this.Load += new System.EventHandler(this.AlterarSoftware_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AlterarSoftware_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

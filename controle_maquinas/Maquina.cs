@@ -240,6 +240,18 @@ namespace controle_maquinas
             //texto do form
             Text = txtMaquina.Text;
         }
+        private void Maquina_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+            }
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                Close();
+            }
+        }
 
         //ComboBox
         private void cbbSoftware_SelectedIndexChanged(object sender, EventArgs e)
@@ -701,6 +713,7 @@ namespace controle_maquinas
 
             Close();
         }
+       
     }
 }
 
