@@ -93,6 +93,11 @@ namespace controle_maquinas
                 {
                     if (txtNfe.Text.Trim() != "")
                     {
+                        if(txtQuantidade.Text.Trim() == "")
+                        {
+                            return;
+                        }
+
                         string Software = cbbSoftware.Text;
                         string Key = txtKey.Text;
                         string nfe = txtNfe.Text;

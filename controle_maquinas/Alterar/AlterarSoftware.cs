@@ -15,7 +15,7 @@ namespace controle_maquinas
     {
         DBC CG = new DBC();
         string AntigoOs = "";
-        string AntigoSoftware = "";
+        string AntigoSoftware = "";      
 
         public AlterarSoftware()
         {
@@ -83,8 +83,8 @@ namespace controle_maquinas
             //Verifica se teve alteração na CheckBox
             if (AntigoOs != NovoOs)
             {
-                //Macar como disponivel
-                cmd = "UPDATE `software_licencas` SET `disponivel` = 's' WHERE (`software` = '" + AntigoSoftware + "');";
+                //Reinicia as licencas
+                cmd = "UPDATE `software_licencas` SET `qtd` = qtdmax WHERE (`software` = '" + AntigoSoftware + "');";
                 CG.ExecutarComandoSql(cmd);
 
                 //De OS para Software
@@ -125,7 +125,7 @@ namespace controle_maquinas
             }
 
             //Aletra o nome no Software e Define se é Software\OS
-            cmd = "UPDATE software SET `nome` = '" + NovoNome + "', `os` = '" + NovoOs + "' WHERE (`nome` = '" + AntigoSoftware + "');";
+            cmd = "UPDATE software SET `nome` = '" + NovoNome + "' WHERE (`nome` = '" + AntigoSoftware + "');";
             CG.ExecutarComandoSql(cmd);
 
             //Altera o nome nas licencas
@@ -138,7 +138,6 @@ namespace controle_maquinas
         {
             Close();
         }
-
         
     }
 }

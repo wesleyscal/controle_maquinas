@@ -238,8 +238,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvMaquinas;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button btnNovoSoftware;
@@ -249,9 +247,10 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbbSoftware;
-        private System.Windows.Forms.ComboBox cbbKey;
         private System.Windows.Forms.Button btnSoftwareLicenca;
         private System.Windows.Forms.GroupBox groupBox3;
+        public System.Windows.Forms.ComboBox cbbKey;
+        public System.Windows.Forms.GroupBox groupBox1;
     }
 }
 

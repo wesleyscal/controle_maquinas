@@ -547,8 +547,8 @@ namespace controle_maquinas
                   "`sistema_operacional` = '" + SO + "', " +
                   "`keyos` = '" + KeyOS + "' " +
                   "WHERE (`id` = '" + Id_Maquina + "');";
-            CG.ExecutarComandoSql(cmd);            
-            #endregion            
+            CG.ExecutarComandoSql(cmd);
+            #endregion
 
             #region SoftWare
             //Verifica se o datagridview esta vazio
@@ -662,30 +662,28 @@ namespace controle_maquinas
             string Os = "";
 
             #region Software
-            //Verifica se o datagridview esta vazio
-            if (dgvSoftware.RowCount != 0)
+
+            //Pega os Id do Software
+            cmd = "SELECT id_licenca FROM maquina_software where id_maquina = " + Id_Maquina + ";";
+            CG.ExecutarComandoSql(cmd);
+            CG.RetornarDadosDataTable(Dt_Software);
+
+            //Liberar os software
+            foreach (DataRow r in Dt_Software.Rows)
             {
-                //Pega os Id do Software
-                cmd = "SELECT id_licenca FROM maquina_software where id_maquina = " + Id_Maquina + ";";
+                Id_Software = r[0].ToString();
+
+                cmd = "UPDATE `software_licencas` SET `qtd` = qtd + 1 WHERE (`id` = '" + Id_Software + "');";
                 CG.ExecutarComandoSql(cmd);
-                CG.RetornarDadosDataTable(Dt_Software);
-
-                //Liberar os software
-                foreach (DataRow r in Dt_Software.Rows)
-                {
-                    Id_Software = r[0].ToString();
-
-                    cmd = "UPDATE `software_licencas` SET `qtd` = qtd + 1 WHERE (`id` = '" + Id_Software + "');";
-                    CG.ExecutarComandoSql(cmd);
-                }
-
-                //Limpa a lista de software
-                cmd = "DELETE FROM `maquina_software` WHERE (`id_maquina` = '" + Id_Maquina + "');";
-                CG.ExecutarComandoSql(cmd);
-
-                Id_Software = "";
             }
-            #endregion  
+
+            //Limpa a lista de software
+            cmd = "DELETE FROM `maquina_software` WHERE (`id_maquina` = '" + Id_Maquina + "');";
+            CG.ExecutarComandoSql(cmd);
+
+            Id_Software = "";
+
+            #endregion
 
             #region Sistema Operacional
             cmd = "SELECT sistema_operacional, keyos FROM maquina where id = '" + Id_Maquina + "';";
@@ -713,7 +711,7 @@ namespace controle_maquinas
 
             Close();
         }
-       
+
     }
 }
 

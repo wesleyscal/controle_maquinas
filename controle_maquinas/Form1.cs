@@ -14,7 +14,9 @@ namespace controle_maquinas
     public partial class Form1 : Form
     {
         DBC CG = new DBC();
-        public static DataTable dt = new DataTable();        
+        public static DataTable dt = new DataTable();
+
+
 
         public Form1()
         {
