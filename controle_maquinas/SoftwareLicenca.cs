@@ -23,7 +23,9 @@ namespace controle_maquinas
 
         public static DataTable AltSoftware = new DataTable();
 
+        public static string IdSoftware = "";
         public static string AlterarLicenca = "";
+
 
         //Metodos
         private void CarregarDGV()
@@ -77,28 +79,14 @@ namespace controle_maquinas
             }
         }
 
-
         //Botão
-        private void btnAlterarSoftware_Click(object sender, EventArgs e)
+        private void btnAdicionarSoftware_Click(object sender, EventArgs e)
         {
-            if (dgvSoftware.CurrentRow != null)
-            {
-                string id = dgvSoftware.CurrentRow.Cells[0].Value.ToString(); ;
-
-                string cmd = "SELECT * FROM software where id = " + id + ";";
-                CG.ExecutarComandoSql(cmd);
-                CG.RetornarDadosDataTable(AltSoftware);
-
-                AlterarSoftware frm = new AlterarSoftware();
-                frm.ShowDialog();
-
-                CarregarDGV();
-            }
-            else
-            {
-                MessageBox.Show("Selecione um Software");
-            }
-
+            IdSoftware = "";
+            Software frm = new Software();
+            frm.ShowDialog();
+            
+            CarregarDGV();
         }
         private void btnRemoverSoftware_Click(object sender, EventArgs e)
         {
@@ -161,9 +149,9 @@ namespace controle_maquinas
             CarregarDGV();
 
         }
-        private void btnAlterarLicenca_Click(object sender, EventArgs e)
+        private void btnAdicionarLicenca_Click(object sender, EventArgs e)
         {
-            AlterarLicencas();
+            
         }
         private void btnRemoverLicenca_Click(object sender, EventArgs e)
         {
@@ -286,6 +274,26 @@ namespace controle_maquinas
         {
             AlterarLicencas();
         }
-        
+        private void dgvSoftware_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvSoftware.CurrentRow != null)
+            {
+                string id = dgvSoftware.CurrentRow.Cells[0].Value.ToString(); ;
+                IdSoftware = id;
+
+                string cmd = "SELECT * FROM software where id = " + id + ";";
+                CG.ExecutarComandoSql(cmd);
+                CG.RetornarDadosDataTable(AltSoftware);
+
+                Software frm = new Software();
+                frm.ShowDialog();
+
+                CarregarDGV();
+            }
+            else
+            {
+                MessageBox.Show("Selecione um Software");
+            }
+        }
     }
 }

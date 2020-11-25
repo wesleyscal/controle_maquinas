@@ -1,6 +1,6 @@
 ﻿namespace controle_maquinas
 {
-    partial class AlterarSoftware
+    partial class Software
     {
         /// <summary>
         /// Required designer variable.
@@ -91,7 +91,7 @@
             this.ckbOs.Text = "Sistema Operacional";
             this.ckbOs.UseVisualStyleBackColor = true;
             // 
-            // AlterarSoftware
+            // Software
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -107,12 +107,12 @@
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "AlterarSoftware";
+            this.Name = "Software";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Alterar nome do Software";
-            this.Load += new System.EventHandler(this.AlterarSoftware_Load);
+            this.Text = "Software";
+            this.Load += new System.EventHandler(this.Software_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AlterarSoftware_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();

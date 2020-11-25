@@ -20,37 +20,6 @@ namespace controle_maquinas
             InitializeComponent();
         }
 
-        //Metodos
-        private void ConfigCBB()
-        {
-            cbbSoftware.Items.Clear();
-
-            cbbSoftware.Items.Add("Selecionar Software");
-            cbbSoftware.SelectedIndex = 0;
-
-            //Pesquisam os nome dos Software no banco de dados
-            string cmd = "SELECT * FROM software;";
-            CG.ExecutarComandoSql(cmd);
-
-            //Declara um DataTable
-            DataTable dt;
-            //Instancia o DataTable e insere o retorno do banco de dados no mesmo
-            dt = new DataTable();
-            CG.RetornarDadosDataTable(dt);
-
-            string Software = "";
-
-            //Para Cada Software inserido no DataTable
-            foreach (DataRow r in dt.Rows)
-            {
-                //Retorna o nome do cliente na variável
-                Software = r[1].ToString();
-
-                //Insere o nome do cliente na ComboBox
-                cbbSoftware.Items.Add(Software);
-            }
-        }
-
         //Form
         private void NovaLicenca_Load(object sender, EventArgs e)
         {
@@ -58,7 +27,6 @@ namespace controle_maquinas
             txtQuantidade.ReadOnly = true;
             txtQuantidade.Text = "1";
 
-            ConfigCBB();
         }
         private void NovaLicenca_KeyDown(object sender, KeyEventArgs e)
         {
@@ -74,12 +42,6 @@ namespace controle_maquinas
         }
 
         //Botao
-        private void btnSoftware_Click(object sender, EventArgs e)
-        {
-            NovoSoftware form = new NovoSoftware();
-            form.ShowDialog();
-            ConfigCBB();
-        }
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             txtKey.Clear();
@@ -87,51 +49,43 @@ namespace controle_maquinas
         }
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (cbbSoftware.Text != "Selecionar Software")
+            if (txtKey.Text.Trim() != "")
             {
-                if (txtKey.Text.Trim() != "")
+                if (txtNfe.Text.Trim() != "")
                 {
-                    if (txtNfe.Text.Trim() != "")
+                    if (txtQuantidade.Text.Trim() == "")
                     {
-                        if(txtQuantidade.Text.Trim() == "")
-                        {
-                            return;
-                        }
-
-                        string Software = cbbSoftware.Text;
-                        string Key = txtKey.Text;
-                        string nfe = txtNfe.Text;
-                        string observacao = txtObservacao.Text;
-                        string licenca = "";
-                        int qtd = int.Parse(txtQuantidade.Text);
-                        int qtdmax = int.Parse(txtQuantidade.Text);
-
-                        string cmd = "INSERT INTO `software_licencas` " +
-                            "(`software`, `key`, `qtd`, `qtdmax`, `nfe`, `observacao`) " +
-                            "VALUES ('" + Software + "', '" + Key + "', '" + qtd + "', '" + qtdmax + "', '" + nfe + "', '" + observacao + "');";
-                        CG.ExecutarComandoSql(cmd);
-
-                        txtKey.Clear();
-                        txtNfe.Clear();
-                        txtObservacao.Clear();
-                        txtQuantidade.Text = "1";
-                        rdbUnica.Checked = true;
-                        cbbSoftware.SelectedIndex = 0;
+                        return;
                     }
-                    else
-                    {
-                        MessageBox.Show("Campo NF-e vazio");
-                    }
+
+                    string Software = txtSoftware.Text;
+                    string Key = txtKey.Text;
+                    string nfe = txtNfe.Text;
+                    string observacao = txtObservacao.Text;
+                    int qtd = int.Parse(txtQuantidade.Text);
+                    int qtdmax = int.Parse(txtQuantidade.Text);
+
+                    string cmd = "INSERT INTO `software_licencas` " +
+                        "(`software`, `key`, `qtd`, `qtdmax`, `nfe`, `observacao`) " +
+                        "VALUES ('" + Software + "', '" + Key + "', '" + qtd + "', '" + qtdmax + "', '" + nfe + "', '" + observacao + "');";
+                    CG.ExecutarComandoSql(cmd);
+
+                    txtKey.Clear();
+                    txtNfe.Clear();
+                    txtObservacao.Clear();
+                    txtQuantidade.Text = "1";
+                    rdbUnica.Checked = true;
                 }
                 else
                 {
-                    MessageBox.Show("Campo Key vazio");
+                    MessageBox.Show("Campo NF-e vazio");
                 }
             }
             else
             {
-                MessageBox.Show("Software Não Selecionado");
+                MessageBox.Show("Campo Key vazio");
             }
+
         }
 
         private void rdbMultiplas_CheckedChanged(object sender, EventArgs e)
@@ -163,6 +117,6 @@ namespace controle_maquinas
             }
         }
 
-        
+
     }
 }
