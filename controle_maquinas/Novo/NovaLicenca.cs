@@ -14,15 +14,18 @@ namespace controle_maquinas
     public partial class NovaLicenca : Form
     {
         DBC CG = new DBC();
+        string Software;
 
-        public NovaLicenca()
+        public NovaLicenca(string software)
         {
             InitializeComponent();
+            Software = software;
         }
 
         //Form
         private void NovaLicenca_Load(object sender, EventArgs e)
         {
+            txtSoftware.Text = Software;
             rdbUnica.Checked = true;
             txtQuantidade.ReadOnly = true;
             txtQuantidade.Text = "1";
@@ -49,45 +52,59 @@ namespace controle_maquinas
         }
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (txtKey.Text.Trim() != "")
-            {
-                if (txtNfe.Text.Trim() != "")
-                {
-                    if (txtQuantidade.Text.Trim() == "")
-                    {
-                        return;
-                    }
-
-                    string Software = txtSoftware.Text;
-                    string Key = txtKey.Text;
-                    string nfe = txtNfe.Text;
-                    string observacao = txtObservacao.Text;
-                    int qtd = int.Parse(txtQuantidade.Text);
-                    int qtdmax = int.Parse(txtQuantidade.Text);
-
-                    string cmd = "INSERT INTO `software_licencas` " +
-                        "(`software`, `key`, `qtd`, `qtdmax`, `nfe`, `observacao`) " +
-                        "VALUES ('" + Software + "', '" + Key + "', '" + qtd + "', '" + qtdmax + "', '" + nfe + "', '" + observacao + "');";
-                    CG.ExecutarComandoSql(cmd);
-
-                    txtKey.Clear();
-                    txtNfe.Clear();
-                    txtObservacao.Clear();
-                    txtQuantidade.Text = "1";
-                    rdbUnica.Checked = true;
-                }
-                else
-                {
-                    MessageBox.Show("Campo NF-e vazio");
-                }
-            }
-            else
+            if (txtKey.Text.Trim() == "")
             {
                 MessageBox.Show("Campo Key vazio");
+                return;
             }
+            if (txtNfe.Text.Trim() == "")
+            {
+                MessageBox.Show("Campo NF-e vazio");
+                return;
+            }
+            if (txtQuantidade.Text.Trim() == "")
+            {
+                MessageBox.Show("Campo Quantidade vazio");
+                return;
+            }
+            string cmd = "";
+            string Software = txtSoftware.Text;
+            string Key = txtKey.Text;
+            string nfe = txtNfe.Text;
+            string observacao = txtObservacao.Text;
+            int qtd = int.Parse(txtQuantidade.Text);
+            int qtdmax = int.Parse(txtQuantidade.Text);
+            DataTable ValidarKey = new DataTable();
+
+            //Validar Key
+            cmd = "SELECT `key` FROM controle_maquina.software_licencas;";
+            CG.ExecutarComandoSql(cmd);
+            CG.RetornarDadosDataTable(ValidarKey);
+
+            foreach(DataRow r in ValidarKey.Rows)
+            {
+                if (Key == r[0].ToString())
+                {
+                    MessageBox.Show("Key existente");
+                    return;
+                }
+            }
+
+            //Adiciona a licenca
+            cmd = "INSERT INTO `software_licencas` " +
+               "(`software`, `key`, `qtd`, `qtdmax`, `nfe`, `observacao`) " +
+               "VALUES ('" + Software + "', '" + Key + "', '" + qtd + "', '" + qtdmax + "', '" + nfe + "', '" + observacao + "');";
+            CG.ExecutarComandoSql(cmd);
+
+            txtKey.Clear();
+            txtNfe.Clear();
+            txtObservacao.Clear();
+            txtQuantidade.Text = "1";
+            rdbUnica.Checked = true;
 
         }
 
+        //RadioButton
         private void rdbMultiplas_CheckedChanged(object sender, EventArgs e)
         {
             if (rdbMultiplas.Checked == true)

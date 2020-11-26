@@ -116,8 +116,7 @@ namespace controle_maquinas
         //Botão
         private void btnNovoSoftware_Click(object sender, EventArgs e)
         {
-            NovaLicenca form = new NovaLicenca();
-            form.ShowDialog();
+
         }
         private void btnNovaMaquina_Click(object sender, EventArgs e)
         {

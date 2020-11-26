@@ -63,7 +63,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(239, 414);
+            this.groupBox1.Size = new System.Drawing.Size(225, 414);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Software";
@@ -88,10 +88,11 @@
             this.dgvSoftware.ReadOnly = true;
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             this.dgvSoftware.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvSoftware.Size = new System.Drawing.Size(227, 335);
+            this.dgvSoftware.Size = new System.Drawing.Size(213, 335);
             this.dgvSoftware.TabIndex = 0;
             this.dgvSoftware.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSoftware_CellClick);
             this.dgvSoftware.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSoftware_CellDoubleClick);
+            this.dgvSoftware.SelectionChanged += new System.EventHandler(this.dgvSoftware_SelectionChanged);
             // 
             // btnRemoverSoftware
             // 
@@ -99,9 +100,9 @@
             this.btnRemoverSoftware.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoverSoftware.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemoverSoftware.ForeColor = System.Drawing.Color.Gold;
-            this.btnRemoverSoftware.Location = new System.Drawing.Point(126, 359);
+            this.btnRemoverSoftware.Location = new System.Drawing.Point(116, 360);
             this.btnRemoverSoftware.Name = "btnRemoverSoftware";
-            this.btnRemoverSoftware.Size = new System.Drawing.Size(107, 45);
+            this.btnRemoverSoftware.Size = new System.Drawing.Size(103, 45);
             this.btnRemoverSoftware.TabIndex = 31;
             this.btnRemoverSoftware.Text = "Remover Software";
             this.btnRemoverSoftware.UseVisualStyleBackColor = false;
@@ -113,9 +114,9 @@
             this.btnAdicionarSoftware.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdicionarSoftware.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdicionarSoftware.ForeColor = System.Drawing.Color.Gold;
-            this.btnAdicionarSoftware.Location = new System.Drawing.Point(6, 359);
+            this.btnAdicionarSoftware.Location = new System.Drawing.Point(7, 360);
             this.btnAdicionarSoftware.Name = "btnAdicionarSoftware";
-            this.btnAdicionarSoftware.Size = new System.Drawing.Size(107, 45);
+            this.btnAdicionarSoftware.Size = new System.Drawing.Size(103, 45);
             this.btnAdicionarSoftware.TabIndex = 30;
             this.btnAdicionarSoftware.Text = "Adicionar Software";
             this.btnAdicionarSoftware.UseVisualStyleBackColor = false;
@@ -132,9 +133,9 @@
             this.gpbLicenca.Controls.Add(this.dgvLicenca);
             this.gpbLicenca.Controls.Add(this.btnAdicionarLicenca);
             this.gpbLicenca.ForeColor = System.Drawing.Color.White;
-            this.gpbLicenca.Location = new System.Drawing.Point(257, 12);
+            this.gpbLicenca.Location = new System.Drawing.Point(243, 12);
             this.gpbLicenca.Name = "gpbLicenca";
-            this.gpbLicenca.Size = new System.Drawing.Size(789, 414);
+            this.gpbLicenca.Size = new System.Drawing.Size(734, 414);
             this.gpbLicenca.TabIndex = 1;
             this.gpbLicenca.TabStop = false;
             this.gpbLicenca.Text = "Licença";
@@ -142,7 +143,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(232, 360);
+            this.label2.Location = new System.Drawing.Point(219, 360);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 13);
             this.label2.TabIndex = 37;
@@ -150,9 +151,9 @@
             // 
             // txtNfe
             // 
-            this.txtNfe.Location = new System.Drawing.Point(235, 376);
+            this.txtNfe.Location = new System.Drawing.Point(222, 376);
             this.txtNfe.Name = "txtNfe";
-            this.txtNfe.Size = new System.Drawing.Size(209, 20);
+            this.txtNfe.Size = new System.Drawing.Size(197, 20);
             this.txtNfe.TabIndex = 2;
             // 
             // btnPesquisa
@@ -161,9 +162,9 @@
             this.btnPesquisa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisa.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisa.ForeColor = System.Drawing.Color.Gold;
-            this.btnPesquisa.Location = new System.Drawing.Point(450, 360);
+            this.btnPesquisa.Location = new System.Drawing.Point(425, 363);
             this.btnPesquisa.Name = "btnPesquisa";
-            this.btnPesquisa.Size = new System.Drawing.Size(107, 45);
+            this.btnPesquisa.Size = new System.Drawing.Size(96, 45);
             this.btnPesquisa.TabIndex = 3;
             this.btnPesquisa.Text = "Pesquisar";
             this.btnPesquisa.UseVisualStyleBackColor = false;
@@ -182,7 +183,7 @@
             // 
             this.txtKey.Location = new System.Drawing.Point(9, 376);
             this.txtKey.Name = "txtKey";
-            this.txtKey.Size = new System.Drawing.Size(220, 20);
+            this.txtKey.Size = new System.Drawing.Size(207, 20);
             this.txtKey.TabIndex = 1;
             // 
             // btnRemoverLicenca
@@ -191,9 +192,9 @@
             this.btnRemoverLicenca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoverLicenca.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemoverLicenca.ForeColor = System.Drawing.Color.Gold;
-            this.btnRemoverLicenca.Location = new System.Drawing.Point(676, 360);
+            this.btnRemoverLicenca.Location = new System.Drawing.Point(629, 364);
             this.btnRemoverLicenca.Name = "btnRemoverLicenca";
-            this.btnRemoverLicenca.Size = new System.Drawing.Size(107, 45);
+            this.btnRemoverLicenca.Size = new System.Drawing.Size(96, 45);
             this.btnRemoverLicenca.TabIndex = 5;
             this.btnRemoverLicenca.Text = "Remover licença";
             this.btnRemoverLicenca.UseVisualStyleBackColor = false;
@@ -219,7 +220,7 @@
             this.dgvLicenca.ReadOnly = true;
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
             this.dgvLicenca.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvLicenca.Size = new System.Drawing.Size(777, 335);
+            this.dgvLicenca.Size = new System.Drawing.Size(719, 335);
             this.dgvLicenca.TabIndex = 0;
             this.dgvLicenca.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLicenca_CellDoubleClick);
             // 
@@ -229,9 +230,9 @@
             this.btnAdicionarLicenca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdicionarLicenca.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdicionarLicenca.ForeColor = System.Drawing.Color.Gold;
-            this.btnAdicionarLicenca.Location = new System.Drawing.Point(563, 360);
+            this.btnAdicionarLicenca.Location = new System.Drawing.Point(527, 363);
             this.btnAdicionarLicenca.Name = "btnAdicionarLicenca";
-            this.btnAdicionarLicenca.Size = new System.Drawing.Size(107, 45);
+            this.btnAdicionarLicenca.Size = new System.Drawing.Size(96, 45);
             this.btnAdicionarLicenca.TabIndex = 4;
             this.btnAdicionarLicenca.Text = "Adicionar Licença";
             this.btnAdicionarLicenca.UseVisualStyleBackColor = false;
@@ -245,7 +246,7 @@
             this.textBox2.Location = new System.Drawing.Point(1, 437);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(1061, 20);
+            this.textBox2.Size = new System.Drawing.Size(999, 20);
             this.textBox2.TabIndex = 2;
             this.textBox2.Text = "|| Duplo Clique Altera ||";
             // 
@@ -254,7 +255,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(1057, 457);
+            this.ClientSize = new System.Drawing.Size(987, 457);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.gpbLicenca);
             this.Controls.Add(this.groupBox1);

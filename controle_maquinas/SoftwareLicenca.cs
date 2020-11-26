@@ -58,13 +58,38 @@ namespace controle_maquinas
                 MessageBox.Show("Selecione uma licença");
             }
         }
+        private void MostrarLicencas()
+        {
+            if(dgvSoftware.CurrentRow == null)
+            {
+                return;
+            }
+            string software = dgvSoftware.CurrentRow.Cells[1].Value.ToString();
+
+            string cmd = "SELECT id 'id'," +
+                         "`key` 'Key'," +
+                         "nfe 'NFe'," +
+                         "qtd 'Quantidade Livre'," +
+                         "qtdmax 'Quantidade Total'," +
+                         " observacao 'Observação' " +
+                         "FROM " +
+                         "software_licencas " +
+                         "where software = '" + software + "';";
+
+            CG.ExecutarComandoSql(cmd);
+            CG.ExibirDGV(dgvLicenca);
+            dgvLicenca.Columns[0].Visible = false;
+            gpbLicenca.Text = "Licenças " + software;
+        }
 
         //Form
         private void SoftwareLicenca_Load(object sender, EventArgs e)
-        {
+        {            
             CarregarDGV();
             CG.FormatarDGV(dgvSoftware);
             CG.FormatarDGV(dgvLicenca);
+            dgvSoftware.Rows[0].Cells[1].Selected = true;
+            MostrarLicencas();
         }
         private void SoftwareLicenca_KeyDown(object sender, KeyEventArgs e)
         {
@@ -151,7 +176,21 @@ namespace controle_maquinas
         }
         private void btnAdicionarLicenca_Click(object sender, EventArgs e)
         {
-            
+            if (dgvSoftware.CurrentRow != null)
+            {
+                string id = dgvSoftware.CurrentRow.Cells[0].Value.ToString();
+                string software = "";
+
+                string cmd = "SELECT nome FROM software where id = " + id + ";";
+                CG.ExecutarComandoSql(cmd);
+                software = CG.RetornarValorSQL();
+
+                NovaLicenca frm = new NovaLicenca(software);
+                frm.ShowDialog();
+
+                CarregarDGV();
+            }
+
         }
         private void btnRemoverLicenca_Click(object sender, EventArgs e)
         {
@@ -253,22 +292,7 @@ namespace controle_maquinas
         //DataGridView
         private void dgvSoftware_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string software = dgvSoftware.CurrentRow.Cells[1].Value.ToString();
-
-            string cmd = "SELECT id 'id'," +
-                         "`key` 'Key'," +
-                         "nfe 'NFe'," +
-                         "qtd 'Quantidade Livre'," +
-                         "qtdmax 'Quantidade Total'," +
-                         " observacao 'Observação' " +
-                         "FROM " +
-                         "software_licencas " +
-                         "where software = '" + software + "';";
-
-            CG.ExecutarComandoSql(cmd);
-            CG.ExibirDGV(dgvLicenca);
-            dgvLicenca.Columns[0].Visible = false;
-            gpbLicenca.Text = "Licenças " + software;
+            MostrarLicencas();
         }
         private void dgvLicenca_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -278,7 +302,7 @@ namespace controle_maquinas
         {
             if (dgvSoftware.CurrentRow != null)
             {
-                string id = dgvSoftware.CurrentRow.Cells[0].Value.ToString(); ;
+                string id = dgvSoftware.CurrentRow.Cells[0].Value.ToString();
                 IdSoftware = id;
 
                 string cmd = "SELECT * FROM software where id = " + id + ";";
@@ -294,6 +318,11 @@ namespace controle_maquinas
             {
                 MessageBox.Show("Selecione um Software");
             }
+        }
+
+        private void dgvSoftware_SelectionChanged(object sender, EventArgs e)
+        {
+            MostrarLicencas();
         }
     }
 }

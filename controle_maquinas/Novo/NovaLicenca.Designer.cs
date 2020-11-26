@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NovaLicenca));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtSoftware = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.txtKey = new System.Windows.Forms.TextBox();
-            this.txtSoftware = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +60,15 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Software";
+            // 
+            // txtSoftware
+            // 
+            this.txtSoftware.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtSoftware.Location = new System.Drawing.Point(11, 34);
+            this.txtSoftware.Name = "txtSoftware";
+            this.txtSoftware.ReadOnly = true;
+            this.txtSoftware.Size = new System.Drawing.Size(430, 20);
+            this.txtSoftware.TabIndex = 19;
             // 
             // label1
             // 
@@ -215,14 +224,6 @@
             this.txtKey.Name = "txtKey";
             this.txtKey.Size = new System.Drawing.Size(194, 20);
             this.txtKey.TabIndex = 1;
-            // 
-            // txtSoftware
-            // 
-            this.txtSoftware.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtSoftware.Location = new System.Drawing.Point(11, 34);
-            this.txtSoftware.Name = "txtSoftware";
-            this.txtSoftware.Size = new System.Drawing.Size(430, 20);
-            this.txtSoftware.TabIndex = 19;
             // 
             // NovaLicenca
             // 
