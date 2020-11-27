@@ -139,7 +139,9 @@
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(1053, 20);
             this.textBox2.TabIndex = 1;
-            this.textBox2.Text = "|| F2 - Atualizar || F3 - Pesquisar Por Nome Real || F4 - banco de dados ||";
+            this.textBox2.Text = "|| Duplo Clique Altera Maquina || F2 - Atualizar || F3 - Pesquisar Por Nome Real " +
+    "|| F4 - Pesquisar Por Nome De Maquina ||F5 - Pesquisar Por Nome De Dominio|| F12" +
+    " - banco de dados || ";
             // 
             // btnNovaMaquina
             // 
@@ -164,7 +166,7 @@
             this.groupBox2.Size = new System.Drawing.Size(149, 80);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Novo";
+            this.groupBox2.Text = "Maquina";
             // 
             // btnSoftwareLicenca
             // 

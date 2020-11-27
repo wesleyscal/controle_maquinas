@@ -104,8 +104,42 @@ namespace controle_maquinas
                     return;
                 }                
             }
-
             if (e.KeyCode == Keys.F4)
+            {
+                string resultado = Program.InputBoxRetorno("Pesquisa", "Pesquisar Nome da maquina", "");
+
+                if (resultado != "")
+                {
+                    string cmd = "select id, nome_maquina 'Nome Maquina', nome_dominio 'Nome Dominio', nome_usuario 'Nome Usuario', sistema_operacional 'Sistema Operacional' " +
+                    "from maquina " +
+                    "WHERE nome_maquina like '" + resultado + "';";
+                    CG.ExecutarComandoSql(cmd);
+                    CG.ExibirDGV(dgvMaquinas);
+                }
+                else
+                {
+                    return;
+                }
+            }
+            if (e.KeyCode == Keys.F5)
+            {
+                string resultado = Program.InputBoxRetorno("Pesquisa", "Pesquisar Nome de dominio", "");
+
+                if (resultado != "")
+                {
+                    string cmd = "select id, nome_maquina 'Nome Maquina', nome_dominio 'Nome Dominio', nome_usuario 'Nome Usuario', sistema_operacional 'Sistema Operacional' " +
+                    "from maquina " +
+                    "WHERE nome_dominio like '" + resultado + "';";
+                    CG.ExecutarComandoSql(cmd);
+                    CG.ExibirDGV(dgvMaquinas);
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            if (e.KeyCode == Keys.F12)
             {
                 ConfigurarBanco CB = new ConfigurarBanco();
                 CB.ShowDialog();
@@ -114,10 +148,6 @@ namespace controle_maquinas
         }
 
         //Botão
-        private void btnNovoSoftware_Click(object sender, EventArgs e)
-        {
-
-        }
         private void btnNovaMaquina_Click(object sender, EventArgs e)
         {
             NovaMaquina Form = new NovaMaquina();
@@ -285,5 +315,6 @@ namespace controle_maquinas
                 CarregarDGV();
             }
         }
+
     }
 }
