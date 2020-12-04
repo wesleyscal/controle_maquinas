@@ -133,15 +133,16 @@
             // 
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
             this.textBox2.ForeColor = System.Drawing.Color.White;
             this.textBox2.Location = new System.Drawing.Point(0, 587);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(1053, 20);
             this.textBox2.TabIndex = 1;
-            this.textBox2.Text = "|| Duplo Clique Altera Maquina || F2 - Atualizar || F3 - Pesquisar Por Nome Real " +
-    "|| F4 - Pesquisar Por Nome De Maquina ||F5 - Pesquisar Por Nome De Dominio|| F12" +
-    " - banco de dados || ";
+            this.textBox2.Text = "|-|  Duplo Clique Altera Maquina |-|  F2 - Atualizar |-|  F3 - Pesquisar Por Nome" +
+    " Real |-|  F4 - Pesquisar Por Nome De Maquina |-|  F5 - Pesquisar Por Nome De Do" +
+    "minio |-|  F12 - banco de dados |-| ";
             // 
             // btnNovaMaquina
             // 

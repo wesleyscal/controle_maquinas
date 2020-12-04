@@ -86,12 +86,12 @@ namespace controle_maquinas
                 ConfigCBB();
                 CarregarDGV();
             }
-            
+
             if (e.KeyCode == Keys.F3)
-            {                
+            {
                 string resultado = Program.InputBoxRetorno("Pesquisa", "Pesquisar Nome de usuario real", "");
 
-                if(resultado != "")
+                if (resultado != "")
                 {
                     string cmd = "select id, nome_maquina 'Nome Maquina', nome_dominio 'Nome Dominio', nome_usuario 'Nome Usuario', sistema_operacional 'Sistema Operacional' " +
                     "from maquina " +
@@ -102,7 +102,7 @@ namespace controle_maquinas
                 else
                 {
                     return;
-                }                
+                }
             }
             if (e.KeyCode == Keys.F4)
             {
@@ -179,7 +179,8 @@ namespace controle_maquinas
 
             if (cbbSoftware.Text == "Selecionar Software")
             {
-                MessageBox.Show("Selecione um Software");
+                ConfigCBB();
+                CarregarDGV();
                 return;
             }
 
