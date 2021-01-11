@@ -1,8 +1,6 @@
-CREATE DATABASE  IF NOT EXISTS `controle_maquina_test` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `controle_maquina_test`;
 -- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
 --
--- Host: localhost    Database: controle_maquina_test
+-- Host: localhost    Database: controle_maquina
 -- ------------------------------------------------------
 -- Server version	8.0.20
 
@@ -55,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-30 15:17:41
+-- Dump completed on 2021-01-11 17:50:20
