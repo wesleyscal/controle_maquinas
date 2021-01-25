@@ -1,3 +1,3 @@
 # controle_maquinas
  
-Versao Beta v1.0
+ Faz o Controle de Software e liçensa de cada maquina no dominio !
