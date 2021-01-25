@@ -15,7 +15,7 @@ namespace controle_maquinas
     {
         DBC CG = new DBC();
         public static DataTable dt = new DataTable();
-
+        int Minimized = 0;
 
 
         public Form1()
@@ -318,10 +318,16 @@ namespace controle_maquinas
         }
 
         private void Form1_Resize(object sender, EventArgs e)
-        {
+        {           
 
-            if(this.WindowState == FormWindowState.Maximized)
-            {                
+            if (this.WindowState == FormWindowState.Minimized && Minimized == 0)
+            {
+                Minimized = 1;
+                return;
+            }
+
+            if (this.WindowState == FormWindowState.Maximized && Minimized == 0)
+            {
                 int TamanhoSoftware = cbbSoftware.Size.Width;
                 int TamanhoKey = cbbKey.Size.Width;
                 int LocalKey = cbbKey.Location.X;
@@ -338,7 +344,7 @@ namespace controle_maquinas
                 
             }
 
-            if (this.WindowState == FormWindowState.Normal)
+            if (this.WindowState == FormWindowState.Normal && Minimized == 0)
             {
                 int TamanhoSoftware = cbbSoftware.Size.Width;
                 int TamanhoKey = cbbKey.Size.Width;
@@ -355,7 +361,7 @@ namespace controle_maquinas
                 cbbKey.Location = new Point(LocalKey, 51);
             }
 
-
+            Minimized = 0;
         }
     }
 }
