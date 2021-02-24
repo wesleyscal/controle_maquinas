@@ -318,7 +318,7 @@ namespace controle_maquinas
         }
 
         private void Form1_Resize(object sender, EventArgs e)
-        {           
+        {
 
             if (this.WindowState == FormWindowState.Minimized && Minimized == 0)
             {
@@ -341,7 +341,7 @@ namespace controle_maquinas
                 cbbSoftware.Size = new Size(TamanhoSoftware, 23);
                 cbbKey.Size = new Size(TamanhoKey, 23);
                 cbbKey.Location = new Point(LocalKey, 51);
-                
+
             }
 
             if (this.WindowState == FormWindowState.Normal && Minimized == 0)
