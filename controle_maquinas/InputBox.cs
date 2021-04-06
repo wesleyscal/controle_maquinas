@@ -46,6 +46,11 @@ namespace controle_maquinas
         //Form
         private void InputBox_Load(object sender, EventArgs e)
         {
+            if(txtValor.Text == "senha")
+            {
+                txtValor.Clear();
+                txtValor.PasswordChar = Convert.ToChar("*");
+            }
             txtValor.Focus();
         }
         private void InputBox_KeyDown(object sender, KeyEventArgs e)

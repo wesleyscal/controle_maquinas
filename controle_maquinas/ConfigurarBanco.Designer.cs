@@ -40,6 +40,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.btnLimpar = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.OFD = new System.Windows.Forms.OpenFileDialog();
+            this.FBD = new System.Windows.Forms.FolderBrowserDialog();
             this.SuspendLayout();
             // 
             // txtServidor
@@ -168,12 +171,31 @@
             this.btnLimpar.UseVisualStyleBackColor = false;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
+            this.textBox2.ForeColor = System.Drawing.Color.White;
+            this.textBox2.Location = new System.Drawing.Point(0, 198);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(322, 20);
+            this.textBox2.TabIndex = 61;
+            this.textBox2.Text = "     |-|  F2 - Fazer Backup  |-|  F3 - Restaurar backup  |-| ";
+            // 
+            // OFD
+            // 
+            this.OFD.FileName = "openFileDialog1";
+            // 
             // ConfigurarBanco
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(322, 197);
+            this.ClientSize = new System.Drawing.Size(322, 218);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtSenha);
@@ -194,7 +216,6 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConfigurarBanco";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.ConfigurarBanco_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ConfigurarBanco_KeyDown);
             this.ResumeLayout(false);
@@ -216,5 +237,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.OpenFileDialog OFD;
+        private System.Windows.Forms.FolderBrowserDialog FBD;
     }
 }

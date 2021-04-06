@@ -146,6 +146,52 @@ namespace controle_maquinas
             }
 
         }
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+
+            if (this.WindowState == FormWindowState.Minimized && Minimized == 0)
+            {
+                Minimized = 1;
+                return;
+            }
+
+            if (this.WindowState == FormWindowState.Maximized && Minimized == 0)
+            {
+                int TamanhoSoftware = cbbSoftware.Size.Width;
+                int TamanhoKey = cbbKey.Size.Width;
+                int LocalKey = cbbKey.Location.X;
+
+                int TamanhoMaxmizade = 279;
+
+                TamanhoSoftware = TamanhoSoftware + TamanhoMaxmizade;
+                TamanhoKey = TamanhoKey + TamanhoMaxmizade;
+                LocalKey = LocalKey + 278;
+
+                cbbSoftware.Size = new Size(TamanhoSoftware, 23);
+                cbbKey.Size = new Size(TamanhoKey, 23);
+                cbbKey.Location = new Point(LocalKey, 51);
+
+            }
+
+            if (this.WindowState == FormWindowState.Normal && Minimized == 0)
+            {
+                int TamanhoSoftware = cbbSoftware.Size.Width;
+                int TamanhoKey = cbbKey.Size.Width;
+                int LocalKey = cbbKey.Location.X;
+
+                int TamanhoMaxmizade = 279;
+
+                TamanhoSoftware = TamanhoSoftware - TamanhoMaxmizade;
+                TamanhoKey = TamanhoKey - TamanhoMaxmizade;
+                LocalKey = LocalKey - 278;
+
+                cbbSoftware.Size = new Size(TamanhoSoftware, 23);
+                cbbKey.Size = new Size(TamanhoKey, 23);
+                cbbKey.Location = new Point(LocalKey, 51);
+            }
+
+            Minimized = 0;
+        }
 
         //Botão
         private void btnNovaMaquina_Click(object sender, EventArgs e)
@@ -317,51 +363,6 @@ namespace controle_maquinas
             }
         }
 
-        private void Form1_Resize(object sender, EventArgs e)
-        {
-
-            if (this.WindowState == FormWindowState.Minimized && Minimized == 0)
-            {
-                Minimized = 1;
-                return;
-            }
-
-            if (this.WindowState == FormWindowState.Maximized && Minimized == 0)
-            {
-                int TamanhoSoftware = cbbSoftware.Size.Width;
-                int TamanhoKey = cbbKey.Size.Width;
-                int LocalKey = cbbKey.Location.X;
-
-                int TamanhoMaxmizade = 279;
-
-                TamanhoSoftware = TamanhoSoftware + TamanhoMaxmizade;
-                TamanhoKey = TamanhoKey + TamanhoMaxmizade;
-                LocalKey = LocalKey + 278;
-
-                cbbSoftware.Size = new Size(TamanhoSoftware, 23);
-                cbbKey.Size = new Size(TamanhoKey, 23);
-                cbbKey.Location = new Point(LocalKey, 51);
-
-            }
-
-            if (this.WindowState == FormWindowState.Normal && Minimized == 0)
-            {
-                int TamanhoSoftware = cbbSoftware.Size.Width;
-                int TamanhoKey = cbbKey.Size.Width;
-                int LocalKey = cbbKey.Location.X;
-
-                int TamanhoMaxmizade = 279;
-
-                TamanhoSoftware = TamanhoSoftware - TamanhoMaxmizade;
-                TamanhoKey = TamanhoKey - TamanhoMaxmizade;
-                LocalKey = LocalKey - 278;
-
-                cbbSoftware.Size = new Size(TamanhoSoftware, 23);
-                cbbKey.Size = new Size(TamanhoKey, 23);
-                cbbKey.Location = new Point(LocalKey, 51);
-            }
-
-            Minimized = 0;
-        }
+        
     }
 }
